@@ -1,0 +1,203 @@
+@import "../../../../brand-styles.scss";
+
+.tab-start-wrapper {
+    height: 100%;
+
+    .tab-start {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 80%;
+        margin: 0 auto;
+
+        .tab-description {
+            width: 70%;
+            line-height: 3em;
+        }
+    }
+
+    .tab-start-view-wrapper {
+        display: flex;
+        align-items: center;
+        border: 1px solid lightgray;
+        border-radius: 5px;
+        cursor: pointer;
+
+        .view-type {
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+        }
+        
+        .view-type.activeView {
+            color: white;
+            background-color: $color;
+        }
+    }
+
+    .selection-wrapper {
+        // display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 82%;
+        margin: 20px 0;
+
+        .selection-item {
+            display: inline-flex;
+            margin: 10px;
+        }
+
+        .search {
+            display: inline-flex;
+            padding: 15px;
+            background: #908e8e;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+
+            .search-icon {
+                font-size: 20px;
+            }
+        }
+
+        .search:hover {
+            background-color: gray;
+        }
+    }
+   
+}
+
+.selectGraphTypeWrapper {
+    width: 150px;
+    background-color: purple;
+    color: white;
+    padding: 10px 20px;
+    position: absolute;
+    right: 20px;
+    top: 140px;
+}
+
+.graphSettingsWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.layout, .graph {
+    padding: 10px 0px;
+}
+
+.graphTypeLabel {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.graphTypeInp {
+    height: 20px;
+    width: 20px;
+    margin-right: 10px;
+}
+
+.applyBtn {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+}
+
+.close {
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.selectDataDropdown {
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.selectDataDropOptions {
+    cursor: pointer;
+}
+
+.graphsOutlet{
+    padding: 20px;
+    margin-top: 2em;
+    border: 1px solid gray;
+    min-height: 75vh;
+    box-shadow: 1px 1px 10px 2px lightgrey;
+    overflow: auto;
+}
+
+/* Start: Switch css */
+
+.switchWrapper {
+    display: flex;
+    align-items: center;
+    float: right;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  /* End: Swithc css */

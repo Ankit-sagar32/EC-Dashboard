@@ -1,0 +1,27 @@
+.network-graph-wrapper {
+
+    overflow: hidden;
+    height: 100%;
+    
+    .legendWrapper {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        padding: 2px;
+        padding-left: 10px;
+        font-weight: 500;
+    }
+
+    .legend {
+        display: flex;
+        align-items: center;
+        padding: 8px 7px;
+    }
+
+    .legend .legendImage {
+        height: 20px;
+        margin-right: 3px;
+        filter: invert(60%) sepia(90%) saturate(6103%) hue-rotate(253deg) brightness(78%) contrast(92%);
+        color: #8840c2;
+    }
+}

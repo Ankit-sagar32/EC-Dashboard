@@ -1,0 +1,19 @@
+<div class="dropDownWrapper">
+    <div class="drop-down-selected-wrapper" tabindex="0" (click)="toggleDropDownOptionsVisibility()">
+        <div class="drop-down-selected">
+            <input type="text" class='selected-text {{selectedOption?"":" default"}}' (blur)="onInputBlur()" [(ngModel)]="selectedOption"
+                placeholder="{{placeHolderText}} " autocomplete="off" />
+            <div class="arrow-controller">
+                <i class="fas fa-angle-down arrow" [ngClass]="{'rotate' : showDropdownOptions}"></i>
+            </div>
+        </div>
+    </div>
+    <div class="options-wrapper" *ngIf="showDropdownOptions && dropDownList.length > 0">
+        <div class="option disabled">
+            {{placeHolderText}}
+        </div>
+        <div *ngFor="let option of dropDownList;let i= index" class="option" tabindex="{{i}}" (click)="selectDropDownOption(option)">
+            {{option.name}}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+{
+    "nodes": [
+        {
+            "groupingView": {},
+            "name": "dyec10esx01",
+            "id": 128,
+            "type": "ESX",
+            "relations": {},
+            "properties": {
+                "externalName": "dyec10esx01",
+                "id": 6
+            }
+        },
+        {
+            "groupingView": {},
+            "name": "reec31esx01",
+            "id": 127,
+            "type": "ESX",
+            "relations": {},
+            "properties": {
+                "externalName": "reec31esx01",
+                "id": 5
+            }
+        },
+        {
+            "groupingView": {},
+            "name": "tpec01leaf302.dci.bt.com",
+            "id": 123,
+            "type": "Network",
+            "relations": {},
+            "properties": {
+                "externalName": "tpec01leaf302.dci.bt.com",
+                "id": 1
+            }
+        }
+    ],
+    "hrefs": [],
+    "links": [
+        {
+            "source": 123,
+            "value": "",
+            "properties": [],
+            "target": 127
+        },
+        {
+            "source": 123,
+            "value": "",
+            "properties": [],
+            "target": 128
+        }
+    ]
+}

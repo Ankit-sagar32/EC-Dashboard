@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-Alarm-01">
+      <rect width="24" height="24"/>
+    </clipPath>
+  </defs>
+  <g id="Alarm-01" clip-path="url(#clip-Alarm-01)">
+    <path id="Vector" d="M10.443,6.19h-1.5v6l4.75,2.85.75-1.23-4-2.37ZM15.28,0l4.607,3.845L18.607,5.38,14,1.537ZM4.606,0,5.888,1.536,1.28,5.38,0,3.844ZM9.943,2.19a9,9,0,1,0,9,9A9,9,0,0,0,9.943,2.19Zm0,16a7,7,0,1,1,7-7A7.008,7.008,0,0,1,9.943,18.19Z" transform="translate(2 2)"/>
+  </g>
+</svg>

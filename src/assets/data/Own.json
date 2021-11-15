@@ -1,0 +1,122 @@
+{"nodes":
+{
+    "nodes": [
+        {
+            "groupingView": {},
+            "name": null,
+            "id": 5,
+            "type": "ESX",
+            "relations": {},
+            "properties": {
+                "externalName": "dyec10esx01",
+                "id": 6
+            }
+        },
+        {
+            "groupingView": {},
+            "name": null,
+            "id": 0,
+            "type": "Network",
+            "relations": {},
+            "properties": {
+                "externalName": "tpec01leaf302.dci.bt.com",
+                "id": 1
+            }
+        },
+        {
+            "groupingView": {},
+            "name": null,
+            "id": 4,
+            "type": "ESX",
+            "relations": {},
+            "properties": {
+                "externalName": "reec31esx01",
+                "id": 5
+            }
+        },
+        {
+            "groupingView": {},
+            "name": null,
+            "id": 10,
+            "type": "ESX",
+            "relations": {},
+            "properties": {
+                "externalName": "dyec10esx06",
+                "id": 31
+            }
+        },
+        {
+            "groupingView": {},
+            "name": null,
+            "id": 7,
+            "type": "ESX",
+            "relations": {},
+            "properties": {
+                "externalName": "dyec10esx03",
+                "id": 28
+            }
+        },
+        {
+            "groupingView": {},
+            "name": null,
+            "id": 9,
+            "type": "ESX",
+            "relations": {},
+            "properties": {
+                "externalName": "dyec10esx05",
+                "id": 30
+            }
+        },
+        {
+            "groupingView": {},
+            "name": null,
+            "id": 8,
+            "type": "ESX",
+            "relations": {},
+            "properties": {
+                "externalName": "dyec10esx04",
+                "id": 29
+            }
+        }
+    ],
+    "hrefs": [],
+    "links": [
+        {
+            "source": 0,
+            "value": "",
+            "properties": [],
+            "target": 5
+        },
+        {
+            "source": 0,
+            "value": "",
+            "properties": [],
+            "target": 7
+        },
+        {
+            "source": 0,
+            "value": "",
+            "properties": [],
+            "target": 9
+        },
+        {
+            "source": 0,
+            "value": "",
+            "properties": [],
+            "target": 8
+        },
+        {
+            "source": 0,
+            "value": "",
+            "properties": [],
+            "target": 10
+        },
+        {
+            "source": 0,
+            "value": "",
+            "properties": [],
+            "target": 4
+        }
+    ]
+}
+}

@@ -1,0 +1,28 @@
+.btn:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+#box{
+    width:150px;
+    height:150px;
+    border:1px solid #a7a6a6; 
+    position: absolute; 
+    top: 50%; left: 20%;
+    background-color: solid; 
+    border-radius: 5px;
+}
+#box:after{
+    width: 0;
+	height: 0;
+    background-color: solid;
+	border-top: 25px solid transparent;
+	border-left: 50px solid #555;
+	border-bottom: 25px solid transparent;
+}
+
+.node-properties{
+    color:#a7a6a6;
+    font-size: smaller; 
+    margin-left: "2px";
+}

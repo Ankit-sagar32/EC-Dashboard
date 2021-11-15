@@ -1,0 +1,51 @@
+.scroll-container {
+  position: relative;
+  background-color: #fff;
+  
+}
+
+.scroll-containe::ng-deep .link:hover{
+  opacity: 1;
+
+}
+
+.scroll-containe::ng-deep .node:hover, .scroll-containe::ng-deep .dropout-node {
+  cursor: pointer;
+}
+
+      
+  
+  
+#sankey{
+  overflow: visible;
+  min-height: 293px;
+  height: 100vh;
+}
+
+.sankey-wrapper {
+  
+  overflow: hidden;
+  height: 100%;
+
+  .legendWrapper {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      padding: 2px;
+      padding-left: 10px;
+      font-weight: 500;
+  }
+
+  .legend {
+      display: flex;
+      align-items: center;
+      padding: 8px 7px;
+  }
+
+  .legend .legendImage {
+      height: 15px;
+      margin-right: 3px;
+      width: 15px;
+      border-radius: 2px;
+  }
+}

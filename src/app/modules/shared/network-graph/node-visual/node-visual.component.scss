@@ -1,0 +1,51 @@
+.node-wrapper {
+  .node {
+      cursor: pointer;
+      transition: stroke-width 0.1s ease-out,
+          fill 0.1s ease-out,
+          stroke 0.1s ease-out;
+  
+      stroke: white;
+      stroke-width: 0.25;
+  }
+  
+  .node-name {
+    font-family: 'Lato';
+    text-anchor: middle;
+    font-weight: 300;
+    fill: unset;
+    transform: translate(0px, 5px);
+    font-size: 2px;
+  }
+  
+  .nodeImg {
+    height: 6px;
+    width: 16px;
+    transform: translate(-8px, -3px);
+    fill:green;
+  }  
+}
+.selected {
+  image {
+    filter: invert(92%) sepia(2%) saturate(0%) hue-rotate(64deg) brightness(92%) contrast(89%);
+    color: #cfcfcf;
+  }  
+}
+.normal {
+  image {
+    filter: invert(60%) sepia(90%) saturate(6103%) hue-rotate(253deg) brightness(78%) contrast(92%);
+    color: #8840c2;
+  }  
+}
+.up {
+  image {
+    filter: invert(53%) sepia(74%) saturate(2892%) hue-rotate(83deg) brightness(121%) contrast(124%);
+    color: #ff0000;
+  }  
+}
+.down {
+  image {
+    filter: invert(20%) sepia(91%) saturate(7465%) hue-rotate(359deg) brightness(104%) contrast(116%);
+    color: #00ff00;
+  }  
+}

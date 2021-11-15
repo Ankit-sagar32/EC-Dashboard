@@ -1,0 +1,35 @@
+{
+    "nodes": [
+        {
+            "groupingView": {},
+            "name": "tpec01mgmt303.dci.bt.com",
+            "id": 124,
+            "type": "Network",
+            "relations": {},
+            "properties": {
+                "externalName": "tpec01mgmt303.dci.bt.com",
+                "id": 2
+            }
+        },
+        {
+            "groupingView": {},
+            "name": "dyec10esx02",
+            "id": 129,
+            "type": "ESX",
+            "relations": {},
+            "properties": {
+                "externalName": "dyec10esx02",
+                "id": 19
+            }
+        }
+    ],
+    "hrefs": [],
+    "links": [
+        {
+            "source": 124,
+            "value": "",
+            "properties": [],
+            "target": 129
+        }
+    ]
+}

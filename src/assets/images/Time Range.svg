@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-Time_Range">
+      <rect width="24" height="24"/>
+    </clipPath>
+  </defs>
+  <g id="Time_Range" data-name="Time Range" clip-path="url(#clip-Time_Range)">
+    <g id="schedule_black_24dp_2" data-name="schedule_black_24dp 2">
+      <path id="Vector" d="M0,0H24V24H0Z" fill="none"/>
+      <path id="Vector-2" data-name="Vector" d="M9.99,0A10,10,0,1,0,20,10,10,10,0,0,0,9.99,0ZM10,18a8,8,0,1,1,8-8A8,8,0,0,1,10,18Zm.5-13H9v6l5.25,3.15L15,12.92l-4.5-2.67Z" transform="translate(2 2)"/>
+    </g>
+  </g>
+</svg>

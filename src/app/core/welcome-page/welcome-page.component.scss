@@ -1,0 +1,59 @@
+
+.welcome-page-wrapper {
+    height: 100vh;
+    background-image: url(../../../assets/images/02-Login.svg);
+    background-size: cover;
+
+    .welcome-page-inp-controllers {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        color: white !important;
+        text-align: center;
+        margin-top: 70px;
+
+        .welcome-page-img {
+            margin-bottom: 20px;
+        }  
+    }
+
+    .enter-button {
+        margin-top: 5px;
+        margin-bottom: 12px;
+        border-radius: 5px;
+        padding: 7px 21px;
+        margin-top: 20px;
+        border: none;
+        margin-left: 25px;
+        background-color: #4cc2f0;
+        font-weight: 600;
+    }
+
+    .enter-button:hover {
+        background-color: #00aff3;
+    }
+
+    .login-header {
+        background-color: transparent;
+        color: white;
+        .brand-name {
+            color: white;
+            margin-left: 20px;
+            text-transform: uppercase;
+        }
+    }
+
+    .help-wrapper {
+        width: 100%;
+        text-align: right;
+        cursor: pointer;
+        font-size: smaller;
+    }
+
+    .privacy-text{
+        margin-right: 20px; 
+        margin-top: 50px; 
+        font-size: smaller;
+    }
+}

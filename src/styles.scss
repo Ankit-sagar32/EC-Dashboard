@@ -1,0 +1,70 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+/* Importing partial sass files needed for the application level */
+@import "./assets/sass/partials/palette";
+
+//Body font-size
+html {
+    font-size: 14px;
+    color: $bt-black;
+    // font-family: $Font_Family!important;
+    // font-weight: $Regular_Font;
+}
+
+
+/* You can add global styles to this file, and also import other style files */
+.search-wrapper {
+    .dropDownWrapper {
+        margin-right: 10px;
+        .drop-down-selected-wrapper {
+            background: white;
+            padding: 2px 8px !important;
+            border: 1px solid lightgray !important;
+            width: 160px;
+        }
+
+        input {
+            padding: unset !important;
+            color: #d7d7d7;
+        }
+    }
+
+    .data-list-wrapper {
+        margin-right: 10px;
+        .data-list-inp {
+            padding: 0px 10px !important;
+            height: 30px ;
+            border: 1px solid lightgray !important;
+            background: white !important;
+        }
+    }
+}
+
+// Toaster styles
+
+.toast-top-right {
+    top: 70px !important;
+    right: 12px;
+}
+
+.toast-error {
+    background-color: #EDBFC6;
+    color: #570810;
+    border-radius: 3px;
+    box-shadow: 1px 1px 3px 1px #888888;
+    .toaster-body {
+        display: flex;
+        height: 100%;
+        .toaster-band {
+          background-color: #D6191F;
+          width: 6px;
+          border-bottom-left-radius: 4px;
+          border-top-left-radius: 4px;
+        }
+    }
+    .toast-message {
+        //width: 80%;
+        font-weight: 600;
+    }
+}

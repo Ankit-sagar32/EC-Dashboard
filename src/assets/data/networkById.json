@@ -1,0 +1,1901 @@
+//http://localhost:8080/nodes/Network/tpec01leaf302.dci.bt.com/1/null/ops
+{
+    "nodes": [
+        {
+            "groupingView": {},
+            "id": 66802,
+            "relations": [],
+            "properties": [
+                {
+                    "name": "image",
+                    "value": "./assets/images/network-s.PNG"
+                },
+                {
+                    "name": "shape",
+                    "value": "image"
+                },
+                {
+                    "name": "level",
+                    "value": 4
+                },
+                {
+                    "name": "ip",
+                    "value": "10.38.64.211"
+                },
+                {
+                    "name": "link",
+                    "value": "https://monitorit.nat.bt.com/APG/lookup/%7bREALTIME-Network%7d/tpec01leaf302.dci.bt.com/report.jsp/"
+                },
+                {
+                    "name": "label",
+                    "value": "tpec01leaf302.dci.bt.com"
+                },
+                {
+                    "name": "nodeType",
+                    "value": "Network"
+                },
+                {
+                    "name": "deviceName",
+                    "value": "tpec01leaf302.dci.bt.com"
+                },
+                {
+                    "name": "size",
+                    "value": 50
+                },
+                {
+                    "name": "appid",
+                    "value": "APP15078"
+                },
+                {
+                    "name": "id",
+                    "value": 66802
+                },
+                {
+                    "name": "queue",
+                    "value": null
+                },
+                {
+                    "name": "group",
+                    "value": "TINSLEY"
+                }
+            ]
+        },
+        {
+            "groupingView": {},
+            "id": 68945,
+            "relations": [],
+            "properties": [
+                {
+                    "name": "image",
+                    "value": "./assets/images/esx.PNG"
+                },
+                {
+                    "name": "shape",
+                    "value": "image"
+                },
+                {
+                    "name": "level",
+                    "value": 5
+                },
+                {
+                    "name": "ip",
+                    "value": "10.38.94.37"
+                },
+                {
+                    "name": "link",
+                    "value": "https://monitorit.nat.bt.com/APG/lookup/%7bREALTIME-Compute%7d/tpec30esx09/report.jsp/"
+                },
+                {
+                    "name": "label",
+                    "value": "tpec30esx09"
+                },
+                {
+                    "name": "nodeType",
+                    "value": "ESX"
+                },
+                {
+                    "name": "deviceName",
+                    "value": "tpec30esx09"
+                },
+                {
+                    "name": "size",
+                    "value": 25
+                },
+                {
+                    "name": "appid",
+                    "value": "APP15078"
+                },
+                {
+                    "name": "id",
+                    "value": 68945
+                },
+                {
+                    "name": "queue",
+                    "value": null
+                },
+                {
+                    "name": "group",
+                    "value": "TINSLEY"
+                }
+            ]
+        },
+        {
+            "groupingView": {},
+            "id": 68951,
+            "relations": [],
+            "properties": [
+                {
+                    "name": "image",
+                    "value": "./assets/images/esx.PNG"
+                },
+                {
+                    "name": "shape",
+                    "value": "image"
+                },
+                {
+                    "name": "level",
+                    "value": 5
+                },
+                {
+                    "name": "ip",
+                    "value": "10.38.94.31"
+                },
+                {
+                    "name": "link",
+                    "value": "https://monitorit.nat.bt.com/APG/lookup/%7bREALTIME-Compute%7d/tpec30esx03/report.jsp/"
+                },
+                {
+                    "name": "label",
+                    "value": "tpec30esx03"
+                },
+                {
+                    "name": "nodeType",
+                    "value": "ESX"
+                },
+                {
+                    "name": "deviceName",
+                    "value": "tpec30esx03"
+                },
+                {
+                    "name": "size",
+                    "value": 25
+                },
+                {
+                    "name": "appid",
+                    "value": "APP15078"
+                },
+                {
+                    "name": "id",
+                    "value": 68951
+                },
+                {
+                    "name": "queue",
+                    "value": null
+                },
+                {
+                    "name": "group",
+                    "value": "TINSLEY"
+                }
+            ]
+        },
+        {
+            "groupingView": {},
+            "id": 68952,
+            "relations": [],
+            "properties": [
+                {
+                    "name": "image",
+                    "value": "./assets/images/esx.PNG"
+                },
+                {
+                    "name": "shape",
+                    "value": "image"
+                },
+                {
+                    "name": "level",
+                    "value": 5
+                },
+                {
+                    "name": "ip",
+                    "value": "10.38.94.30"
+                },
+                {
+                    "name": "link",
+                    "value": "https://monitorit.nat.bt.com/APG/lookup/%7bREALTIME-Compute%7d/tpec30esx02/report.jsp/"
+                },
+                {
+                    "name": "label",
+                    "value": "tpec30esx02"
+                },
+                {
+                    "name": "nodeType",
+                    "value": "ESX"
+                },
+                {
+                    "name": "deviceName",
+                    "value": "tpec30esx02"
+                },
+                {
+                    "name": "size",
+                    "value": 25
+                },
+                {
+                    "name": "appid",
+                    "value": "APP15078"
+                },
+                {
+                    "name": "id",
+                    "value": 68952
+                },
+                {
+                    "name": "queue",
+                    "value": null
+                },
+                {
+                    "name": "group",
+                    "value": "TINSLEY"
+                }
+            ]
+        },
+        {
+            "groupingView": {},
+            "id": 68946,
+            "relations": [],
+            "properties": [
+                {
+                    "name": "image",
+                    "value": "./assets/images/esx.PNG"
+                },
+                {
+                    "name": "shape",
+                    "value": "image"
+                },
+                {
+                    "name": "level",
+                    "value": 5
+                },
+                {
+                    "name": "ip",
+                    "value": "10.38.94.36"
+                },
+                {
+                    "name": "link",
+                    "value": "https://monitorit.nat.bt.com/APG/lookup/%7bREALTIME-Compute%7d/tpec30esx08/report.jsp/"
+                },
+                {
+                    "name": "label",
+                    "value": "tpec30esx08"
+                },
+                {
+                    "name": "nodeType",
+                    "value": "ESX"
+                },
+                {
+                    "name": "deviceName",
+                    "value": "tpec30esx08"
+                },
+                {
+                    "name": "size",
+                    "value": 25
+                },
+                {
+                    "name": "appid",
+                    "value": "APP15078"
+                },
+                {
+                    "name": "id",
+                    "value": 68946
+                },
+                {
+                    "name": "queue",
+                    "value": null
+                },
+                {
+                    "name": "group",
+                    "value": "TINSLEY"
+                }
+            ]
+        },
+        {
+            "groupingView": {},
+            "id": 68948,
+            "relations": [],
+            "properties": [
+                {
+                    "name": "image",
+                    "value": "./assets/images/esx.PNG"
+                },
+                {
+                    "name": "shape",
+                    "value": "image"
+                },
+                {
+                    "name": "level",
+                    "value": 5
+                },
+                {
+                    "name": "ip",
+                    "value": "10.38.94.34"
+                },
+                {
+                    "name": "link",
+                    "value": "https://monitorit.nat.bt.com/APG/lookup/%7bREALTIME-Compute%7d/tpec30esx06/report.jsp/"
+                },
+                {
+                    "name": "label",
+                    "value": "tpec30esx06"
+                },
+                {
+                    "name": "nodeType",
+                    "value": "ESX"
+                },
+                {
+                    "name": "deviceName",
+                    "value": "tpec30esx06"
+                },
+                {
+                    "name": "size",
+                    "value": 25
+                },
+                {
+                    "name": "appid",
+                    "value": "APP15078"
+                },
+                {
+                    "name": "id",
+                    "value": 68948
+                },
+                {
+                    "name": "queue",
+                    "value": null
+                },
+                {
+                    "name": "group",
+                    "value": "TINSLEY"
+                }
+            ]
+        },
+        {
+            "groupingView": {},
+            "id": 68947,
+            "relations": [],
+            "properties": [
+                {
+                    "name": "image",
+                    "value": "./assets/images/esx.PNG"
+                },
+                {
+                    "name": "shape",
+                    "value": "image"
+                },
+                {
+                    "name": "level",
+                    "value": 5
+                },
+                {
+                    "name": "ip",
+                    "value": "10.38.94.35"
+                },
+                {
+                    "name": "link",
+                    "value": "https://monitorit.nat.bt.com/APG/lookup/%7bREALTIME-Compute%7d/tpec30esx07/report.jsp/"
+                },
+                {
+                    "name": "label",
+                    "value": "tpec30esx07"
+                },
+                {
+                    "name": "nodeType",
+                    "value": "ESX"
+                },
+                {
+                    "name": "deviceName",
+                    "value": "tpec30esx07"
+                },
+                {
+                    "name": "size",
+                    "value": 25
+                },
+                {
+                    "name": "appid",
+                    "value": "APP15078"
+                },
+                {
+                    "name": "id",
+                    "value": 68947
+                },
+                {
+                    "name": "queue",
+                    "value": null
+                },
+                {
+                    "name": "group",
+                    "value": "TINSLEY"
+                }
+            ]
+        },
+        {
+            "groupingView": {},
+            "id": 68941,
+            "relations": [],
+            "properties": [
+                {
+                    "name": "image",
+                    "value": "./assets/images/esx.PNG"
+                },
+                {
+                    "name": "shape",
+                    "value": "image"
+                },
+                {
+                    "name": "level",
+                    "value": 5
+                },
+                {
+                    "name": "ip",
+                    "value": "10.38.94.43"
+                },
+                {
+                    "name": "link",
+                    "value": "https://monitorit.nat.bt.com/APG/lookup/%7bREALTIME-Compute%7d/tpec30esx15/report.jsp/"
+                },
+                {
+                    "name": "label",
+                    "value": "tpec30esx15"
+                },
+                {
+                    "name": "nodeType",
+                    "value": "ESX"
+                },
+                {
+                    "name": "deviceName",
+                    "value": "tpec30esx15"
+                },
+                {
+                    "name": "size",
+                    "value": 25
+                },
+                {
+                    "name": "appid",
+                    "value": "APP15078"
+                },
+                {
+                    "name": "id",
+                    "value": 68941
+                },
+                {
+                    "name": "queue",
+                    "value": null
+                },
+                {
+                    "name": "group",
+                    "value": "TINSLEY"
+                }
+            ]
+        },
+        {
+            "groupingView": {},
+            "id": 68930,
+            "relations": [],
+            "properties": [
+                {
+                    "name": "image",
+                    "value": "./assets/images/esx.PNG"
+                },
+                {
+                    "name": "shape",
+                    "value": "image"
+                },
+                {
+                    "name": "level",
+                    "value": 5
+                },
+                {
+                    "name": "ip",
+                    "value": "10.38.94.48"
+                },
+                {
+                    "name": "link",
+                    "value": "https://monitorit.nat.bt.com/APG/lookup/%7bREALTIME-Compute%7d/tpec30esx20/report.jsp/"
+                },
+                {
+                    "name": "label",
+                    "value": "tpec30esx20"
+                },
+                {
+                    "name": "nodeType",
+                    "value": "ESX"
+                },
+                {
+                    "name": "deviceName",
+                    "value": "tpec30esx20"
+                },
+                {
+                    "name": "size",
+                    "value": 25
+                },
+                {
+                    "name": "appid",
+                    "value": "APP15078"
+                },
+                {
+                    "name": "id",
+                    "value": 68930
+                },
+                {
+                    "name": "queue",
+                    "value": null
+                },
+                {
+                    "name": "group",
+                    "value": "TINSLEY"
+                }
+            ]
+        },
+        {
+            "groupingView": {},
+            "id": 68917,
+            "relations": [],
+            "properties": [
+                {
+                    "name": "image",
+                    "value": "./assets/images/esx.PNG"
+                },
+                {
+                    "name": "shape",
+                    "value": "image"
+                },
+                {
+                    "name": "level",
+                    "value": 5
+                },
+                {
+                    "name": "ip",
+                    "value": "10.38.94.42"
+                },
+                {
+                    "name": "link",
+                    "value": "https://monitorit.nat.bt.com/APG/lookup/%7bREALTIME-Compute%7d/tpec30esx14/report.jsp/"
+                },
+                {
+                    "name": "label",
+                    "value": "tpec30esx14"
+                },
+                {
+                    "name": "nodeType",
+                    "value": "ESX"
+                },
+                {
+                    "name": "deviceName",
+                    "value": "tpec30esx14"
+                },
+                {
+                    "name": "size",
+                    "value": 25
+                },
+                {
+                    "name": "appid",
+                    "value": "APP15078"
+                },
+                {
+                    "name": "id",
+                    "value": 68917
+                },
+                {
+                    "name": "queue",
+                    "value": null
+                },
+                {
+                    "name": "group",
+                    "value": "TINSLEY"
+                }
+            ]
+        },
+        {
+            "groupingView": {},
+            "id": 68933,
+            "relations": [],
+            "properties": [
+                {
+                    "name": "image",
+                    "value": "./assets/images/esx.PNG"
+                },
+                {
+                    "name": "shape",
+                    "value": "image"
+                },
+                {
+                    "name": "level",
+                    "value": 5
+                },
+                {
+                    "name": "ip",
+                    "value": "10.38.94.45"
+                },
+                {
+                    "name": "link",
+                    "value": "https://monitorit.nat.bt.com/APG/lookup/%7bREALTIME-Compute%7d/tpec30esx17/report.jsp/"
+                },
+                {
+                    "name": "label",
+                    "value": "tpec30esx17"
+                },
+                {
+                    "name": "nodeType",
+                    "value": "ESX"
+                },
+                {
+                    "name": "deviceName",
+                    "value": "tpec30esx17"
+                },
+                {
+                    "name": "size",
+                    "value": 25
+                },
+                {
+                    "name": "appid",
+                    "value": "APP15078"
+                },
+                {
+                    "name": "id",
+                    "value": 68933
+                },
+                {
+                    "name": "queue",
+                    "value": null
+                },
+                {
+                    "name": "group",
+                    "value": "TINSLEY"
+                }
+            ]
+        },
+        {
+            "groupingView": {},
+            "id": 68940,
+            "relations": [],
+            "properties": [
+                {
+                    "name": "image",
+                    "value": "./assets/images/esx.PNG"
+                },
+                {
+                    "name": "shape",
+                    "value": "image"
+                },
+                {
+                    "name": "level",
+                    "value": 5
+                },
+                {
+                    "name": "ip",
+                    "value": "10.38.94.44"
+                },
+                {
+                    "name": "link",
+                    "value": "https://monitorit.nat.bt.com/APG/lookup/%7bREALTIME-Compute%7d/tpec30esx16/report.jsp/"
+                },
+                {
+                    "name": "label",
+                    "value": "tpec30esx16"
+                },
+                {
+                    "name": "nodeType",
+                    "value": "ESX"
+                },
+                {
+                    "name": "deviceName",
+                    "value": "tpec30esx16"
+                },
+                {
+                    "name": "size",
+                    "value": 25
+                },
+                {
+                    "name": "appid",
+                    "value": "APP15078"
+                },
+                {
+                    "name": "id",
+                    "value": 68940
+                },
+                {
+                    "name": "queue",
+                    "value": null
+                },
+                {
+                    "name": "group",
+                    "value": "TINSLEY"
+                }
+            ]
+        },
+        {
+            "groupingView": {},
+            "id": 68943,
+            "relations": [],
+            "properties": [
+                {
+                    "name": "image",
+                    "value": "./assets/images/esx.PNG"
+                },
+                {
+                    "name": "shape",
+                    "value": "image"
+                },
+                {
+                    "name": "level",
+                    "value": 5
+                },
+                {
+                    "name": "ip",
+                    "value": "10.38.94.39"
+                },
+                {
+                    "name": "link",
+                    "value": "https://monitorit.nat.bt.com/APG/lookup/%7bREALTIME-Compute%7d/tpec30esx11/report.jsp/"
+                },
+                {
+                    "name": "label",
+                    "value": "tpec30esx11"
+                },
+                {
+                    "name": "nodeType",
+                    "value": "ESX"
+                },
+                {
+                    "name": "deviceName",
+                    "value": "tpec30esx11"
+                },
+                {
+                    "name": "size",
+                    "value": 25
+                },
+                {
+                    "name": "appid",
+                    "value": "APP15078"
+                },
+                {
+                    "name": "id",
+                    "value": 68943
+                },
+                {
+                    "name": "queue",
+                    "value": null
+                },
+                {
+                    "name": "group",
+                    "value": "TINSLEY"
+                }
+            ]
+        },
+        {
+            "groupingView": {},
+            "id": 68944,
+            "relations": [],
+            "properties": [
+                {
+                    "name": "image",
+                    "value": "./assets/images/esx.PNG"
+                },
+                {
+                    "name": "shape",
+                    "value": "image"
+                },
+                {
+                    "name": "level",
+                    "value": 5
+                },
+                {
+                    "name": "ip",
+                    "value": "10.38.94.38"
+                },
+                {
+                    "name": "link",
+                    "value": "https://monitorit.nat.bt.com/APG/lookup/%7bREALTIME-Compute%7d/tpec30esx10/report.jsp/"
+                },
+                {
+                    "name": "label",
+                    "value": "tpec30esx10"
+                },
+                {
+                    "name": "nodeType",
+                    "value": "ESX"
+                },
+                {
+                    "name": "deviceName",
+                    "value": "tpec30esx10"
+                },
+                {
+                    "name": "size",
+                    "value": 25
+                },
+                {
+                    "name": "appid",
+                    "value": "APP15078"
+                },
+                {
+                    "name": "id",
+                    "value": 68944
+                },
+                {
+                    "name": "queue",
+                    "value": null
+                },
+                {
+                    "name": "group",
+                    "value": "TINSLEY"
+                }
+            ]
+        },
+        {
+            "groupingView": {},
+            "id": 68928,
+            "relations": [],
+            "properties": [
+                {
+                    "name": "image",
+                    "value": "./assets/images/esx.PNG"
+                },
+                {
+                    "name": "shape",
+                    "value": "image"
+                },
+                {
+                    "name": "level",
+                    "value": 5
+                },
+                {
+                    "name": "ip",
+                    "value": "10.38.94.52"
+                },
+                {
+                    "name": "link",
+                    "value": "https://monitorit.nat.bt.com/APG/lookup/%7bREALTIME-Compute%7d/tpec30esx24/report.jsp/"
+                },
+                {
+                    "name": "label",
+                    "value": "tpec30esx24"
+                },
+                {
+                    "name": "nodeType",
+                    "value": "ESX"
+                },
+                {
+                    "name": "deviceName",
+                    "value": "tpec30esx24"
+                },
+                {
+                    "name": "size",
+                    "value": 25
+                },
+                {
+                    "name": "appid",
+                    "value": "APP15078"
+                },
+                {
+                    "name": "id",
+                    "value": 68928
+                },
+                {
+                    "name": "queue",
+                    "value": null
+                },
+                {
+                    "name": "group",
+                    "value": "TINSLEY"
+                }
+            ]
+        },
+        {
+            "groupingView": {},
+            "id": 68931,
+            "relations": [],
+            "properties": [
+                {
+                    "name": "image",
+                    "value": "./assets/images/esx.PNG"
+                },
+                {
+                    "name": "shape",
+                    "value": "image"
+                },
+                {
+                    "name": "level",
+                    "value": 5
+                },
+                {
+                    "name": "ip",
+                    "value": "10.38.94.47"
+                },
+                {
+                    "name": "link",
+                    "value": "https://monitorit.nat.bt.com/APG/lookup/%7bREALTIME-Compute%7d/tpec30esx19/report.jsp/"
+                },
+                {
+                    "name": "label",
+                    "value": "tpec30esx19"
+                },
+                {
+                    "name": "nodeType",
+                    "value": "ESX"
+                },
+                {
+                    "name": "deviceName",
+                    "value": "tpec30esx19"
+                },
+                {
+                    "name": "size",
+                    "value": 25
+                },
+                {
+                    "name": "appid",
+                    "value": "APP15078"
+                },
+                {
+                    "name": "id",
+                    "value": 68931
+                },
+                {
+                    "name": "queue",
+                    "value": null
+                },
+                {
+                    "name": "group",
+                    "value": "TINSLEY"
+                }
+            ]
+        },
+        {
+            "groupingView": {},
+            "id": 68953,
+            "relations": [],
+            "properties": [
+                {
+                    "name": "image",
+                    "value": "./assets/images/esx.PNG"
+                },
+                {
+                    "name": "shape",
+                    "value": "image"
+                },
+                {
+                    "name": "level",
+                    "value": 5
+                },
+                {
+                    "name": "ip",
+                    "value": "10.38.94.29"
+                },
+                {
+                    "name": "link",
+                    "value": "https://monitorit.nat.bt.com/APG/lookup/%7bREALTIME-Compute%7d/tpec30esx01/report.jsp/"
+                },
+                {
+                    "name": "label",
+                    "value": "tpec30esx01"
+                },
+                {
+                    "name": "nodeType",
+                    "value": "ESX"
+                },
+                {
+                    "name": "deviceName",
+                    "value": "tpec30esx01"
+                },
+                {
+                    "name": "size",
+                    "value": 25
+                },
+                {
+                    "name": "appid",
+                    "value": "APP15078"
+                },
+                {
+                    "name": "id",
+                    "value": 68953
+                },
+                {
+                    "name": "queue",
+                    "value": null
+                },
+                {
+                    "name": "group",
+                    "value": "TINSLEY"
+                }
+            ]
+        },
+        {
+            "groupingView": {},
+            "id": 68915,
+            "relations": [],
+            "properties": [
+                {
+                    "name": "image",
+                    "value": "./assets/images/esx.PNG"
+                },
+                {
+                    "name": "shape",
+                    "value": "image"
+                },
+                {
+                    "name": "level",
+                    "value": 5
+                },
+                {
+                    "name": "ip",
+                    "value": "10.38.94.51"
+                },
+                {
+                    "name": "link",
+                    "value": "https://monitorit.nat.bt.com/APG/lookup/%7bREALTIME-Compute%7d/tpec30esx23/report.jsp/"
+                },
+                {
+                    "name": "label",
+                    "value": "tpec30esx23"
+                },
+                {
+                    "name": "nodeType",
+                    "value": "ESX"
+                },
+                {
+                    "name": "deviceName",
+                    "value": "tpec30esx23"
+                },
+                {
+                    "name": "size",
+                    "value": 25
+                },
+                {
+                    "name": "appid",
+                    "value": "APP15078"
+                },
+                {
+                    "name": "id",
+                    "value": 68915
+                },
+                {
+                    "name": "queue",
+                    "value": null
+                },
+                {
+                    "name": "group",
+                    "value": "TINSLEY"
+                }
+            ]
+        },
+        {
+            "groupingView": {},
+            "id": 68916,
+            "relations": [],
+            "properties": [
+                {
+                    "name": "image",
+                    "value": "./assets/images/esx.PNG"
+                },
+                {
+                    "name": "shape",
+                    "value": "image"
+                },
+                {
+                    "name": "level",
+                    "value": 5
+                },
+                {
+                    "name": "ip",
+                    "value": "10.38.94.50"
+                },
+                {
+                    "name": "link",
+                    "value": "https://monitorit.nat.bt.com/APG/lookup/%7bREALTIME-Compute%7d/tpec30esx22/report.jsp/"
+                },
+                {
+                    "name": "label",
+                    "value": "tpec30esx22"
+                },
+                {
+                    "name": "nodeType",
+                    "value": "ESX"
+                },
+                {
+                    "name": "deviceName",
+                    "value": "tpec30esx22"
+                },
+                {
+                    "name": "size",
+                    "value": 25
+                },
+                {
+                    "name": "appid",
+                    "value": "APP15078"
+                },
+                {
+                    "name": "id",
+                    "value": 68916
+                },
+                {
+                    "name": "queue",
+                    "value": null
+                },
+                {
+                    "name": "group",
+                    "value": "TINSLEY"
+                }
+            ]
+        },
+        {
+            "groupingView": {},
+            "id": 68950,
+            "relations": [],
+            "properties": [
+                {
+                    "name": "image",
+                    "value": "./assets/images/esx.PNG"
+                },
+                {
+                    "name": "shape",
+                    "value": "image"
+                },
+                {
+                    "name": "level",
+                    "value": 5
+                },
+                {
+                    "name": "ip",
+                    "value": "10.38.94.32"
+                },
+                {
+                    "name": "link",
+                    "value": "https://monitorit.nat.bt.com/APG/lookup/%7bREALTIME-Compute%7d/tpec30esx04/report.jsp/"
+                },
+                {
+                    "name": "label",
+                    "value": "tpec30esx04"
+                },
+                {
+                    "name": "nodeType",
+                    "value": "ESX"
+                },
+                {
+                    "name": "deviceName",
+                    "value": "tpec30esx04"
+                },
+                {
+                    "name": "size",
+                    "value": 25
+                },
+                {
+                    "name": "appid",
+                    "value": "APP15078"
+                },
+                {
+                    "name": "id",
+                    "value": 68950
+                },
+                {
+                    "name": "queue",
+                    "value": null
+                },
+                {
+                    "name": "group",
+                    "value": "TINSLEY"
+                }
+            ]
+        },
+        {
+            "groupingView": {},
+            "id": 68949,
+            "relations": [],
+            "properties": [
+                {
+                    "name": "image",
+                    "value": "./assets/images/esx.PNG"
+                },
+                {
+                    "name": "shape",
+                    "value": "image"
+                },
+                {
+                    "name": "level",
+                    "value": 5
+                },
+                {
+                    "name": "ip",
+                    "value": "10.38.94.33"
+                },
+                {
+                    "name": "link",
+                    "value": "https://monitorit.nat.bt.com/APG/lookup/%7bREALTIME-Compute%7d/tpec30esx05/report.jsp/"
+                },
+                {
+                    "name": "label",
+                    "value": "tpec30esx05"
+                },
+                {
+                    "name": "nodeType",
+                    "value": "ESX"
+                },
+                {
+                    "name": "deviceName",
+                    "value": "tpec30esx05"
+                },
+                {
+                    "name": "size",
+                    "value": 25
+                },
+                {
+                    "name": "appid",
+                    "value": "APP15078"
+                },
+                {
+                    "name": "id",
+                    "value": 68949
+                },
+                {
+                    "name": "queue",
+                    "value": null
+                },
+                {
+                    "name": "group",
+                    "value": "TINSLEY"
+                }
+            ]
+        },
+        {
+            "groupingView": {},
+            "id": 68929,
+            "relations": [],
+            "properties": [
+                {
+                    "name": "image",
+                    "value": "./assets/images/esx.PNG"
+                },
+                {
+                    "name": "shape",
+                    "value": "image"
+                },
+                {
+                    "name": "level",
+                    "value": 5
+                },
+                {
+                    "name": "ip",
+                    "value": "10.38.94.49"
+                },
+                {
+                    "name": "link",
+                    "value": "https://monitorit.nat.bt.com/APG/lookup/%7bREALTIME-Compute%7d/tpec30esx21/report.jsp/"
+                },
+                {
+                    "name": "label",
+                    "value": "tpec30esx21"
+                },
+                {
+                    "name": "nodeType",
+                    "value": "ESX"
+                },
+                {
+                    "name": "deviceName",
+                    "value": "tpec30esx21"
+                },
+                {
+                    "name": "size",
+                    "value": 25
+                },
+                {
+                    "name": "appid",
+                    "value": "APP15078"
+                },
+                {
+                    "name": "id",
+                    "value": 68929
+                },
+                {
+                    "name": "queue",
+                    "value": null
+                },
+                {
+                    "name": "group",
+                    "value": "TINSLEY"
+                }
+            ]
+        },
+        {
+            "groupingView": {},
+            "id": 68932,
+            "relations": [],
+            "properties": [
+                {
+                    "name": "image",
+                    "value": "./assets/images/esx.PNG"
+                },
+                {
+                    "name": "shape",
+                    "value": "image"
+                },
+                {
+                    "name": "level",
+                    "value": 5
+                },
+                {
+                    "name": "ip",
+                    "value": "10.38.94.46"
+                },
+                {
+                    "name": "link",
+                    "value": "https://monitorit.nat.bt.com/APG/lookup/%7bREALTIME-Compute%7d/tpec30esx18/report.jsp/"
+                },
+                {
+                    "name": "label",
+                    "value": "tpec30esx18"
+                },
+                {
+                    "name": "nodeType",
+                    "value": "ESX"
+                },
+                {
+                    "name": "deviceName",
+                    "value": "tpec30esx18"
+                },
+                {
+                    "name": "size",
+                    "value": 25
+                },
+                {
+                    "name": "appid",
+                    "value": "APP15078"
+                },
+                {
+                    "name": "id",
+                    "value": 68932
+                },
+                {
+                    "name": "queue",
+                    "value": null
+                },
+                {
+                    "name": "group",
+                    "value": "TINSLEY"
+                }
+            ]
+        },
+        {
+            "groupingView": {},
+            "id": 69417,
+            "relations": [],
+            "properties": [
+                {
+                    "name": "image",
+                    "value": "./assets/images/esx.PNG"
+                },
+                {
+                    "name": "shape",
+                    "value": "image"
+                },
+                {
+                    "name": "level",
+                    "value": 5
+                },
+                {
+                    "name": "ip",
+                    "value": "10.38.94.41"
+                },
+                {
+                    "name": "link",
+                    "value": "https://monitorit.nat.bt.com/APG/lookup/%7bREALTIME-Compute%7d/tpec30esx13/report.jsp/"
+                },
+                {
+                    "name": "label",
+                    "value": "tpec30esx13"
+                },
+                {
+                    "name": "nodeType",
+                    "value": "ESX"
+                },
+                {
+                    "name": "deviceName",
+                    "value": "tpec30esx13"
+                },
+                {
+                    "name": "size",
+                    "value": 25
+                },
+                {
+                    "name": "appid",
+                    "value": "APP15078"
+                },
+                {
+                    "name": "id",
+                    "value": 69417
+                },
+                {
+                    "name": "queue",
+                    "value": null
+                },
+                {
+                    "name": "group",
+                    "value": "TINSLEY"
+                }
+            ]
+        },
+        {
+            "groupingView": {},
+            "id": 68942,
+            "relations": [],
+            "properties": [
+                {
+                    "name": "image",
+                    "value": "./assets/images/esx.PNG"
+                },
+                {
+                    "name": "shape",
+                    "value": "image"
+                },
+                {
+                    "name": "level",
+                    "value": 5
+                },
+                {
+                    "name": "ip",
+                    "value": "10.38.94.40"
+                },
+                {
+                    "name": "link",
+                    "value": "https://monitorit.nat.bt.com/APG/lookup/%7bREALTIME-Compute%7d/tpec30esx12/report.jsp/"
+                },
+                {
+                    "name": "label",
+                    "value": "tpec30esx12"
+                },
+                {
+                    "name": "nodeType",
+                    "value": "ESX"
+                },
+                {
+                    "name": "deviceName",
+                    "value": "tpec30esx12"
+                },
+                {
+                    "name": "size",
+                    "value": 25
+                },
+                {
+                    "name": "appid",
+                    "value": "APP15078"
+                },
+                {
+                    "name": "id",
+                    "value": 68942
+                },
+                {
+                    "name": "queue",
+                    "value": null
+                },
+                {
+                    "name": "group",
+                    "value": "TINSLEY"
+                }
+            ]
+        },
+        {
+            "groupingView": {},
+            "id": 75789,
+            "relations": [],
+            "properties": [
+                {
+                    "name": "image",
+                    "value": "NA"
+                },
+                {
+                    "name": "shape",
+                    "value": "dot"
+                },
+                {
+                    "name": "level",
+                    "value": 7
+                },
+                {
+                    "name": "ip",
+                    "value": "NULL"
+                },
+                {
+                    "name": "link",
+                    "value": null
+                },
+                {
+                    "name": "label",
+                    "value": "APP15078"
+                },
+                {
+                    "name": "nodeType",
+                    "value": "APPID"
+                },
+                {
+                    "name": "deviceName",
+                    "value": "APP15078"
+                },
+                {
+                    "name": "size",
+                    "value": 25
+                },
+                {
+                    "name": "appid",
+                    "value": null
+                },
+                {
+                    "name": "id",
+                    "value": 75789
+                },
+                {
+                    "name": "queue",
+                    "value": null
+                },
+                {
+                    "name": "group",
+                    "value": "NULL"
+                }
+            ]
+        },
+        {
+            "groupingView": {},
+            "id": 67022,
+            "relations": [],
+            "properties": [
+                {
+                    "name": "image",
+                    "value": "./assets/images/network.PNG"
+                },
+                {
+                    "name": "shape",
+                    "value": "image"
+                },
+                {
+                    "name": "level",
+                    "value": 3
+                },
+                {
+                    "name": "ip",
+                    "value": "10.38.64.77"
+                },
+                {
+                    "name": "link",
+                    "value": "https://monitorit.nat.bt.com/APG/lookup/%7bREALTIME-Network%7d/tpec01ts04.dci.bt.com/report.jsp/"
+                },
+                {
+                    "name": "label",
+                    "value": "tpec01ts04.dci.bt.com"
+                },
+                {
+                    "name": "nodeType",
+                    "value": "Network"
+                },
+                {
+                    "name": "deviceName",
+                    "value": "tpec01ts04.dci.bt.com"
+                },
+                {
+                    "name": "size",
+                    "value": 25
+                },
+                {
+                    "name": "appid",
+                    "value": "APP12461"
+                },
+                {
+                    "name": "id",
+                    "value": 67022
+                },
+                {
+                    "name": "queue",
+                    "value": null
+                },
+                {
+                    "name": "group",
+                    "value": "TINSLEY"
+                }
+            ]
+        }
+    ],
+    "hrefs": [],
+    "links": [
+        {
+            "source": 66802,
+            "value": 20,
+            "properties": [],
+            "target": 68945
+        },
+        {
+            "source": 66802,
+            "value": 20,
+            "properties": [],
+            "target": 68951
+        },
+        {
+            "source": 66802,
+            "value": 20,
+            "properties": [],
+            "target": 68952
+        },
+        {
+            "source": 66802,
+            "value": 20,
+            "properties": [],
+            "target": 68946
+        },
+        {
+            "source": 66802,
+            "value": 20,
+            "properties": [],
+            "target": 68948
+        },
+        {
+            "source": 66802,
+            "value": 20,
+            "properties": [],
+            "target": 68947
+        },
+        {
+            "source": 66802,
+            "value": 20,
+            "properties": [],
+            "target": 68941
+        },
+        {
+            "source": 66802,
+            "value": 20,
+            "properties": [],
+            "target": 68930
+        },
+        {
+            "source": 66802,
+            "value": 20,
+            "properties": [],
+            "target": 68917
+        },
+        {
+            "source": 66802,
+            "value": 20,
+            "properties": [],
+            "target": 68933
+        },
+        {
+            "source": 66802,
+            "value": 20,
+            "properties": [],
+            "target": 68940
+        },
+        {
+            "source": 66802,
+            "value": 20,
+            "properties": [],
+            "target": 68943
+        },
+        {
+            "source": 66802,
+            "value": 20,
+            "properties": [],
+            "target": 68944
+        },
+        {
+            "source": 66802,
+            "value": 20,
+            "properties": [],
+            "target": 68928
+        },
+        {
+            "source": 66802,
+            "value": 20,
+            "properties": [],
+            "target": 68931
+        },
+        {
+            "source": 66802,
+            "value": 20,
+            "properties": [],
+            "target": 68953
+        },
+        {
+            "source": 66802,
+            "value": 20,
+            "properties": [],
+            "target": 68915
+        },
+        {
+            "source": 66802,
+            "value": 20,
+            "properties": [],
+            "target": 68916
+        },
+        {
+            "source": 66802,
+            "value": 20,
+            "properties": [],
+            "target": 68950
+        },
+        {
+            "source": 66802,
+            "value": 20,
+            "properties": [],
+            "target": 68949
+        },
+        {
+            "source": 66802,
+            "value": 20,
+            "properties": [],
+            "target": 68929
+        },
+        {
+            "source": 66802,
+            "value": 20,
+            "properties": [],
+            "target": 68932
+        },
+        {
+            "source": 66802,
+            "value": 20,
+            "properties": [],
+            "target": 69417
+        },
+        {
+            "source": 66802,
+            "value": 20,
+            "properties": [],
+            "target": 68942
+        },
+        {
+            "source": 66802,
+            "value": 20,
+            "properties": [],
+            "target": 75789
+        },
+        {
+            "source": 68945,
+            "value": 20,
+            "properties": [],
+            "target": 75789
+        },
+        {
+            "source": 68951,
+            "value": 20,
+            "properties": [],
+            "target": 75789
+        },
+        {
+            "source": 68952,
+            "value": 20,
+            "properties": [],
+            "target": 75789
+        },
+        {
+            "source": 68946,
+            "value": 20,
+            "properties": [],
+            "target": 75789
+        },
+        {
+            "source": 68948,
+            "value": 20,
+            "properties": [],
+            "target": 75789
+        },
+        {
+            "source": 68947,
+            "value": 20,
+            "properties": [],
+            "target": 75789
+        },
+        {
+            "source": 68941,
+            "value": 20,
+            "properties": [],
+            "target": 75789
+        },
+        {
+            "source": 68930,
+            "value": 20,
+            "properties": [],
+            "target": 75789
+        },
+        {
+            "source": 68917,
+            "value": 20,
+            "properties": [],
+            "target": 75789
+        },
+        {
+            "source": 68933,
+            "value": 20,
+            "properties": [],
+            "target": 75789
+        },
+        {
+            "source": 68940,
+            "value": 20,
+            "properties": [],
+            "target": 75789
+        },
+        {
+            "source": 68943,
+            "value": 20,
+            "properties": [],
+            "target": 75789
+        },
+        {
+            "source": 68944,
+            "value": 20,
+            "properties": [],
+            "target": 75789
+        },
+        {
+            "source": 68928,
+            "value": 20,
+            "properties": [],
+            "target": 75789
+        },
+        {
+            "source": 68931,
+            "value": 20,
+            "properties": [],
+            "target": 75789
+        },
+        {
+            "source": 68953,
+            "value": 20,
+            "properties": [],
+            "target": 75789
+        },
+        {
+            "source": 68915,
+            "value": 20,
+            "properties": [],
+            "target": 75789
+        },
+        {
+            "source": 68916,
+            "value": 20,
+            "properties": [],
+            "target": 75789
+        },
+        {
+            "source": 68950,
+            "value": 20,
+            "properties": [],
+            "target": 75789
+        },
+        {
+            "source": 68949,
+            "value": 20,
+            "properties": [],
+            "target": 75789
+        },
+        {
+            "source": 68929,
+            "value": 20,
+            "properties": [],
+            "target": 75789
+        },
+        {
+            "source": 68932,
+            "value": 20,
+            "properties": [],
+            "target": 75789
+        },
+        {
+            "source": 69417,
+            "value": 20,
+            "properties": [],
+            "target": 75789
+        },
+        {
+            "source": 68942,
+            "value": 20,
+            "properties": [],
+            "target": 75789
+        },
+        {
+            "source": 67022,
+            "value": 20,
+            "properties": [],
+            "target": 66802
+        }
+    ]
+}

@@ -1,0 +1,71 @@
+@import "../../../../brand-styles.scss";
+
+.header {
+    background-color: #5414B4;
+    color: white;
+    position: relative;
+    .navbar-brand{
+        cursor: pointer;
+    }
+    .brand-name {
+        color: white;
+        margin-left: 20px;
+        text-transform: uppercase;
+    }
+
+    .nav-right {
+        max-width: 220px;
+        justify-content: space-between;
+
+        .vertical-seperator {
+            width: 1px;
+            height: 30px;
+            background-color: #ada2a2;
+        }
+
+        .profile-name {
+            color: #ada2a2;
+            font-weight: 600;
+        }
+       
+        .profile-image {
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+
+        .help-wrapper {
+            width: 100%;
+            text-align: right;
+            cursor: pointer;
+        }
+    }
+
+}
+
+.profile-info{
+    cursor: pointer;
+}
+
+.logout{
+    top: 45px;
+    right: 25px;
+    position: absolute;
+    background: white;
+    color: grey;
+    width: 100px;
+    height: 30px;
+    padding: 5px;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 7px;
+    cursor: pointer;
+    p{
+        margin: 0;
+    }
+}

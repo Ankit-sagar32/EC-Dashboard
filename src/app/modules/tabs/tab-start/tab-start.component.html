@@ -1,0 +1,63 @@
+<div class="tab-start-wrapper">
+    <div class="tab-start">
+        <div class="tab-description">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+        </div>
+        <div class="tab-start-view-wrapper">
+            <div class="view-type" tabindex="0" (click)="viewToggler(view)" *ngFor="let view of views" [ngClass]="{'activeView' : view.isSelected}">
+                {{view.name}}
+            </div>
+        </div>
+        <div class="selection-wrapper">
+            <div class="selection-item">
+                <app-drop-down 
+                    [dropDownList]="viewTypes" 
+                    [placeHolderText]="'Select View'"
+                    (onChange)="onViewTypeChange($event)"
+                    >
+                </app-drop-down>
+            </div>
+            <div class="selection-item" *ngIf="ise2eSelected">
+                <app-drop-down 
+                    [dropDownList]="dataCenters"
+                    [placeHolderText]="'Select DataCenter'"
+                    (onChange)="getDeviceTypes($event)"
+                    >
+                </app-drop-down>
+            </div>
+            <div class="selection-item">
+                <app-drop-down 
+                    [dropDownList]="deviceTypes"
+                    [placeHolderText]="'Select Device Type'"
+                    (onChange)="onDeviceTypeChange($event)"
+                    >
+                </app-drop-down>
+            </div>
+            <div class="selection-item">
+                <app-data-list
+                    [dataList]="siteNames"
+                    (onChange)="onDeviceChange($event)"
+                    [placeHolderText]="'Search for Devices'"
+                ></app-data-list>
+            </div>
+            <div class="selection-item" *ngIf="ise2eSelected">
+                <app-drop-down 
+                    [dropDownList]="destinationDeviceTypes"
+                    [placeHolderText]="'Select Destination Device Type'"
+                    (onChange)="onDestinationDeviceTypeChange($event)"
+                    >
+                </app-drop-down>
+            </div>
+            <div class="selection-item" *ngIf="ise2eSelected" >
+                <app-data-list
+                    [dataList]="siteNames"
+                    (onChange)="onDeviceChange($event)"
+                    [placeHolderText]="'Search for Devices'"
+                ></app-data-list>
+            </div>
+            <div class="search" *ngIf="enableSearchButton" tabindex="0" (click)="onSearchClick()">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+        </div>
+    </div>
+</div>

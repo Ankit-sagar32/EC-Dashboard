@@ -1,0 +1,94 @@
+.login-wrapper {
+    height: 100vh;
+    // background: radial-gradient(circle at 10%, #02166d 0, #02166d, #02166d 49%);
+    background-image: url(../../../assets/images/02-Login.svg);
+    background-size: cover;
+    // display: flex;
+    // align-items: center;
+    // justify-content: space-around;
+
+    .login-background{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin-top: 100px;
+    }
+
+    .login-inp-controllers {
+        color: white !important;
+        // display: flex;
+        // align-items: center;
+        // justify-content: space-around;
+
+        .acceptTCLabel {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+
+            .acceptTCInp {
+                margin-right: 5px;
+            }
+        }
+        .cmn-input-wrapper {
+
+            .cmn-label {
+                font-weight: 600;
+            }
+        
+            .cmn-inp-holder {
+                position: relative;
+                
+                .cmn-inp {
+                    margin-top: 5px;
+                    margin-bottom: 12px;
+                    border-radius: 5px;
+                    width: 100%;
+                    cursor: auto;
+                    padding: 7px 12px;
+                    border: none;
+                }
+            
+                .login-button {
+                    cursor: pointer;
+                    background-color: #4cc2f0;
+                    font-weight: 600;
+                }
+
+                .login-button:hover {
+                    background-color: #00aff3;
+                }
+        
+                .pwdViewToggler {
+                    right: 6px;
+                    top: 16px;
+                    position: absolute;
+                    color: black;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    .login-header {
+        background-color: transparent;
+        color: white;
+        .brand-name {
+            color: white;
+            margin-left: 20px;
+            text-transform: uppercase;
+        }
+    }
+
+    .help-wrapper {
+        width: 100%;
+        text-align: right;
+        cursor: pointer;
+        font-size: smaller;
+    }
+
+    .privacy-text{
+        color: white;
+        margin-right: 20px; 
+        margin-top: 130px; 
+        font-size: smaller;
+    }
+}

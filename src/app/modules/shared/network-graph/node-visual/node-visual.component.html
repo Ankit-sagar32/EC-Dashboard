@@ -1,0 +1,15 @@
+<svg:g [attr.transform]="'translate(' + node?.x + ',' + node?.y + ')'" height="20px" width="20px" class='{{"node-wrapper "+ getState(node)}}'>
+    <svg:g>
+        <!-- <svg:circle
+          class="node"
+          [attr.fill]="node?.color"
+          cx="0"
+          cy="0"
+          [attr.r]="2">
+      </svg:circle>  -->
+     <svg:image #imageRef [attr.xlink:href]='getImg(node)' class="nodeImg"> </svg:image>
+    </svg:g>
+    <!-- <svg:text class="node-name" [attr.font-size]="node?.fontSize">
+        {{node?.name}}
+    </svg:text> -->
+</svg:g>

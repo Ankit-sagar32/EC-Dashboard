@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-Refresh">
+      <rect width="24" height="24"/>
+    </clipPath>
+  </defs>
+  <g id="Refresh" clip-path="url(#clip-Refresh)">
+    <g id="Group_2" data-name="Group 2" transform="translate(-0.896 -1.986)">
+      <path id="Path_1" data-name="Path 1" d="M17.721,18.807a.959.959,0,0,0-1.268-.058,6.621,6.621,0,1,1,.636-9.935l-1.846,1.846L21.9,12.244,20.31,5.593,18.424,7.478a8.511,8.511,0,1,0-.8,12.744.95.95,0,0,0,.1-1.424Z" transform="translate(0 0)"/>
+    </g>
+  </g>
+</svg>

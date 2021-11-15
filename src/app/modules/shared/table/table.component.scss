@@ -1,0 +1,95 @@
+.default-table-wrapper {
+    .up, .down {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .up {
+        margin-right: 10px;
+    }
+
+    .up-label {
+        height: 15px;
+        width: 15px;
+        background: green;
+        border-radius: 5px;
+        margin-right: 10px;
+    }
+
+    .down-label {
+        height: 15px;
+        width: 15px;
+        background: red;
+        border-radius: 5px;
+        margin-right: 10px;
+    }
+
+    .five-label {
+        height: 15px;
+        width: 15px;
+        background: green;
+        border-radius: 5px;
+        margin-right: 10px;
+    }
+
+    .three-label {
+        height: 15px;
+        width: 15px;
+        background:yellow;
+        border-radius: 5px;
+        margin-right: 10px;
+    }
+    .two-label {
+        height: 15px;
+        width: 15px;
+        background: orange;
+        border-radius: 5px;
+        margin-right: 10px;
+    }
+    .one-label {
+        height: 15px;
+        width: 15px;
+        background: red;
+        border-radius: 5px;
+        margin-right: 10px;
+    }
+}
+
+table{
+    table-layout: fixed;
+    width: 100%;   
+}
+
+tr{
+    border-top: 1px solid lightgrey;
+    border-bottom: 1px solid lightgrey;
+    display: flex;
+    width: 100% !important;
+}
+
+thead tr{
+    justify-content: space-around;
+}
+
+tbody tr{
+    justify-content: space-around;
+    
+}
+
+th{
+    border: none !important;
+}
+
+td{
+    border: none;
+    text-align: center;
+}
+
+thead td{
+    // width: 120px;
+}
+
+tbody td{
+    width: 165px;
+}

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1657" height="828" viewBox="0 0 1657 828">
+  <defs>
+    <radialGradient id="radial-gradient" cx="0.347" cy="0.408" r="0.944" gradientTransform="matrix(0.661, -0.75, 0.658, 0.58, -0.266, 0.501)" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#2c35a2"/>
+      <stop offset="0.059" stop-color="#5414b4"/>
+      <stop offset="0.459" stop-color="#1b2166"/>
+      <stop offset="0.688" stop-color="#14194e"/>
+      <stop offset="0.782" stop-color="#101440"/>
+      <stop offset="1" stop-color="#0f133b"/>
+    </radialGradient>
+    <clipPath id="clip-_02-Login">
+      <rect width="1657" height="828"/>
+    </clipPath>
+  </defs>
+  <g id="_02-Login" data-name="02-Login" clip-path="url(#clip-_02-Login)">
+    <rect width="1657" height="828" fill="#fff"/>
+    <path id="Path_14496" data-name="Path 14496" d="M0,0H1659V828H0Z" transform="translate(-2)" fill="url(#radial-gradient)"/>
+  </g>
+</svg>

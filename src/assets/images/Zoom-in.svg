@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-Zoom-in">
+      <rect width="24" height="24"/>
+    </clipPath>
+  </defs>
+  <g id="Zoom-in" clip-path="url(#clip-Zoom-in)">
+    <g id="Group_7537" data-name="Group 7537" transform="translate(-684 -724)">
+      <g id="Rectangle_5366" data-name="Rectangle 5366" transform="translate(684 724)" fill="#fff" stroke="#0babdb" stroke-width="1">
+        <rect width="24" height="24" rx="4" stroke="none"/>
+        <rect x="0.5" y="0.5" width="23" height="23" rx="3.5" fill="none"/>
+      </g>
+      <path id="Path_14487" data-name="Path 14487" d="M713.7,885.055a1.076,1.076,0,0,1-.772-.327l-2.946-2.937a6.042,6.042,0,1,1,1.555-1.554l2.947,2.946a1.109,1.109,0,0,1,.317.773,1.1,1.1,0,0,1-1.1,1.1m-7.145-12.093a3.848,3.848,0,1,0,3.848,3.848,3.853,3.853,0,0,0-3.848-3.848m2.748,4.122a.282.282,0,0,1-.275.274H707.1v1.924a.283.283,0,0,1-.275.275h-.551a.282.282,0,0,1-.274-.275v-1.924h-1.924a.283.283,0,0,1-.275-.274v-.55a.283.283,0,0,1,.275-.274H706v-1.924a.282.282,0,0,1,.274-.275h.551a.283.283,0,0,1,.275.275v1.924h1.924a.282.282,0,0,1,.275.274Z" transform="translate(-11.505 -141.764)" fill="#0babdb"/>
+    </g>
+  </g>
+</svg>

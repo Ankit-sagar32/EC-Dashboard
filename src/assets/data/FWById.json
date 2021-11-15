@@ -1,0 +1,133 @@
+//http://localhost:8080/nodes/Firewall/tpec13524pfw02.dci.bt.com/1/null/ops
+
+{
+    "nodes": [
+        {
+            "groupingView": {},
+            "id": 65780,
+            "relations": [],
+            "properties": [
+                {
+                    "name": "image",
+                    "value": "./assets/images/firewall-s.PNG"
+                },
+                {
+                    "name": "shape",
+                    "value": "image"
+                },
+                {
+                    "name": "level",
+                    "value": 1
+                },
+                {
+                    "name": "ip",
+                    "value": "10.38.74.143"
+                },
+                {
+                    "name": "link",
+                    "value": "https://monitorit.nat.bt.com/APG/lookup/%7bREALTIME-Firewall%7d/tpec13524pfw02.dci.bt.com/report.jsp/"
+                },
+                {
+                    "name": "label",
+                    "value": "tpec13524pfw02.dci.bt.com"
+                },
+                {
+                    "name": "nodeType",
+                    "value": "Firewall"
+                },
+                {
+                    "name": "deviceName",
+                    "value": "tpec13524pfw02.dci.bt.com"
+                },
+                {
+                    "name": "size",
+                    "value": 50
+                },
+                {
+                    "name": "appid",
+                    "value": "APP13524"
+                },
+                {
+                    "name": "id",
+                    "value": 65780
+                },
+                {
+                    "name": "queue",
+                    "value": null
+                },
+                {
+                    "name": "group",
+                    "value": "TINSLEY"
+                }
+            ]
+        },
+        {
+            "groupingView": {},
+            "id": 75754,
+            "relations": [],
+            "properties": [
+                {
+                    "name": "image",
+                    "value": "NA"
+                },
+                {
+                    "name": "shape",
+                    "value": "dot"
+                },
+                {
+                    "name": "level",
+                    "value": 7
+                },
+                {
+                    "name": "ip",
+                    "value": "NULL"
+                },
+                {
+                    "name": "link",
+                    "value": null
+                },
+                {
+                    "name": "label",
+                    "value": "APP13524"
+                },
+                {
+                    "name": "nodeType",
+                    "value": "APPID"
+                },
+                {
+                    "name": "deviceName",
+                    "value": "APP13524"
+                },
+                {
+                    "name": "size",
+                    "value": 25
+                },
+                {
+                    "name": "appid",
+                    "value": null
+                },
+                {
+                    "name": "id",
+                    "value": 75754
+                },
+                {
+                    "name": "queue",
+                    "value": null
+                },
+                {
+                    "name": "group",
+                    "value": "NULL"
+                }
+            ]
+        }
+    ],
+    "hrefs": [],
+    "links": [
+        {
+            "source": 65780,
+            "value": 20,
+            "properties": [],
+            "target": 75754
+        }
+    ]
+}

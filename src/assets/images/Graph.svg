@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-Graph">
+      <rect width="24" height="24"/>
+    </clipPath>
+  </defs>
+  <g id="Graph" clip-path="url(#clip-Graph)">
+    <g id="Rectangle_3" data-name="Rectangle 3" fill="#fff" stroke="#5414b4" stroke-width="1">
+      <rect width="24" height="24" rx="4" stroke="none"/>
+      <rect x="0.5" y="0.5" width="23" height="23" rx="3.5" fill="none"/>
+    </g>
+    <g id="Group_7386" data-name="Group 7386" transform="translate(-456 -513)">
+      <g id="Group_2761" data-name="Group 2761" transform="translate(461 518)">
+        <path id="Line_212_Stroke_" data-name="Line 212 (Stroke)" d="M.572,0a.589.589,0,0,1,.572.6V13.4a.589.589,0,0,1-.572.6A.589.589,0,0,1,0,13.4V.6A.589.589,0,0,1,.572,0Z" fill="#5414b4"/>
+        <path id="Line_214_Stroke_" data-name="Line 214 (Stroke)" d="M.572,0a.572.572,0,0,1,.572.572V2.255A.572.572,0,0,1,0,2.255V.572A.572.572,0,0,1,.572,0Z" transform="translate(2.769 8.38)" fill="#5414b4"/>
+        <path id="Line_217_Stroke_" data-name="Line 217 (Stroke)" d="M.572,0a.572.572,0,0,1,.572.572V9.829A.572.572,0,1,1,0,9.829V.572A.572.572,0,0,1,.572,0Z" transform="translate(8.307 0.631)" fill="#5414b4"/>
+        <path id="Line_215_Stroke_" data-name="Line 215 (Stroke)" d="M.572,0a.572.572,0,0,1,.572.572V4.358A.572.572,0,1,1,0,4.358V.572A.572.572,0,0,1,.572,0Z" transform="translate(5.538 6.262)" fill="#5414b4"/>
+        <path id="Line_216_Stroke_" data-name="Line 216 (Stroke)" d="M.572,0a.572.572,0,0,1,.572.572V6.259A.572.572,0,1,1,0,6.259V.572A.572.572,0,0,1,.572,0Z" transform="translate(10.963 4.343)" fill="#5414b4"/>
+        <path id="Line_213_Stroke_" data-name="Line 213 (Stroke)" d="M0,.572A.567.567,0,0,1,.562,0H13.438A.567.567,0,0,1,14,.572a.567.567,0,0,1-.562.572H.562A.567.567,0,0,1,0,.572Z" transform="translate(0 12.856)" fill="#5414b4"/>
+      </g>
+    </g>
+  </g>
+</svg>

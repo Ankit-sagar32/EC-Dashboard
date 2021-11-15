@@ -1,0 +1,45 @@
+<div class="header">
+    <nav class="navbar navbar-expand-lg navbar-light ">
+        <div class="container-fluid">
+            <div class="navbar-brand" (click)="onClickLogo()" tabindex="0">
+                <img src="assets/images/Logo.svg" alt="BT Logo" height="30px" />
+                <span class="brand-name">Enterprise Cloud</span>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse nav-right" id="navbarScroll">
+                <ng-template [ngIf]="isLoggedIn" [ngIfElse]="defaultRightHeader">
+                    <div class="searchHeader">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="notificationWrapper">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <div class="vertical-seperator"></div>
+                    <div class="profile-info d-flex float-right align-items-center"  (click)="logoutBool = !logoutBool" >
+                        <div class="profile-name">{{boatId}}</div>
+                        <img src="assets/images/user-profile.svg" height="30px" class="profile-image"
+                            alt="Profile Default Image" />
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div *ngIf="logoutBool" class="logout" 
+                        (click)="onLogoutClick()"
+                    >
+                        <i class="fa fa-sign-out" aria-hidden="true"></i>
+                        <p>LogOut</p>
+                    </div>
+                </ng-template>
+                <ng-template #defaultRightHeader>
+                    <div class="help-wrapper">
+                        <div class="label">
+                            Help 
+                            <i class="fa fa-question-circle" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+    </nav>
+</div>

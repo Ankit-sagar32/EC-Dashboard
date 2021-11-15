@@ -1,0 +1,42 @@
+@import "../../../../brand-styles.scss";
+
+.tabs-header-wrapper {
+    box-sizing: border-box;
+    box-shadow: 0px 3px 2px 3px lightgrey;
+
+    .tab {
+        padding: 0.5em 1em;
+        display: inline-block;
+        cursor: pointer;
+        border-right: 1px solid lightgray;
+    }
+
+    .tab-details {
+        font-weight: bold;
+        display: inline-block;
+        display: flex;
+        align-items: center;
+
+        .close-tab  {
+            margin-left: 10px;
+            
+            .cross-mark{
+                border: 1px solid black;
+                border-radius: 50%;
+                height: 16px;
+                width: 16px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                padding-bottom: 3px;
+            }
+        }
+    }
+    .tab-details.activetab {
+        color: $color;
+        border-bottom: 3px solid $color;
+        padding-bottom: 6px;
+    }
+}
+

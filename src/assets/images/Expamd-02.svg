@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-Expamd-02">
+      <rect width="24" height="24"/>
+    </clipPath>
+  </defs>
+  <g id="Expamd-02" clip-path="url(#clip-Expamd-02)">
+    <g id="Group_7540" data-name="Group 7540" transform="translate(-650 -755)">
+      <g id="Rectangle_5565" data-name="Rectangle 5565" transform="translate(650 755)" fill="#fff" stroke="#0babdb" stroke-width="1">
+        <rect width="24" height="24" rx="4" stroke="none"/>
+        <rect x="0.5" y="0.5" width="23" height="23" rx="3.5" fill="none"/>
+      </g>
+      <path id="Path_14661" data-name="Path 14661" d="M939.009,440.673a2.737,2.737,0,0,1-2.736,2.736h-7.905a2.737,2.737,0,0,1-2.736-2.736v-7.9a2.737,2.737,0,0,1,2.736-2.737h6.69a.3.3,0,0,1,.3.3v.608a.3.3,0,0,1-.3.3h-6.69a1.524,1.524,0,0,0-1.52,1.52v7.9a1.526,1.526,0,0,0,1.52,1.52h7.905a1.525,1.525,0,0,0,1.52-1.52v-3.039a.3.3,0,0,1,.3-.3h.608a.3.3,0,0,1,.3.3Zm3.649-6.385a.612.612,0,0,1-.609.608.6.6,0,0,1-.428-.181l-1.672-1.672-6.2,6.2a.3.3,0,0,1-.437,0l-1.083-1.082a.332.332,0,0,1-.1-.219.327.327,0,0,1,.1-.218l6.2-6.2-1.672-1.672a.6.6,0,0,1-.181-.428.612.612,0,0,1,.607-.608h4.865a.612.612,0,0,1,.609.608Z" transform="translate(-272.632 331.184)" fill="#0babdb"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,6 @@
+<div class="data-list-wrapper">
+  <input class="form-control data-list-inp" list="datalistOptions" id="exampleDataList" [value]="selectedValue" (change)="onSelectData($event)" placeholder="{{placeHolderText}}">
+  <datalist id="datalistOptions">
+    <option *ngFor="let option of dataList" [value]="option.name">
+  </datalist>
+</div>

@@ -1,0 +1,19 @@
+<div class="network-graph-wrapper">
+    <ng-template [ngIf]="isLoading" [ngIfElse]="loadGraph">
+        <p>Loading...</p>
+    </ng-template>
+    
+    <ng-template #loadGraph>
+    
+        <!-- Start: Display For Legends -->
+        <div class="legendWrapper" *ngIf="legends.length > 0">
+            <div class="legend" *ngFor="let legend of legends">
+                <img class="legendImage" [src]="legend.image" [alt]="legend.name" />
+                <div class="legendName">{{legend.name}}</div>
+                <div class="legendName">({{legend.count}})</div>
+            </div>
+        </div>
+        <!-- End: Display For Legends -->
+        <app-graph (secondLevelGraphData)="transformData($event)" [nodes]="nodes" [links]="links"></app-graph>
+    </ng-template>
+</div>

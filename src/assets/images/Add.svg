@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-Add">
+      <rect width="24" height="24"/>
+    </clipPath>
+  </defs>
+  <g id="Add" clip-path="url(#clip-Add)">
+    <g id="Group">
+      <g id="Group-2" data-name="Group">
+        <path id="Vector" d="M14,8H8v6H6V8H0V6H6V0H8V6h6Z" transform="translate(5 5)"/>
+      </g>
+    </g>
+  </g>
+</svg>

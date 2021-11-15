@@ -1,0 +1,72 @@
+<div class="default-table-wrapper">
+    <table class="table">
+        <thead class="table-header">
+            <tr>
+                <ng-container *ngFor="let item of columsArray; index as i">
+
+                    <th scope="col"  *ngIf="!expandAlarmsBool || (expandAlarmsBool && i<3) ">
+                        {{item.displayName}}
+                    </th>
+                    <!-- <th scope="col"  *ngIf="i>2 && !expandAlarmsBool">
+                        {{item.displayName}}
+                    </th> -->
+
+                </ng-container>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let row of tableData">
+                <ng-container  *ngFor="let col of columsArray ; index as i">
+                    <td *ngIf="!expandAlarmsBool || (expandAlarmsBool && i<3)" >               
+                        <ng-template [ngIf]="col.varname == 'severity'" [ngIfElse]="defaultColumnDisplay">
+                            <div class="up" *ngIf="row[col.varname] == 5">
+                                <div class="five-label"></div>
+                                <div class="up-text">{{row[col.varname]}}</div>
+                            </div>
+                            <div class="down" *ngIf="row[col.varname] == 4">
+                                <div class="five-label"></div>
+                                <div class="down-text">{{row[col.varname]}}</div>
+                            </div>
+                            <div class="down" *ngIf="row[col.varname] == 3">
+                                <div class="three-label"></div>
+                                <div class="down-text">{{row[col.varname]}}</div>
+                            </div>
+                            <div class="down" *ngIf="row[col.varname] == 2">
+                                <div class="two-label"></div>
+                                <div class="down-text">{{row[col.varname]}}</div>
+                            </div>
+                            <div class="down" *ngIf="row[col.varname] == 1">
+                                <div class="one-label"></div>
+                                <div class="down-text">{{row[col.varname]}}</div>
+                            </div>
+                        </ng-template>
+                        <ng-template #defaultColumnDisplay>
+                            <div *ngIf="col.varname == 'entityname' || col.varname == 'entitytype';then entitydetails else dateValues">
+                            </div>
+                            <ng-template #entitydetails >
+                                {{row[col.varname]}}
+                            </ng-template>
+                            <ng-template #dateValues >
+                              <ng-container  *ngIf="(col.varname == 'lastupdateddate' || col.varname == 'firstcreateddate') &&  !expandAlarmsBool; else otherValues">
+                                {{extractDate(row[col.varname])}}
+                              </ng-container>
+                            </ng-template>
+                            <ng-template #otherValues >
+                                <ng-container *ngIf = "!expandAlarmsBool">
+    
+                                </ng-container>
+                            </ng-template>
+                             <!-- <ng-template #otherValues>
+                                {{row[col.varname]}}
+                            </ng-template> -->
+                        </ng-template>
+                    </td>
+                    <!-- <ng-template #noValue>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </ng-template> -->
+                </ng-container>
+              
+              </tr>
+        </tbody>
+    </table>
+</div>

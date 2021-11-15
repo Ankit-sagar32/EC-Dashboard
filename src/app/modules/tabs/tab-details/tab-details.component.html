@@ -1,0 +1,204 @@
+<div class="tabDetailsWrapper">
+    <div class="tab-header">
+        <div class="dashboard">Dashboard</div>
+        <div class="signals">
+            <!-- <div class="up">
+                <div class="up-label"></div>
+                <div class="up-text">Up</div>
+            </div>
+            <div class="down">
+                <div class="down-label"></div>
+                <div class="down-text">Down</div>
+            </div> -->
+        </div>
+    </div>
+
+    <div class="tab-body-wrapper">
+        <!-- Graph Start -->
+        <div class="graphs-wrapper" #graphsWrapper>
+
+            <div class="graph-header">
+                <div class="graph-name">{{'Topology'}}</div>
+
+                <div class="graph-header-controls">
+                    <div class="search-wrapper">
+                        <app-drop-down [dropDownList]="deviceTypes" [placeHolderText]="'Select Device Type'"
+                            (onChange)="onDeviceTypeChange($event)">
+                        </app-drop-down>
+                        <app-data-list [dataList]="deviceNames" (onChange)="onDeviceNameChange($event)"
+                            [placeHolderText]="'Search for Devices'"></app-data-list>
+                        <div class="search {{!!this.selectedDeviceType && !!this.selectedDeviceNames?'active':''}}"
+                            (click)="!!this.selectedDeviceType && !!this.selectedDeviceNames && searchSelectedDevice()">
+                            <i class="fas fa-lg fa-search search-icon"></i>
+                        </div>
+                    </div>
+                  
+                    <div class="container-right-side-btns">
+                        <div class="refresh-wrapper">
+                            <div class="refresh" (click)="updateGraphData()">
+                                <img  src="assets/images/Refresh.svg"
+                                    style="width: 20px;height: 20px; border: none; color: blueviolet; filter: invert(9%) sepia(88%) saturate(6634%) hue-rotate(268deg) brightness(89%) contrast(93%);" />
+                            </div>
+                        </div>
+                        <div class="count-wrapper">
+                            <div class="plus"> <i class="fas fa-minus"></i> </div>
+                            <input type="number" value="1" class="number-inp" />
+                            <div class="minus"> <i class="fas fa-plus"></i> </div>
+                            <!-- <div class="search">
+                                <i class="fas fa-search search-icon"></i>
+                            </div> -->
+                        </div>
+                        <div class="switchWrapper">
+                            <!-- <i class="fas fa-cog" ></i> -->
+                            <div
+                            class="gear-icon">
+                                <img (click)="toggleGraphSettings =!toggleGraphSettings"
+                                    src="assets/images/Settings.svg"
+                                    style="width: 20px;height: 20px; border: none; color: blueviolet; filter: invert(9%) sepia(88%) saturate(6634%) hue-rotate(268deg) brightness(89%) contrast(93%);" />
+                            </div>
+                            <div class="selectGraphTypeWrapper graph-settings-dropdown" *ngIf="toggleGraphSettings">
+                                <div class="selectGraphTypeHeadder">
+                                    <div class="graphSettingsWrapper">
+                                        <div class="graphSettings">Graph Settings</div>
+                                        <button class="close"
+                                            (click)="toggleGraphSettings =!toggleGraphSettings">&times;</button>
+                                    </div>
+                                </div>
+                                <div class="graphTypeOptions">
+                                    <div class="layout">Layout: </div>
+                                    <div class="graph">
+                                        <label class="graphTypeLabel"><input type="radio" name="graphType"
+                                                (change)="toggleGraphSettings =!toggleGraphSettings" value="sankey_graph"
+                                                [(ngModel)]="graphToLoad" class="graphTypeInp" />
+                                            Sankey Graph</label>
+                                    </div>
+                                    <div class="graph">
+                                        <label class="graphTypeLabel"><input type="radio" name="graphType"
+                                                (change)="toggleGraphSettings =!toggleGraphSettings" value="radial-view"
+                                                [(ngModel)]="graphToLoad" class="graphTypeInp" /> Radial
+                                            View</label>
+                                    </div>
+                                    <div class="graph">
+                                        <label class="graphTypeLabel"><input type="radio" name="graphType" value="hive"
+                                                (change)="toggleGraphSettings =!toggleGraphSettings"
+                                                [(ngModel)]="graphToLoad" class="graphTypeInp" /> Hive </label>
+                                    </div>
+                                </div>
+                                <!-- <div class="selectGraphTypeFooter">
+                                    <input type="button" value="submit" value="Apply" class="applyBtn" (click)="onGraphTypeChangeApply()" />
+                                </div> -->
+                            </div>
+                        </div>
+    
+                        <!-- <div class="expand-wrapper">
+                            <div class="expand">
+                                <i class="fas fa-expand-alt"></i>
+                            </div>
+                        </div> -->
+                        <div
+                        class="expand-icon"
+                        (click)="expandSection('Topology')"
+                               >
+                                <img 
+                                *ngIf = "expandTopologyBool"
+                                    src="assets/images/expand.svg"
+                                    style="width: 20px;height: 20px; border: none; color: blueviolet; filter: invert(9%) sepia(88%) saturate(6634%) hue-rotate(268deg) brightness(89%) contrast(93%);" />
+                                <img 
+                                *ngIf = "!expandTopologyBool"
+                                    src="assets/images/Collapse.svg"
+                                    style="width: 20px;height: 20px; border: none; color: blueviolet; filter: invert(9%) sepia(88%) saturate(6634%) hue-rotate(268deg) brightness(89%) contrast(93%);" />
+                            </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <!-- if data loading -->
+            <div class="graph-body" *ngIf="!showGraph">
+                <div class="d-flex justify-content-center">
+                <div class="spinner-border" role="status">
+                    <span class="sr-only"></span>
+                </div>
+                </div>
+            </div>
+            <div class="graph-body" *ngIf="showGraph && graphData">
+                <ng-template [ngIf]="graphToLoad == 'sankey_graph'">
+                    <app-sankey-graph [graphData]="graphData"></app-sankey-graph>
+                </ng-template>
+
+                <ng-template [ngIf]="graphToLoad == 'radial-view'">
+                    <app-network-graph [graphData]="graphData"></app-network-graph>
+                </ng-template>
+
+                <ng-template [ngIf]="graphToLoad == 'hive'">
+                    <p>Hive work in progres!</p>
+                </ng-template>
+            </div>
+
+
+        </div>
+        <!-- Graph End -->
+
+        <!-- Alarms Start -->
+        <div class="alarms-wrapper" #alarmsWrapper>
+            <div class="alarms-header">
+                <div class="alarms-name">{{'Alarms'}}</div>
+
+                <div class="alarms-header-controls">
+                    <div class="filters">
+                        <i class="far fa-filter"></i>
+                        <span>Filters</span>
+                    </div>
+
+                    <div class="exportCSV">
+                        Export CSV
+                    </div>
+
+                    <!-- <div class="expand-wrapper">
+                        <div class="expand">
+                            <i class="fas fa-expand-alt"></i>
+                        </div>
+                    </div> -->
+                    <div
+                    class="expand-icon"
+                    (click)="expandSection('Alarms')"
+                    >
+                    <img 
+                        *ngIf = "expandAlarmsBool"
+                        src="assets/images/expand.svg"
+                        style="width: 20px;height: 20px; border: none; color: blueviolet; filter: invert(9%) sepia(88%) saturate(6634%) hue-rotate(268deg) brightness(89%) contrast(93%);" />
+                    <img 
+                        *ngIf = "!expandAlarmsBool"
+                            src="assets/images/Collapse.svg"
+                            style="width: 20px;height: 20px; border: none; color: blueviolet; filter: invert(9%) sepia(88%) saturate(6634%) hue-rotate(268deg) brightness(89%) contrast(93%);" />
+                </div>
+                </div>
+            </div>
+            <div class="alarms-body">
+                <app-table-default [tableData]="alarms" [columsArray]="alarmsTableColumns" [expandAlarmsBool]="expandAlarmsBool"></app-table-default>
+            </div>
+            <div class="container-entity-service">
+                <div>
+                    <div class="entity-header">
+                        <div class="entity-name">{{'Entity'}}</div>
+                    </div>
+                    <div class="entity-body" >
+                        <app-table-default [columsArray]="entityTableColumns"></app-table-default>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="service-header">
+                        <div class="service-name">{{'Service'}}</div>      
+                    </div>
+                    <div class="service-body">
+                        <app-table-default [columsArray]="serviceTableColumns"></app-table-default>
+                    </div>
+                </div>
+            </div>  
+            <!-- <div class="alarms-body">
+                <app-table-default ></app-table-default>
+            </div>         -->
+        </div>
+        <!-- Alarms End -->
+    </div>
+</div>

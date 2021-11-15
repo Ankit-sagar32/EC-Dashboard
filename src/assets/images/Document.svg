@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-Document">
+      <rect width="24" height="24"/>
+    </clipPath>
+  </defs>
+  <g id="Document" clip-path="url(#clip-Document)">
+    <path id="Vector" d="M4,14h8v2H4Zm0-4h8v2H4ZM10,0H2A2.006,2.006,0,0,0,0,2V18a2,2,0,0,0,1.99,2H14a2.006,2.006,0,0,0,2-2V6Zm4,18H2V2H9V7h5Z" transform="translate(4 2)"/>
+  </g>
+</svg>

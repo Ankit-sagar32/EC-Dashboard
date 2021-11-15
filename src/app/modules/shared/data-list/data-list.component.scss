@@ -1,0 +1,18 @@
+@import "../../../../brand-styles.scss";
+
+.data-list-wrapper {
+    .data-list-inp{
+        padding: 23px;
+        width: 240px;
+        border-color: $color;
+        background-color: transparent;
+    }
+
+    .data-list-inp:focus {
+        box-shadow: none;
+        border-color: $color;
+    }
+    .data-list-inp::-webkit-calendar-picker-indicator {
+        color: $color;
+    }
+}

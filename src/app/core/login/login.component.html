@@ -1,0 +1,68 @@
+<div class="login-wrapper">
+    <div class="login-header">
+        <nav class="navbar navbar-expand-lg navbar-light " style= "background-color: transparent;">
+            <div class="container-fluid">
+                <a class="navbar-brand" routerLink="">
+                    <img src="assets/images/Logo_name.svg" alt="Logo Name" height="30px" />
+                </a>
+                <div class="collapse navbar-collapse nav-right" id="navbarScroll">   
+                        <div class="help-wrapper">
+                            <div class="label">
+                                Help 
+                                <i class="fa fa-question-circle" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="login-background">
+        <div class="img-holder">
+            <img src="assets/images/NC Icon.svg" alt="Network Cloud Image" />
+        </div>
+        <div class="login-inp-controllers">
+
+            <div class="cmn-input-wrapper">
+                <div class="cmn-label">User Name</div>
+                <div class="cmn-inp-holder">
+                    <input type="text" class="cmn-inp" placeholder="User Name" id="boatId" [(ngModel)]="boatId" />
+                </div>
+            </div>
+    
+            <div class="cmn-input-wrapper">
+                <div class="cmn-label">Password</div>
+                <div class="cmn-inp-holder">
+                    <input type="password" class="cmn-inp" #inpPwdHandle placeholder="Password" id="password"
+                        [(ngModel)]="password" />
+                    <i class="pwdViewToggler fas fa-eye-slash" *ngIf="toggleViewPwd" aria-hidden="true"
+                        (click)="togglerViewPwdHandler(inpPwdHandle)"></i>
+                    <i class="pwdViewToggler fas fa-eye" *ngIf="!toggleViewPwd" aria-hidden="true"
+                        (click)="togglerViewPwdHandler(inpPwdHandle)"></i>
+                </div>
+            </div>
+    
+            <div class="cmn-input-wrapper">
+                <div class="cmn-label">Domain</div>
+                <div class="cmn-inp-holder">
+                    <input type="text" class="cmn-inp" placeholder="Domain" id="domain" [(ngModel)]="domain"
+                        value="Domain" />
+                </div>
+            </div>
+    
+            <label for="acceptTC" class="acceptTCLabel"> <input type="checkbox" id="acceptTC" class="acceptTCInp" />
+                <div class="acceptTC">I accept the <span>Terms & Conditions</span></div>
+            </label>
+    
+            <div class="cmn-input-wrapper">
+                <div class="cmn-inp-holder">
+                    <input type="button" class="cmn-inp login-button" id="login" value="Log In" (click)="onLoginClick()" />
+                </div>
+            </div>
+        </div>
+    </div> 
+    <div class="help-wrapper">
+        <div class="label-text privacy-text">
+            Privacy Policy &nbsp; &nbsp; &nbsp; &nbsp; Terms & Conditions              
+        </div>
+    </div>
+</div>
