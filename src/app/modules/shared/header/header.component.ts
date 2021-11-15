@@ -11,7 +11,7 @@ import { HttpHeaders } from '@angular/common/http';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  isLoggedIn: boolean = false;
+  isLoggedIn: boolean = true;
   boatId: string = '';
   logoutBool: boolean = false;
 
@@ -25,7 +25,7 @@ export class HeaderComponent implements OnInit {
 
     this.boatId = sessionStorage.getItem("boatId")|| '';
     this.loginService.onLoginComplete.subscribe(res => {
-      this.isLoggedIn = res;
+      // this.isLoggedIn = res;
     });
     
   }
@@ -43,9 +43,7 @@ export class HeaderComponent implements OnInit {
 
     const payload = { "boatId":this.boatId, "sessionId": sessionStorage.getItem("sessionId") || "" };
 
-    this.metadataService.getLogout(payload).subscribe((res: any)=>{
-      sessionStorage.removeItem("boatId");
-    });
+   
     let options = {
       headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
         .set("Authorization", "Bearer " + btoa(this.boatId + ":"))
@@ -53,6 +51,10 @@ export class HeaderComponent implements OnInit {
 
     this.metadataService.revokeToken(this.boatId, sessionStorage.getItem("login-token") || "", options).subscribe((res: any)=>{
       sessionStorage.removeItem("login-token");
+
+      this.metadataService.postLogout(payload).subscribe((res: any)=>{
+        sessionStorage.removeItem("boatId");
+      });
     });
     
     sessionStorage.clear();

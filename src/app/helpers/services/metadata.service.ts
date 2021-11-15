@@ -28,7 +28,6 @@ export class MetadataService {
   }
 
   revokeToken(ein: string, token: string, options: any){
-
     let url = this.revokeTokenUrl + ein+ "/revoke/token/" + token;
     const body = new HttpParams()
     .set('grant_type', "client_credentials");
@@ -36,7 +35,7 @@ export class MetadataService {
     return this.apiService.putOptions(url, body.toString(), options);
   }
 
-  getLogout(params: any){
+  postLogout(params: any){
     let url = this.loginUrl + "" + '/logout';
     return this.apiService.post(url, params);
   }
