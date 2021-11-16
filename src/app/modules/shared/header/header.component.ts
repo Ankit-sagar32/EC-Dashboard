@@ -11,7 +11,7 @@ import { HttpHeaders } from '@angular/common/http';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  isLoggedIn: boolean = true;
+  isLoggedIn: boolean = false;
   boatId: string = '';
   logoutBool: boolean = false;
 
@@ -25,7 +25,7 @@ export class HeaderComponent implements OnInit {
 
     this.boatId = sessionStorage.getItem("boatId")|| '';
     this.loginService.onLoginComplete.subscribe(res => {
-      // this.isLoggedIn = res;
+      this.isLoggedIn = res;
     });
     
   }

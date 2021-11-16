@@ -2,7 +2,7 @@
     .up, .down {
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
     }
 
     .up {
@@ -79,16 +79,14 @@ tbody tr{
 
 th{
     border: none !important;
+    width: 165px;
 }
 
 td{
     border: none;
-    text-align: center;
+    text-align: left;
 }
 
-thead td{
-    // width: 120px;
-}
 
 tbody td{
     width: 165px;
