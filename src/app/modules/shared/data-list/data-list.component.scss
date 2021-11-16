@@ -2,10 +2,11 @@
 
 .data-list-wrapper {
     .data-list-inp{
-        padding: 23px;
         width: 240px;
         border-color: $color;
         background-color: transparent;
+        height: 30px;
+        padding-left: 30px;
     }
 
     .data-list-inp:focus {
