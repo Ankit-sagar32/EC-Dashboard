@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { StartUpService, UtilityService } from "src/app/helpers/services";
 import { TabsService } from "../../../helpers/services/tabs.service";
 import { ExposureService } from "src/app/helpers/services/exposure.service";
+import { DataService } from "src/app/helpers/services/network-graph/data.service";
 @Component({
     selector: "app-tab-details",
     templateUrl: "./tab-details.component.html",
@@ -39,7 +40,8 @@ export class TabDetails implements OnInit {
         private exposureService: ExposureService,
         private startUp: StartUpService, 
         private utilityService : UtilityService,
-        private renderer: Renderer2
+        private renderer: Renderer2,
+        private dataSvc: DataService
     ) {
         this.route.params.subscribe(res => {
             console.log("Route Params: ", res);
@@ -57,6 +59,14 @@ export class TabDetails implements OnInit {
 
     ngOnInit() {
       this.updateGraphData();
+      this.dataSvc.childEventListner().subscribe(info =>{
+        console.log("info received is:", info?.Node?.properties[5].value); // here you get the message from grand-Child (graph)component
+        // const deviceName = info?.Node?.properties[5].value;
+        // const deviceType = info?.Node?.properties[4].value;
+        // console.log("deviceType", deviceType);
+        // console.log("deviceName1", deviceName);
+        // this.getGraphData(deviceType,deviceName);
+     })
     }
 
     ngAfterViewInit() {
@@ -97,7 +107,7 @@ export class TabDetails implements OnInit {
           this.deviceNames = [];
           this.resetGraph();
         }, err => {
-            console.error("Error occured while fetching the Graph Data: ", err);
+            console.error("Error occurred while fetching the Graph Data: ", err);
         });
     }
 

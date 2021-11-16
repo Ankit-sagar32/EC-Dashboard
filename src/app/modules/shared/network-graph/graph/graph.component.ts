@@ -1,6 +1,7 @@
 import { Component, Input, ChangeDetectorRef, HostListener, ChangeDetectionStrategy, OnInit, AfterViewInit, ElementRef, ViewChild, Renderer2, EventEmitter, Output } from '@angular/core';
 import { UtilityService } from 'src/app/helpers/services';
 import { ExposureService } from 'src/app/helpers/services/exposure.service';
+import { DataService } from 'src/app/helpers/services/network-graph/data.service';
 import { D3Service, ForceDirectedGraph, Node } from '../../../../helpers/services/network-graph';
 
 @Component({
@@ -41,8 +42,8 @@ export class GraphComponent implements OnInit, AfterViewInit {
   ifClicked: boolean = false;
   clickCount=0;
   graph: ForceDirectedGraph | undefined;
-  @Output() secondLevelGraphData = new EventEmitter<any>();
-  // secondLevelGraphData: any;
+  // @Output() secondLevelGraphData = new EventEmitter<any>();
+  secondLevelGraphData: any;
   svg:ElementRef|undefined;
   _options: { width:any, height:any } = { width: 800, height: 600 };
 
@@ -59,6 +60,7 @@ export class GraphComponent implements OnInit, AfterViewInit {
     private utilityService : UtilityService,
     private exposureService: ExposureService,
     private renderer: Renderer2,
+    private dataSvc: DataService
     ) {}
 
   ngOnInit() {
@@ -129,8 +131,10 @@ export class GraphComponent implements OnInit, AfterViewInit {
     this.deviceType = selectedNode?.properties[4].value; 
     this.deviceName = selectedNode?.properties[5].value;
     this.exposureService.getGraphData(this.deviceType, this.deviceName).subscribe((response: any) => {
-       this.secondLevelGraphData = response;    
+       this.secondLevelGraphData = response; 
+       this.dataSvc.emitChildEvent(this.secondLevelGraphData);
     });
+    this.dataSvc.emitChildEvent(selectedNode);
   }
 
   inventoryClick(){

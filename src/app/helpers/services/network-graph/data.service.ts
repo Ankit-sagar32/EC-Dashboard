@@ -8,6 +8,7 @@ export class DataService {
   isFormattedJSONDataType:boolean= true;
 
   onDataTypeSelectionChange : BehaviorSubject<any> = new BehaviorSubject("");
+  private childClickedEvent = new BehaviorSubject<any>('');
 
   constructor(private http: HttpClient) { }
 
@@ -27,6 +28,14 @@ export class DataService {
         }
     }
     return returnVal;
-}
+  }
+
+  emitChildEvent(msg: string){
+    this.childClickedEvent.next(msg)
+ }
+
+ childEventListner(){
+    return this.childClickedEvent.asObservable();
+  } 
 
 }
