@@ -59,16 +59,17 @@
         position: relative;
         
         .graph-header {
-            padding: 10px;
+            padding: 10px 20px;
             display: flex;
             align-items: center;
             background-color: #ededed;
-            padding: 10px;
             border-top-left-radius: 5px;
             border-top-right-radius: 5px;
             
             .graph-name{
-                font-weight: 600;
+                font-weight: 400;
+                font-size: 18px;
+                color: #6559ac;
             }
 
             .graph-header-controls, .search-wrapper, .count-wrapper {
@@ -212,7 +213,7 @@
         overflow: hidden;
         .alarms-header {
             background-color: #ededed;
-            padding: 10px;
+            padding: 10px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -220,7 +221,9 @@
             border-top-right-radius: 5px;
 
             .alarms-name {
-                font-weight: 600;
+                font-weight: 400;
+                font-size: 18px;
+                color: #6559ac;
             }
     
             .alarms-header-controls {
