@@ -56,14 +56,21 @@
     }
 }
 
+.table{
+    &-header{
+        background-color: #ededed;
+    }
+}
+
 table{
     table-layout: fixed;
-    width: 100%;   
+    width: 100%;  
+    border: 1px solid lightgrey; 
 }
 
 tr{
     border-top: 1px solid lightgrey;
-    border-bottom: 1px solid lightgrey;
+    // border-bottom: 1px solid lightgrey;
     display: flex;
     width: 100% !important;
 }
@@ -79,7 +86,7 @@ tbody tr{
 
 th{
     border: none !important;
-    width: 165px;
+    min-width: 165px;
 }
 
 td{

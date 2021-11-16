@@ -142,60 +142,66 @@
 
         <!-- Alarms Start -->
         <div class="alarms-wrapper" #alarmsWrapper>
-            <div class="alarms-header">
-                <div class="alarms-name">{{'Alarms'}}</div>
-
-                <div class="alarms-header-controls">
-                    <div class="filters">
-                        <i class="far fa-filter"></i>
-                        <span>Filters</span>
-                    </div>
-
-                    <div class="exportCSV">
-                        Export CSV
-                    </div>
-
-                    <!-- <div class="expand-wrapper">
-                        <div class="expand">
-                            <i class="fas fa-expand-alt"></i>
+            <div>
+                <div class="alarms-header">
+                    <div class="alarms-name">{{'Alarms'}}</div>
+    
+                    <div class="alarms-header-controls">
+                        <div class="filters">
+                            <i class="far fa-filter"></i>
+                            <span>Filters</span>
                         </div>
-                    </div> -->
-                    <div
-                    class="expand-icon"
-                    (click)="expandSection('Alarms')"
-                    >
-                    <img 
-                        *ngIf = "expandAlarmsBool"
-                        src="assets/images/expand.svg"
-                        style="width: 20px;height: 20px; border: none; color: blueviolet; filter: invert(9%) sepia(88%) saturate(6634%) hue-rotate(268deg) brightness(89%) contrast(93%);" />
-                    <img 
-                        *ngIf = "!expandAlarmsBool"
-                            src="assets/images/Collapse.svg"
+    
+                        <div class="exportCSV">
+                            Export CSV
+                        </div>
+    
+                        <!-- <div class="expand-wrapper">
+                            <div class="expand">
+                                <i class="fas fa-expand-alt"></i>
+                            </div>
+                        </div> -->
+                        <div
+                        class="expand-icon"
+                        (click)="expandSection('Alarms')"
+                        >
+                        <img 
+                            *ngIf = "expandAlarmsBool"
+                            src="assets/images/expand.svg"
                             style="width: 20px;height: 20px; border: none; color: blueviolet; filter: invert(9%) sepia(88%) saturate(6634%) hue-rotate(268deg) brightness(89%) contrast(93%);" />
+                        <img 
+                            *ngIf = "!expandAlarmsBool"
+                                src="assets/images/Collapse.svg"
+                                style="width: 20px;height: 20px; border: none; color: blueviolet; filter: invert(9%) sepia(88%) saturate(6634%) hue-rotate(268deg) brightness(89%) contrast(93%);" />
+                    </div>
+                    </div>
                 </div>
+                <div class="alarms-body">
+                    <app-table-default [tableData]="alarms" [columsArray]="alarmsTableColumns" [expandAlarmsBool]="expandAlarmsBool"></app-table-default>
                 </div>
             </div>
-            <div class="alarms-body">
-                <app-table-default [tableData]="alarms" [columsArray]="alarmsTableColumns" [expandAlarmsBool]="expandAlarmsBool"></app-table-default>
-            </div>
+          
             <div class="container-entity-service">
-                <div>
-                    <div class="entity-header">
-                        <div class="entity-name">{{'Entity'}}</div>
-                    </div>
-                    <div class="entity-body" >
-                        <app-table-default [columsArray]="entityTableColumns"></app-table-default>
-                    </div>
+                <div class="header-insights">
+                    <p>Insights</p>
                 </div>
                 
-                <div>
-                    <div class="service-header">
-                        <div class="service-name">{{'Service'}}</div>      
+                <div class="entity-container">
+                    <div class="entity-divs">
+                        <p>0</p>
+                        <p class="entity-label">Total No. of Devices</p>
                     </div>
-                    <div class="service-body">
-                        <app-table-default [columsArray]="serviceTableColumns"></app-table-default>
+                    <div class="entity-divs">   
+                        <p>0</p>
+                        <p class="entity-label">Total No. of Alarms</p>
+                    </div>
+                    <div class="entity-divs">   
+                        <p>0</p>
+                        <p class="entity-label">Impacted Devices</p>
                     </div>
                 </div>
+               
+
             </div>  
             <!-- <div class="alarms-body">
                 <app-table-default ></app-table-default>
