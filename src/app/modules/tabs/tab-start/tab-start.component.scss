@@ -38,9 +38,10 @@
     }
 
     .selection-wrapper {
-        // display: flex;
+        display: flex;
         align-items: center;
-        justify-content: space-around;
+        gap: 40px;
+        // justify-content: space-evenly;
         width: 82%;
         margin: 20px 0;
 
@@ -51,7 +52,7 @@
 
         .search {
             display: inline-flex;
-            padding: 15px;
+            padding: 5px;
             background: #908e8e;
             border-radius: 5px;
             cursor: pointer;
