@@ -59,13 +59,15 @@ export class TabDetails implements OnInit {
 
     ngOnInit() {
       this.updateGraphData();
+      let clickedNodeData: any;
       this.dataSvc.childEventListner().subscribe(info =>{
-        console.log("info received is:", info?.Node?.properties[5].value); // here you get the message from grand-Child (graph)component
-        // const deviceName = info?.Node?.properties[5].value;
-        // const deviceType = info?.Node?.properties[4].value;
-        // console.log("deviceType", deviceType);
-        // console.log("deviceName1", deviceName);
-        // this.getGraphData(deviceType,deviceName);
+        clickedNodeData = info;
+        console.log("info received is:", info); // here you get the message from grand-Child (graph)component
+        const deviceName = clickedNodeData?.name;
+        const deviceType = clickedNodeData?.type;
+        console.log("deviceType", deviceType);
+        console.log("deviceName1", deviceName);
+        this.getGraphData(deviceType,deviceName);
      })
     }
 

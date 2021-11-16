@@ -9,7 +9,7 @@ import { D3Service, ForceDirectedGraph, Node } from '../../../../helpers/service
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div #nodeInfo id="box" *ngIf="ifClicked">
-    <h6 class="node-properties" style="margin-top: 4px;"> Name: {{ deviceName }}</h6>
+    <h6 class="node-properties" style="margin-top: 10px;"> Name: {{ deviceName }}</h6>
     <h6 class="node-properties"> Type: {{ deviceType }}</h6>
     <h6 class="node-properties"> IP: {{ ip }}</h6>
     <h6 class="node-properties"> DC: {{ dc }}</h6>
@@ -97,15 +97,15 @@ export class GraphComponent implements OnInit, AfterViewInit {
              this.onSingleClickNode(selectedNode,event)
         } else if (this.clickCount === 2) {
             // double
-            this.onDoubleClickNode();
+            this.onDoubleClickNode(selectedNode);
         }
         this.clickCount = 0;
-    }, 250)
+    }, 250);
 }
 
   onSingleClickNode(selectedNode?: any, event?:any){ 
     this.ifClicked = true;
-
+    
     console.log("selectedNodeData:", selectedNode);
     console.log("selectedNodeDataX:", selectedNode.fx);
     console.log("selectedNodeDataY:", selectedNode.fy);
@@ -114,26 +114,10 @@ export class GraphComponent implements OnInit, AfterViewInit {
     this.deviceType = selectedNode?.properties[4].value; 
     this.deviceName = selectedNode?.properties[5].value;
     this.dc = selectedNode?.properties[6].value;
-
-    this.renderer.setStyle(this.nodeInfo.nativeElement, 'top', `${event.pageX}px`);
-    this.renderer.setStyle(this.nodeInfo.nativeElement, 'left', `${event.pageY}px`);
-    // let offsetLeft: any;
-    // let offsetTop: any;
-    // let el = event.srcElement;
-    // console.log("el:", el)
-    // console.log("offsetLeft", offsetLeft);
-    // console.log("offsetTop", offsetTop);
-    // return { offsetTop:event.offsetX , offsetLeft:event.offsetLeft }
   }
 
   onDoubleClickNode(selectedNode?:any){
     this.ifClicked = false;
-    this.deviceType = selectedNode?.properties[4].value; 
-    this.deviceName = selectedNode?.properties[5].value;
-    this.exposureService.getGraphData(this.deviceType, this.deviceName).subscribe((response: any) => {
-       this.secondLevelGraphData = response; 
-       this.dataSvc.emitChildEvent(this.secondLevelGraphData);
-    });
     this.dataSvc.emitChildEvent(selectedNode);
   }
 
