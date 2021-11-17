@@ -1,7 +1,7 @@
 <div class="tabs-header-wrapper">
     <div class="tab" *ngFor="let tab of allTabs; let i = index" [ngClass]="{'activetab' : tab.isActive}">
         <div class="tab-details" [ngClass]="{'activetab' : tab.isActive}" tabindex="0" (click)="onTabClick(tab)">
-            {{tab.tabDisplayName | titlecase}}
+            {{ truncate(tab.tabDisplayName)  | titlecase}}
             <div class="close-tab" *ngIf="i !== 0">
                 <span class="cross-mark" (click)="onTabCloseClick(tab)">&times;</span>
             </div>

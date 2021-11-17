@@ -7,18 +7,25 @@
     .tab {
         padding: 0.5em 1em;
         display: inline-block;
-        cursor: pointer;
         border-right: 1px solid lightgray;
+        width: 200px;
     }
 
     .tab-details {
         font-weight: bold;
-        display: inline-block;
         display: flex;
         align-items: center;
+        justify-content: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        cursor: pointer;
 
         .close-tab  {
             margin-left: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             
             .cross-mark{
                 border: 1px solid black;
