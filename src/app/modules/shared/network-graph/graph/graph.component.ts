@@ -114,6 +114,16 @@ export class GraphComponent implements OnInit, AfterViewInit {
     this.deviceType = selectedNode?.properties[4].value; 
     this.deviceName = selectedNode?.properties[5].value;
     this.dc = selectedNode?.properties[6].value;
+    let _self = this;
+    let leftPosition = selectedNode.fx;
+    let topPosition = selectedNode.fy;
+    setTimeout(()=>{ 
+      _self.renderer.setStyle(_self.nodeInfo.nativeElement, 'transform', `translate(${leftPosition}px, ${topPosition}px)`);
+    }, 150);
+
+    //this.renderer.setStyle(this.nodeInfo.nativeElement, 'top', `${event.pageX}px`);
+    //this.renderer.setStyle(this.nodeInfo.nativeElement, 'left', `${event.pageY}px`);
+    
   }
 
   onDoubleClickNode(selectedNode?:any){
