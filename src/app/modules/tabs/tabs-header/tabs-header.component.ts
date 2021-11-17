@@ -31,4 +31,11 @@ export class TabsHeader implements OnInit{
         this.tabsService.tabs = this.tabsService.tabs.filter(tab => tab.tabDisplayName != selectedTab.tabDisplayName && tab.path != selectedTab.path)
         this.onTabClick(this.tabsService.tabs[0]);
     }
+
+     truncate(input: string) {
+        if (input.length > 18) {
+           return input.substring(0, 18) + '...';
+        }
+        return input;
+     };
 }
