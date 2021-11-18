@@ -38,7 +38,7 @@ export class UtilityService {
     return returnVal;
   }
   getPropertyValue(node: any, propertyName: string) {
-    return node.find((p: any) => p["name"] == propertyName)?.["value"];
+    return node?.properties?.find((p: any) => p["name"] == propertyName)?.["value"];
   }
 
 }
