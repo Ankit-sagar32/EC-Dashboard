@@ -123,6 +123,7 @@
                     <span class="sr-only"></span>
                 </div>
                 </div>
+              
             </div>
             <div class="graph-body" *ngIf="showGraph && graphData">
                 <ng-template [ngIf]="graphToLoad == 'sankey_graph'">
@@ -137,7 +138,27 @@
                     <p>Hive work in progres!</p>
                 </ng-template>
             </div>
-
+            <div class="controllers-arrow">
+                <div class="first-row">
+                    <div class="controller-btn"><img src="/assets/images/Top.svg" alt=""></div>
+                </div>
+                <div class="second-row">
+                    <div class="controller-btn"><img src="/assets/images/Left.svg" alt=""></div>
+                    <div class="controller-btn"><img src="/assets/images/Bottom.svg" alt=""></div>
+                    <div class="controller-btn"><img src="/assets/images/Right.svg" alt=""></div>
+                </div>
+            </div>
+        
+            <div class="controllers-zoom">
+                <div class="first-row">
+                    <div class="controller-btn"><img src="/assets/images/Expand-01.svg" alt=""></div>
+                </div>
+                <div class="second-row">
+                    <div class="controller-btn"><img src="/assets/images/Zoom-in.svg" alt=""></div>
+                    <div class="controller-btn"><img src="/assets/images/Zoom-out.svg" alt=""></div>
+                    <div class="controller-btn"><img style=" transform: rotate(180deg); " src="/assets/images/Expamd-02.svg" alt=""></div>
+                </div>
+            </div>
 
         </div>
         <!-- Graph End -->
@@ -216,5 +237,6 @@
             </div>         -->
         </div>
         <!-- Alarms End -->
+     
     </div>
 </div>
