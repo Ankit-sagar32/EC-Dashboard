@@ -33,4 +33,15 @@ export class NodeVisualComponent implements OnInit{
         return "normal";
     }
   }
+  getNodeHoverInfo(node: any) {
+    let title = "";
+    if(node?.name)
+      title += "Name: " + node?.name + "\n";
+    if(node?.id)
+      title += "Id: " + node?.id + "\n";
+    if(node?.type)
+      title += "Type: " + node?.type + "\n";
+
+    return title;
+  }
 }

@@ -10,6 +10,7 @@
           >
       </svg:circle> 
      <svg:image #imageRef [attr.xlink:href]='getImg(node)' class="nodeImg"> </svg:image>
+     <title>{{getNodeHoverInfo(node)}}</title>
     </svg:g>
     <!-- <svg:text class="node-name" [attr.font-size]="node?.fontSize">
         {{node?.name}}
