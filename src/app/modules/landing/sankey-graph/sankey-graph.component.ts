@@ -229,7 +229,25 @@ export class SankeyComponent implements OnInit, OnDestroy {
         .attr("x2", function(d: any){return d.target.x;})
         .attr("y2", function(d: any){return d.target.y;});
   }
-  
+
+  zoom: any;
+  applyZoomableBehaviour(svgElement:any, containerElement:any) {
+    let svg, container:any, zoomed;
+    
+    svg = d3.select(svgElement);
+    container = d3.select(containerElement);
+
+    zoomed = () => {
+      const transform = d3.event.transform;
+      container.attr('transform', 'translate(' + transform.x + ',' + transform.y + ') scale(' + transform.k + ')');
+      container.attr('width', '100%');
+      container.attr('height', '100%');
+    }
+
+    this.zoom = d3.zoom().on('zoom', zoomed);
+    svg.call(this.zoom);
+  }
+
   drawChart(chartData: UserFlow): void {
     // creating a temporary sankey plot to identify the interactions for height and width calculation of viewport
     const sankeyTemp = d3Sankey.sankey()
@@ -369,7 +387,7 @@ export class SankeyComponent implements OnInit, OnDestroy {
       }
 
     }
-
+    this.applyZoomableBehaviour("#sankey-wrapper", "#sankey");
   }
 
   addGradientByNodeId(grads: any) {
@@ -400,7 +418,7 @@ export class SankeyComponent implements OnInit, OnDestroy {
     return (g:any, i:any) => {
 
       svg.selectAll('.link')
-        .filter((d: any) => d.source.node !== chartData.nodes[i].node && d.target.node !== chartData.nodes[i].node)
+        .filter((d: any) => d?.source.node !== chartData.nodes[i].node && d?.target.node !== chartData.nodes[i].node)
         .transition()
         .style('opacity', opacity);
     };
@@ -453,6 +471,43 @@ export class SankeyComponent implements OnInit, OnDestroy {
     }
   }
 
+  PanGraph(direction: string) {
+    switch (direction) {
+      case "UP":
+        d3.select('#sankey-wrapper')
+          .transition()
+          .call(this.zoom.translateBy, 0, -50);
+        break;
+      case "DOWN":
+        d3.select('#sankey-wrapper')
+          .transition()
+          .call(this.zoom.translateBy, 0, 50);
+        break;
+      case "LEFT":
+        d3.select('#sankey-wrapper')
+        .transition()
+        .call(this.zoom.translateBy, 50, 0);
+          break;
+      case "RIGHT":
+          d3.select('#sankey-wrapper')
+          .transition()
+          .call(this.zoom.translateBy, -50, 0);
+        break;
+      default:
+        break;
+    }
+  }
+
+  ZoomInGraph() {
+    d3.select('#sankey-wrapper')
+		.transition()
+		.call(this.zoom.scaleBy, 2);
+  }
+  ZoomOutGraph() {
+    d3.select('#sankey-wrapper')
+		.transition()
+		.call(this.zoom.scaleBy, 0.5);
+  }
 
   ngOnDestroy(): void {
     // Unsubscribe from all subscriptions

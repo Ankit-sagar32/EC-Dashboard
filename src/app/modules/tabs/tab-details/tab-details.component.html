@@ -140,23 +140,23 @@
             </div>
             <div class="controllers-arrow">
                 <div class="first-row">
-                    <div class="controller-btn"><img src="/assets/images/Top.svg" alt=""></div>
+                    <div class="controller-btn"><img src="/assets/images/Top.svg" alt="" (click)="PanGraph('UP')"></div>
                 </div>
                 <div class="second-row">
-                    <div class="controller-btn"><img src="/assets/images/Left.svg" alt=""></div>
-                    <div class="controller-btn"><img style=" transform: rotate(180deg);" src="/assets/images/Top.svg" alt=""></div>
-                    <div class="controller-btn"><img src="/assets/images/Right.svg" alt=""></div>
+                    <div class="controller-btn"><img src="/assets/images/Left.svg" alt="" (click)="PanGraph('LEFT')"></div>
+                    <div class="controller-btn"><img style=" transform: rotate(180deg);" src="/assets/images/Top.svg" alt="" (click)="PanGraph('DOWN')"></div>
+                    <div class="controller-btn"><img src="/assets/images/Right.svg" alt="" (click)="PanGraph('RIGHT')"></div>
                 </div>
             </div>
         
             <div class="controllers-zoom">
                 <div class="first-row">
-                    <div class="controller-btn"><img src="/assets/images/Expand-01.svg" alt=""></div>
+                    <div class="controller-btn"><img src="/assets/images/Expand-01.svg" alt="" (click)="ExpandGraph()"></div>
                 </div>
                 <div class="second-row">
-                    <div class="controller-btn"><img src="/assets/images/Zoom-in.svg" alt=""></div>
-                    <div class="controller-btn"><img src="/assets/images/Zoom-out.svg" alt=""></div>
-                    <div class="controller-btn"><img style=" transform: rotate(180deg); " src="/assets/images/Expamd-02.svg" alt=""></div>
+                    <div class="controller-btn"><img src="/assets/images/Zoom-in.svg" alt="" (click)="ZoomInGraph()"></div>
+                    <div class="controller-btn"><img src="/assets/images/Zoom-out.svg" alt="" (click)="ZoomOutGraph()"></div>
+                    <div class="controller-btn"><img style=" transform: rotate(180deg); " src="/assets/images/Expamd-02.svg" alt="" (click)="ExpandOutGraph()"></div>
                 </div>
             </div>
 

@@ -1,7 +1,7 @@
 <div class="container-fluid user-flow" role="main">
   <!-- user-flow card -->
   <div class="row">
-    <div class="col-sm-12 sankey-wrapper" #sankeywrapper>
+    <div class="col-sm-12 sankey-wrapper" #sankeywrapper id="sankey-wrapper">
       <div class="legendWrapper" *ngIf="legends.length > 0">
         <div class="legend" *ngFor="let legend of legends">
             <div class="legendImage" [style.background-color]="legend.color"></div>
@@ -11,7 +11,7 @@
       </div>
           <!-- if data not loading -->
           <!-- data found -->
-          <svg [hidden]="!userFlowData.nodes.length" id="sankey" class="p-1 pb-3" [zoomableOf]="sankeywrapper"></svg>
+          <svg [hidden]="!userFlowData.nodes.length" id="sankey" class="p-1 pb-3"></svg>
           <!-- data not found -->
           <div [hidden]="userFlowData.nodes.length">
             <div class="d-flex justify-content-center">

@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from "@angular/core";
+import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from "@angular/core";
 import { Link, Node } from "../../../helpers/models/network-graph";
 import { DataService } from "../../../helpers/services/network-graph/data.service";
 import { delay } from "rxjs/operators";
@@ -6,6 +6,7 @@ import { UtilityService } from "src/app/helpers/services";
 // import { threadId } from "worker_threads";
 import { ExposureService } from "src/app/helpers/services/exposure.service";
 import { ActivatedRoute } from "@angular/router";
+import { GraphComponent } from "../../shared/network-graph/graph/graph.component";
 
 @Component({
     selector: "app-network-graph",
@@ -24,13 +25,13 @@ export class NetworkGraph implements OnInit, OnChanges {
     siteName: string = "";
     @Input() graphData:any;
     deviceName: string = "";
+
+    @ViewChild(GraphComponent ) radialGraph: GraphComponent | undefined ; 
     constructor(
         private dataServcie: DataService, 
         private utilityService : UtilityService,
         private route: ActivatedRoute,
         ) {
-        // this.legends = dataServcie.getAllLegends();
-        // console.log("historn  ",history.state["data"]);
     }
     
     ngOnInit() { 
@@ -150,5 +151,18 @@ export class NetworkGraph implements OnInit, OnChanges {
         transformingData["nodes"] = filterdNodes;
 
         return transformingData;
+    }
+    PanGraph(direction: string) {
+        this.radialGraph?.PanGraph(direction);
+    }
+
+    ExpandGraph () {
+
+    }
+    ZoomInGraph () {
+        this.radialGraph?.ZoomInGraph();
+    }
+    ZoomOutGraph () {
+        this.radialGraph?.ZoomOutGraph();
     }
 }
