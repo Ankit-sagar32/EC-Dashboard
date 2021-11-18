@@ -161,22 +161,22 @@ export class GraphComponent implements OnInit, AfterViewInit {
       case "UP":
         d3.select('#radial-wrapper')
           .transition()
-          .call(this.zoom.translateBy, 0, -50);
+          .call(this.zoom.translateBy, 0, -25);
         break;
       case "DOWN":
         d3.select('#radial-wrapper')
           .transition()
-          .call(this.zoom.translateBy, 0, 50);
+          .call(this.zoom.translateBy, 0, 25);
         break;
       case "LEFT":
         d3.select('#radial-wrapper')
         .transition()
-        .call(this.zoom.translateBy, -50, 0);
+        .call(this.zoom.translateBy, -25, 0);
           break;
       case "RIGHT":
           d3.select('#radial-wrapper')
           .transition()
-          .call(this.zoom.translateBy, 50, 0);
+          .call(this.zoom.translateBy, 25, 0);
         break;
       default:
         break;
