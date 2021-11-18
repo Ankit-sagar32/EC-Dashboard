@@ -340,7 +340,7 @@
     .entity-container{
         display: flex;
         align-items: center;
-        justify-content: space-around;
+        justify-content: space-between;
         // border: 1px solid lightgray;
     }
 
@@ -357,6 +357,9 @@
         p{
             margin: 0;
             font-weight: 600;
+            font-size: 13px;
+            overflow-wrap: break-word;
+            text-align: center;
         }
     }
 

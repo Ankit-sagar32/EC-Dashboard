@@ -28,4 +28,11 @@ export class TableDefault implements OnChanges, OnInit{
 
     ngOnChanges() {
     }
+
+    truncate(input: string) {
+        if (input.length > 16) {
+           return input.substring(0, 12) + '...';
+        }
+        return input;
+     };
 }

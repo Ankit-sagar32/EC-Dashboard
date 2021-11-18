@@ -44,7 +44,10 @@
                             <div *ngIf="col.varname == 'entityname' || col.varname == 'entitytype';then entitydetails else dateValues">
                             </div>
                             <ng-template #entitydetails >
-                                {{row[col.varname]}}
+                                <span title="{{row[col.varname]}}" style="cursor: context-menu;">
+                                    {{truncate(row[col.varname])}}
+                                </span>
+                               
                             </ng-template>
                             <ng-template #dateValues >
                               <ng-container  *ngIf="(col.varname == 'lastupdateddate' || col.varname == 'firstcreateddate') &&  !expandAlarmsBool; else otherValues">
