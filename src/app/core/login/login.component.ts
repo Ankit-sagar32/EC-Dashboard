@@ -52,6 +52,7 @@ export class LoginComponent implements OnInit {
       this.metadataService.getLogin(payload).subscribe((response: any) => {
         console.log(response);
         sessionStorage.removeItem("login-token");
+        sessionStorage.setItem("sessionId", response['Session-Id']);
         let options = {
           headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
             .set("Authorization", "Basic " + btoa(this.boatId + ":"))

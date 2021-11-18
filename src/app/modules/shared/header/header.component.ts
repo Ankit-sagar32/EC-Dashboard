@@ -51,9 +51,9 @@ export class HeaderComponent implements OnInit {
 
     this.metadataService.revokeToken(this.boatId, sessionStorage.getItem("login-token") || "", options).subscribe((res: any)=>{
       sessionStorage.removeItem("login-token");
-
       this.metadataService.postLogout(payload).subscribe((res: any)=>{
         sessionStorage.removeItem("boatId");
+        sessionStorage.removeItem("sessionId");
       });
     });
     
