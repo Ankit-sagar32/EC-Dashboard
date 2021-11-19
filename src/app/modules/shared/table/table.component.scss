@@ -70,20 +70,20 @@ table{
 
 tr{
     border-top: 1px solid lightgrey;
-    // border-bottom: 1px solid lightgrey;
+    justify-content: space-around;
     display: flex;
     width: 100% !important;
 }
 
 thead tr{
     border: none;
-    justify-content: space-around;
 }
 
-tbody tr{
-    justify-content: space-around;
-    
-}
+tbody{
+    max-height: 350px;
+    display: block;
+    overflow-y: auto;
+} 
 
 th{
     border: none !important;
