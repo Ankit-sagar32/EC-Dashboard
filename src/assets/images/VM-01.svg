@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-VM-01">
+      <rect width="24" height="24"/>
+    </clipPath>
+  </defs>
+  <g id="VM-01" clip-path="url(#clip-VM-01)">
+    <g id="Ellipse_54" data-name="Ellipse 54" fill="none" stroke="#000" stroke-width="1">
+      <circle cx="12" cy="12" r="12" stroke="none"/>
+      <circle cx="12" cy="12" r="11.5" fill="none"/>
+    </g>
+    <g id="Icon_VM" data-name="Icon/VM" transform="translate(5 6)">
+      <path id="Vector" d="M13.455,0H1.345A1.327,1.327,0,0,0,0,1.3V9.1a1.327,1.327,0,0,0,1.345,1.3H6.055L4.709,12.35V13h5.382v-.65L8.745,10.4h4.709A1.327,1.327,0,0,0,14.8,9.1V1.3A1.327,1.327,0,0,0,13.455,0Zm0,7.8H1.345V1.3H13.455Z" transform="translate(0 0)"/>
+    </g>
+  </g>
+</svg>

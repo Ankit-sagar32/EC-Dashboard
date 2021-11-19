@@ -4,6 +4,9 @@ import { StartUpService, UtilityService } from "src/app/helpers/services";
 import { TabsService } from "../../../helpers/services/tabs.service";
 import { ExposureService } from "src/app/helpers/services/exposure.service";
 import { DataService } from "src/app/helpers/services/network-graph/data.service";
+import { SankeyComponent } from "../../landing/sankey-graph/sankey-graph.component";
+import { NetworkGraph } from "../../landing/network-graph/network-graph.component";
+import { GraphComponent } from "../../shared/network-graph/graph/graph.component";
 @Component({
     selector: "app-tab-details",
     templateUrl: "./tab-details.component.html",
@@ -32,6 +35,9 @@ export class TabDetails implements OnInit {
 
     @ViewChild('alarmsWrapper') alarmsWrapper!: ElementRef ;
     @ViewChild('graphsWrapper') graphsWrapper!: ElementRef ;
+
+    @ViewChild(SankeyComponent ) sankeyGraph: SankeyComponent | undefined ; 
+    @ViewChild(NetworkGraph ) radialGraph: NetworkGraph | undefined ; 
 
     constructor(
         private tabService: TabsService,
@@ -62,11 +68,8 @@ export class TabDetails implements OnInit {
       let clickedNodeData: any;
       this.dataSvc.childEventListner().subscribe(info =>{
         clickedNodeData = info;
-        console.log("info received is:", info); // here you get the message from grand-Child (graph)component
         const deviceName = clickedNodeData?.name;
         const deviceType = clickedNodeData?.type;
-        console.log("deviceType", deviceType);
-        console.log("deviceName1", deviceName);
         this.getGraphData(deviceType,deviceName);
      })
     }
@@ -258,5 +261,31 @@ export class TabDetails implements OnInit {
                 this.expandAlarmsBool = true;;
             }
         }  
-    }  
+    }
+    
+    PanGraph(direction: string) {
+        if(this.graphToLoad == 'sankey_graph')
+            this.sankeyGraph?.PanGraph(direction);
+        else if(this.graphToLoad == 'radial-view')
+            this.radialGraph?.PanGraph(direction);
+    }
+
+    ExpandGraph () {
+
+    }
+    ZoomInGraph () {
+        if(this.graphToLoad == 'sankey_graph')
+            this.sankeyGraph?.ZoomInGraph();
+        else if(this.graphToLoad == 'radial-view')
+            this.radialGraph?.ZoomInGraph();
+    }
+    ZoomOutGraph () {
+        if(this.graphToLoad == 'sankey_graph')
+            this.sankeyGraph?.ZoomOutGraph();
+        else if(this.graphToLoad == 'radial-view')
+            this.radialGraph?.ZoomOutGraph();
+    }
+    ExpandOutGraph () {
+
+    }
 }

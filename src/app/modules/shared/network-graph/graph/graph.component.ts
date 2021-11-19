@@ -1,4 +1,5 @@
 import { Component, Input, ChangeDetectorRef, HostListener, ChangeDetectionStrategy, OnInit, AfterViewInit, ElementRef, ViewChild, Renderer2, EventEmitter, Output } from '@angular/core';
+import * as d3 from 'd3';
 import { UtilityService } from 'src/app/helpers/services';
 import { ExposureService } from 'src/app/helpers/services/exposure.service';
 import { DataService } from 'src/app/helpers/services/network-graph/data.service';
@@ -19,8 +20,8 @@ import { D3Service, ForceDirectedGraph, Node } from '../../../../helpers/service
     <img  src="assets/images/Graph.svg" style="margin-top: 5px; margin-right: 5px;"/> 
     <img  src="assets/images/Traffic.svg" style="margin-top: 5px"/> 
     </div>
-    <svg #graphTag [attr.width]="_options.width"  [attr.height]="_options.height" style="transform: scale(3)">
-      <g [zoomableOf]="graphTag" >
+    <svg #graphTag id="radial-wrapper"[attr.width]="_options.width"  [attr.height]="_options.height" style="transform: scale(3)">
+      <g id="radial-graph">
         <g [linkVisual]="link" *ngFor="let link of links"></g>
         <g class="btn" [nodeVisual]="node" *ngFor="let node of nodes"
             [draggableNode]="node" [draggableInGraph]="graph" (click)="click(node, $event)"  (blur)="onBackGroundClick()" (dblclick)="onDoubleClickNode(node)"></g>
@@ -41,7 +42,7 @@ export class GraphComponent implements OnInit, AfterViewInit {
   dc:any;
   ifClicked: boolean = false;
   clickCount=0;
-  graph: ForceDirectedGraph | undefined;
+  graph: any;// ForceDirectedGraph | undefined;
   // @Output() secondLevelGraphData = new EventEmitter<any>();
   secondLevelGraphData: any;
   svg:ElementRef|undefined;
@@ -75,6 +76,8 @@ export class GraphComponent implements OnInit, AfterViewInit {
     this.graph.ticker.subscribe((d:any) => {
       this.ref.markForCheck();
     });
+
+    this.applyZoomableBehaviour("#radial-wrapper", "#radial-graph");
   }
 
   ngAfterViewInit() {
@@ -87,6 +90,24 @@ export class GraphComponent implements OnInit, AfterViewInit {
 
   onBackGroundClick(){
     this.ifClicked = false;
+  }
+
+  zoom: any;
+  applyZoomableBehaviour(svgElement:any, containerElement:any) {
+    let svg, container:any, zoomed;
+    
+    svg = d3.select(svgElement);
+    container = d3.select(containerElement);
+
+    zoomed = () => {
+      const transform = d3.event.transform;
+      container.attr('transform', 'translate(' + transform.x + ',' + transform.y + ') scale(' + transform.k + ')');
+      container.attr('width', '100%');
+      container.attr('height', '100%');
+    }
+
+    this.zoom = d3.zoom().on('zoom', zoomed);
+    svg.call(this.zoom);
   }
 
   click(selectedNode?: any, event?:any) {
@@ -118,7 +139,7 @@ export class GraphComponent implements OnInit, AfterViewInit {
     let leftPosition = selectedNode.fx;
     let topPosition = selectedNode.fy;
     setTimeout(()=>{ 
-      _self.renderer.setStyle(_self.nodeInfo.nativeElement, 'transform', `translate(${leftPosition}px, ${topPosition}px)`);
+      _self.renderer.setStyle(_self.nodeInfo.nativeElement, 'transform', `translate(${event.pageX}px, ${event.pageY}px)`);
     }, 150);
 
     //this.renderer.setStyle(this.nodeInfo.nativeElement, 'top', `${event.pageX}px`);
@@ -133,5 +154,43 @@ export class GraphComponent implements OnInit, AfterViewInit {
 
   inventoryClick(){
     console.log("in Inventory code.")
+  }
+  
+  PanGraph(direction: string) {
+    switch (direction) {
+      case "UP":
+        d3.select('#radial-wrapper')
+          .transition()
+          .call(this.zoom.translateBy, 0, -25);
+        break;
+      case "DOWN":
+        d3.select('#radial-wrapper')
+          .transition()
+          .call(this.zoom.translateBy, 0, 25);
+        break;
+      case "LEFT":
+        d3.select('#radial-wrapper')
+        .transition()
+        .call(this.zoom.translateBy, -25, 0);
+          break;
+      case "RIGHT":
+          d3.select('#radial-wrapper')
+          .transition()
+          .call(this.zoom.translateBy, 25, 0);
+        break;
+      default:
+        break;
+    }
+  }
+
+  ZoomInGraph() {
+    d3.select('#radial-wrapper')
+		.transition()
+		.call(this.zoom.scaleBy, 2);
+  }
+  ZoomOutGraph() {
+    d3.select('#radial-wrapper')
+		.transition()
+		.call(this.zoom.scaleBy, 0.5);
   }
 }

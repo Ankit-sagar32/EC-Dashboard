@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-Firewall-01">
+      <rect width="24" height="24"/>
+    </clipPath>
+  </defs>
+  <g id="Firewall-01" clip-path="url(#clip-Firewall-01)">
+    <g id="Ellipse_54" data-name="Ellipse 54" fill="none" stroke="#000" stroke-width="1">
+      <circle cx="12" cy="12" r="12" stroke="none"/>
+      <circle cx="12" cy="12" r="11.5" fill="none"/>
+    </g>
+    <g id="Icon_VMFirewall" data-name="Icon/VMFirewall" transform="translate(5 6)">
+      <path id="Union" d="M14.6,0H0V1.525H.811v9.912a.788.788,0,0,0,.811.763H12.978a.788.788,0,0,0,.811-.763V1.525H14.6ZM11.031,2.135H7.624V3.889h3.407Zm-4.056,0V3.889H3.569V2.135Zm-4.056,0V3.889H1.46V2.135ZM1.46,6.558V4.5H4.948V6.558Zm0,.61V9.226H2.92V7.168Zm0,4.27v-1.6H4.948V11.59H1.622A.158.158,0,0,1,1.46,11.438ZM5.6,11.59V9.836H9V11.59Zm4.056,0V9.836H13.14v1.6a.158.158,0,0,1-.162.153ZM13.14,7.168V9.226H11.68V7.168Zm-2.109,0V9.226H7.624V7.168Zm-4.056,0V9.226H3.569V7.168Zm6.164-.61V4.5H9.652V6.558ZM9,6.558V4.5H5.6V6.558ZM13.14,2.135V3.889H11.68V2.135Z"/>
+    </g>
+  </g>
+</svg>

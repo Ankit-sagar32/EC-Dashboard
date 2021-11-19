@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-ESX-01">
+      <rect width="24" height="24"/>
+    </clipPath>
+  </defs>
+  <g id="ESX-01" clip-path="url(#clip-ESX-01)">
+    <g id="Ellipse_54" data-name="Ellipse 54" fill="none" stroke="#000" stroke-width="1">
+      <circle cx="12" cy="12" r="12" stroke="none"/>
+      <circle cx="12" cy="12" r="11.5" fill="none"/>
+    </g>
+    <g id="Icon_Servers" data-name="Icon/Servers" transform="translate(6 5)">
+      <path id="Subtract" d="M11.1,14.743H0V0H11.1V14.742ZM1.694,6.634a1,1,0,0,0-1,1v.212a1,1,0,0,0,1,1H9.407a1,1,0,0,0,1-1V7.634a1,1,0,0,0-1-1Zm0-2.948a1,1,0,0,0-1,1V4.9a1,1,0,0,0,1,1H9.407a1,1,0,0,0,1-1V4.685a1,1,0,0,0-1-1Zm0-2.948a1,1,0,0,0-1,1v.212a1,1,0,0,0,1,1H9.407a1,1,0,0,0,1-1V1.737a1,1,0,0,0-1-1ZM9,8.108H6.96a.369.369,0,1,1,0-.737H9a.369.369,0,1,1,0,.737Zm-3.1,0a.347.347,0,0,1-.346-.347V7.717a.347.347,0,0,1,.694,0v.044A.347.347,0,0,1,5.9,8.108ZM9,5.16H6.96a.369.369,0,1,1,0-.737H9A.369.369,0,1,1,9,5.16Zm-3.1,0a.347.347,0,0,1-.346-.347V4.77a.347.347,0,1,1,.694,0v.043A.347.347,0,0,1,5.9,5.16ZM9,2.211H6.96a.369.369,0,1,1,0-.737H9a.369.369,0,1,1,0,.737Zm-3.1,0a.347.347,0,0,1-.346-.346V1.821a.347.347,0,0,1,.694,0v.044A.347.347,0,0,1,5.9,2.211Z" transform="translate(0 0)"/>
+    </g>
+  </g>
+</svg>
