@@ -9,17 +9,6 @@ import { D3Service, ForceDirectedGraph, Node } from '../../../../helpers/service
   selector: 'app-graph',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <div #nodeInfo id="box" *ngIf="ifClicked">
-    <h6 class="node-properties" style="margin-top: 10px;"> Name: {{ deviceName }}</h6>
-    <h6 class="node-properties"> Type: {{ deviceType }}</h6>
-    <h6 class="node-properties"> IP: {{ ip }}</h6>
-    <h6 class="node-properties"> DC: {{ dc }}</h6>
-    <h6 class="node-properties" style="border-bottom: 1px solid lightgrey"> Severity:  </h6>
-    <img (click)="inventoryClick()" src="assets/images/Inventory.svg" style="margin-left: 15px; margin-top: 5px; margin-right: 5px;" />
-    <img  src="assets/images/Alarm.svg" style="margin-top: 5px; margin-right: 5px;"/> 
-    <img  src="assets/images/Graph.svg" style="margin-top: 5px; margin-right: 5px;"/> 
-    <img  src="assets/images/Traffic.svg" style="margin-top: 5px"/> 
-    </div>
     <svg #graphTag id="radial-wrapper"[attr.width]="_options.width"  [attr.height]="_options.height" style="transform: scale(3)">
       <g id="radial-graph">
         <g [linkVisual]="link" *ngFor="let link of links"></g>
@@ -126,21 +115,22 @@ export class GraphComponent implements OnInit, AfterViewInit {
 
   onSingleClickNode(selectedNode?: any, event?:any){ 
     this.ifClicked = true;
+    selectedNode.doubleClicked = false;
+    this.dataSvc.emitChildEvent(selectedNode);
+    // console.log("selectedNodeData:", selectedNode);
+    // console.log("selectedNodeDataX:", selectedNode.fx);
+    // console.log("selectedNodeDataY:", selectedNode.fy);
     
-    console.log("selectedNodeData:", selectedNode);
-    console.log("selectedNodeDataX:", selectedNode.fx);
-    console.log("selectedNodeDataY:", selectedNode.fy);
-    
-    this.ip = selectedNode?.properties[2].value;
-    this.deviceType = selectedNode?.properties[4].value; 
-    this.deviceName = selectedNode?.properties[5].value;
-    this.dc = selectedNode?.properties[6].value;
-    let _self = this;
-    let leftPosition = selectedNode.fx;
-    let topPosition = selectedNode.fy;
-    setTimeout(()=>{ 
-      _self.renderer.setStyle(_self.nodeInfo.nativeElement, 'transform', `translate(${event.pageX}px, ${event.pageY}px)`);
-    }, 150);
+    // this.ip = selectedNode?.properties[2].value;
+    // this.deviceType = selectedNode?.properties[4].value; 
+    // this.deviceName = selectedNode?.properties[5].value;
+    // this.dc = selectedNode?.properties[6].value;
+    // let _self = this;
+    // let leftPosition = selectedNode.fx;
+    // let topPosition = selectedNode.fy;
+    // setTimeout(()=>{ 
+    //   _self.renderer.setStyle(_self.nodeInfo.nativeElement, 'transform', `translate(${event.pageX}px, ${event.pageY}px)`);
+    // }, 150);
 
     //this.renderer.setStyle(this.nodeInfo.nativeElement, 'top', `${event.pageX}px`);
     //this.renderer.setStyle(this.nodeInfo.nativeElement, 'left', `${event.pageY}px`);
@@ -149,11 +139,8 @@ export class GraphComponent implements OnInit, AfterViewInit {
 
   onDoubleClickNode(selectedNode?:any){
     this.ifClicked = false;
+    selectedNode.doubleClicked = true;
     this.dataSvc.emitChildEvent(selectedNode);
-  }
-
-  inventoryClick(){
-    console.log("in Inventory code.")
   }
   
   PanGraph(direction: string) {
