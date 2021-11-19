@@ -96,6 +96,10 @@ export class TabDetails implements OnInit {
             //_self.renderer.setStyle(_self.nodeInfo.nativeElement, 'transform', `translate(${event.pageX}px, ${event.pageY}px)`);
             }, 150);
         }
+        if(clickedNodeData.blurNode === true)
+        {
+            this.ifClicked = false;
+        }
      })
     }
 

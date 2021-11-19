@@ -13,7 +13,7 @@ import { D3Service, ForceDirectedGraph, Node } from '../../../../helpers/service
       <g id="radial-graph">
         <g [linkVisual]="link" *ngFor="let link of links"></g>
         <g class="btn" [nodeVisual]="node" *ngFor="let node of nodes"
-            [draggableNode]="node" [draggableInGraph]="graph" (click)="click(node, $event)"  (blur)="onBackGroundClick()" (dblclick)="onDoubleClickNode(node)"></g>
+            [draggableNode]="node" [draggableInGraph]="graph" (click)="click(node, $event)"  (blur)="onBackGroundClick(node)" (dblclick)="onDoubleClickNode(node)"></g>
             <g>      
         </g>
       </g>
@@ -77,8 +77,10 @@ export class GraphComponent implements OnInit, AfterViewInit {
     return this._options;
   }
 
-  onBackGroundClick(){
+  onBackGroundClick(blurredNode?: any){
     this.ifClicked = false;
+    blurredNode.blurNode = true;
+    this.dataSvc.emitChildEvent(blurredNode);
   }
 
   zoom: any;
