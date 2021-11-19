@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit {
             .set("Authorization", "Basic " + btoa(this.boatId + ":"))
         }
         this.metadataService.getToken(options).subscribe((res: any) => {
-          sessionStorage.setItem("login-token", res.token);
+          sessionStorage.setItem("login-token", res.access_token);
           this.loginService.updateLoginStatus(true);
           this.router.navigate(["tabs/start"]);
         });
