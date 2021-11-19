@@ -11,6 +11,7 @@ import { TabDetails } from "./tab-details/tab-details.component";
 import { TabStart } from "./tab-start/tab-start.component";
 import { TabsHeader } from "./tabs-header/tabs-header.component";
 import { TabsComponent } from "./tabs.component";
+import { InventoryComponent } from './inventory/inventory.component';
 
 const tabRoutes: Routes = [
     {
@@ -29,7 +30,8 @@ const tabRoutes: Routes = [
         TabsHeader,
         NetworkGraph,
         SankeyComponent,
-        HeaderComponent
+        HeaderComponent,
+        InventoryComponent
     ],
     imports: [
         FormsModule,

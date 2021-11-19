@@ -654,3 +654,21 @@ input {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.container-node-options{
+    display: flex;
+    gap: 15px;
+}
+
+.node{
+    &-options{
+        height: 40px;
+        width: 40px;
+        // border-radius: 5px;
+        // border: 1px solid #5414B4;
+        img{
+            width: 40px;
+            cursor: pointer;
+        }
+    }
+}

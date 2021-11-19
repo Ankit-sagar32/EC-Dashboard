@@ -19,7 +19,7 @@
 
     <div class="tab-body-wrapper">
         <!-- Graph Start -->
-        <div class="graphs-wrapper" #graphsWrapper>
+        <div class="graphs-wrapper" #graphsWrapper *ngIf="displayTabComp == 'native'">
 
             <div class="graph-header">
                 <div class="graph-name">{{'Topology'}}</div>
@@ -174,7 +174,7 @@
         <!-- Graph End -->
 
         <!-- Alarms Start -->
-        <div class="alarms-wrapper" #alarmsWrapper>
+        <div class="alarms-wrapper" #alarmsWrapper *ngIf="displayTabComp == 'native'">
             <div>
                 <div class="alarms-header">
                     <div class="alarms-name">{{'Alarms'}}</div>
@@ -247,6 +247,15 @@
             </div>         -->
         </div>
         <!-- Alarms End -->
-     
+        
+        <div *ngIf="displayTabComp == 'inventory'" style="width: 100%">
+            <div class="container-node-options">
+                <div (click)="changeNodeOptions('inventory')" class="node-options"><img  src="assets/images/Inventory.svg"/></div>
+                <div (click)="changeNodeOptions('alarms')" class="node-options"><img  src="assets/images/Alarm.svg"/> </div>
+                <div (click)="changeNodeOptions('graph')" class="node-options"><img  src="assets/images/Graph.svg"/></div>
+                <div (click)="changeNodeOptions('traffic')" class="node-options"><img  src="assets/images/Traffic.svg"/></div>
+            </div>
+            <app-inventory></app-inventory>
+        </div>
     </div>
 </div>

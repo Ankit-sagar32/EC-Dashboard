@@ -7,6 +7,7 @@ import { DataService } from "src/app/helpers/services/network-graph/data.service
 import { SankeyComponent } from "../../landing/sankey-graph/sankey-graph.component";
 import { NetworkGraph } from "../../landing/network-graph/network-graph.component";
 import { GraphComponent } from "../../shared/network-graph/graph/graph.component";
+import {InventoryComponent} from "../inventory/inventory.component";
 @Component({
     selector: "app-tab-details",
     templateUrl: "./tab-details.component.html",
@@ -32,6 +33,7 @@ export class TabDetails implements OnInit {
 
     expandTopologyBool: boolean = true;
     expandAlarmsBool: boolean = true;
+    displayTabComp: string = "native";
 
     @ViewChild('alarmsWrapper') alarmsWrapper!: ElementRef ;
     @ViewChild('graphsWrapper') graphsWrapper!: ElementRef ;
@@ -98,7 +100,7 @@ export class TabDetails implements OnInit {
         }
         if(clickedNodeData.blurNode === true)
         {
-            this.ifClicked = false;
+            // this.ifClicked = false; //COMMENTED THIS LINE TO PREVENT INVENTORY OPENING CONFLICTS
         }
      })
     }
@@ -319,7 +321,14 @@ export class TabDetails implements OnInit {
     }
 
   inventoryClick(){
-    console.log("in Inventory code.")
+    this.ifClicked = false;
+    this.displayTabComp = 'inventory';
+    console.log("in Inventory code.");
   }
 
+  changeNodeOptions(option?: string){
+    this.displayTabComp = 'native'
+    }
+
 }
+
