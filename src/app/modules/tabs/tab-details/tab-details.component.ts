@@ -26,6 +26,7 @@ export class TabDetails implements OnInit {
     graphToLoad: string = "sankey_graph";
     toggleGraphSettings: boolean = false;
     alarms: any[] = [];
+    insights = {"alarmCount":0, "deviceCount":27, "alarmDeviceCount":0};
     alarmsTableColumns: any[] = [];
     entityTableColumns: any[] = [];
     serviceTableColumns: any[] = [];
@@ -163,6 +164,9 @@ export class TabDetails implements OnInit {
         let url = "alarm/api/view";
         this.exposureService.getAlarmData({"nodes": nodes}).subscribe((res: any) => {
             this.alarms = res.deviceData || [];
+            this.insights.alarmCount = res.alarmCount || 0;
+            this.insights.deviceCount = res.deviceCount || 0;
+            this.insights.alarmDeviceCount = res.alarmDeviceCount || 0;
         }, err => {
             console.error("Error occurred while fetching the Alarms Data: ", err);
         })
