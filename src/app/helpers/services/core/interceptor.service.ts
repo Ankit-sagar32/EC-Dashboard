@@ -149,6 +149,18 @@ export class InterceptorService implements HttpInterceptor, ErrorHandler {
       window.location.reload();
     }
   }
+  handleErrors(err: HttpErrorResponse) {
+    switch (err.status) {
+      case 404:
+          this.toaster.showErrorToaster("Sorry, something is wrong with the system. Please try after sometime.");
+          break;
+      case 500:
+          this.toaster.showErrorToaster(err.message);
+          break;
+      default:
+        this.toaster.showErrorToaster("Sorry, something is wrong with the system. Please try after sometime.");
+    }
+  } 
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     let authReq;
@@ -171,7 +183,7 @@ export class InterceptorService implements HttpInterceptor, ErrorHandler {
 
     // send the newly created request
     return next.handle(authReq).pipe(catchError((err: HttpErrorResponse) => {
-      this.toaster.showErrorToaster("Sorry, something is wrong with the system. Please try after sometime.");
+      this.handleErrors(err);
       return throwError(err);
     }));
   }
