@@ -9,11 +9,11 @@ import { D3Service, ForceDirectedGraph, Node } from '../../../../helpers/service
   selector: 'app-graph',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <svg #graphTag id="radial-wrapper"[attr.width]="_options.width"  [attr.height]="_options.height" style="transform: scale(3)">
+    <svg #graphTag id="radial-wrapper"[attr.width]="_options.width"  [attr.height]="_options.height" style="transform: scale(3)" (mousedown)="onBackGroundClick()">
       <g id="radial-graph">
         <g [linkVisual]="link" *ngFor="let link of links"></g>
         <g class="btn" [nodeVisual]="node" *ngFor="let node of nodes"
-            [draggableNode]="node" [draggableInGraph]="graph" (click)="click(node, $event)"  (blur)="onBackGroundClick(node)" (dblclick)="onDoubleClickNode(node)"></g>
+            [draggableNode]="node" [draggableInGraph]="graph" (click)="click(node, $event)" (dblclick)="onDoubleClickNode(node)"></g>
             <g>      
         </g>
       </g>
@@ -29,15 +29,12 @@ export class GraphComponent implements OnInit, AfterViewInit {
   deviceName: any;
   deviceType: any;
   dc:any;
-  ifClicked: boolean = false;
   clickCount=0;
   graph: any;// ForceDirectedGraph | undefined;
   // @Output() secondLevelGraphData = new EventEmitter<any>();
   secondLevelGraphData: any;
   svg:ElementRef|undefined;
   _options: { width:any, height:any } = { width: 800, height: 600 };
-
-  @ViewChild('nodeInfo') nodeInfo!: ElementRef ;
 
   @HostListener('window:resize', ['$event'])
   onResize(event:any) {
@@ -77,10 +74,10 @@ export class GraphComponent implements OnInit, AfterViewInit {
     return this._options;
   }
 
-  onBackGroundClick(blurredNode?: any){
-    this.ifClicked = false;
-    blurredNode.blurNode = true;
-    this.dataSvc.emitChildEvent(blurredNode);
+  onBackGroundClick(){
+    this.dataSvc.emitChildEvent({
+      searched: false
+    });
   }
 
   zoom: any;
@@ -105,10 +102,8 @@ export class GraphComponent implements OnInit, AfterViewInit {
     this.clickCount++;
     setTimeout(() => {
         if (this.clickCount === 1) {
-             // single
              this.onSingleClickNode(selectedNode,event)
         } else if (this.clickCount === 2) {
-            // double
             this.onDoubleClickNode(selectedNode);
         }
         this.clickCount = 0;
@@ -116,33 +111,19 @@ export class GraphComponent implements OnInit, AfterViewInit {
 }
 
   onSingleClickNode(selectedNode?: any, event?:any){ 
-    this.ifClicked = true;
-    selectedNode.doubleClicked = false;
-    this.dataSvc.emitChildEvent(selectedNode);
-    // console.log("selectedNodeData:", selectedNode);
-    // console.log("selectedNodeDataX:", selectedNode.fx);
-    // console.log("selectedNodeDataY:", selectedNode.fy);
-    
-    // this.ip = selectedNode?.properties[2].value;
-    // this.deviceType = selectedNode?.properties[4].value; 
-    // this.deviceName = selectedNode?.properties[5].value;
-    // this.dc = selectedNode?.properties[6].value;
-    // let _self = this;
-    // let leftPosition = selectedNode.fx;
-    // let topPosition = selectedNode.fy;
-    // setTimeout(()=>{ 
-    //   _self.renderer.setStyle(_self.nodeInfo.nativeElement, 'transform', `translate(${event.pageX}px, ${event.pageY}px)`);
-    // }, 150);
-
-    //this.renderer.setStyle(this.nodeInfo.nativeElement, 'top', `${event.pageX}px`);
-    //this.renderer.setStyle(this.nodeInfo.nativeElement, 'left', `${event.pageY}px`);
-    
+    this.dataSvc.emitChildEvent({
+      searched: false,
+      node: selectedNode,
+      posX: event.pageX + 5,
+      posY: event.pageY - 22
+    });
   }
 
   onDoubleClickNode(selectedNode?:any){
-    this.ifClicked = false;
-    selectedNode.doubleClicked = true;
-    this.dataSvc.emitChildEvent(selectedNode);
+    this.dataSvc.emitChildEvent({
+      searched: true,
+      node: selectedNode
+    });
   }
   
   PanGraph(direction: string) {

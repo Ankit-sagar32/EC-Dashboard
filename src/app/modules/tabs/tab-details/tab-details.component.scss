@@ -601,9 +601,9 @@ input {
 #box{
     //width:150px;
     height: fit-content;
+    display: none;
     border:1px solid #8840c2; 
-    position: absolute; 
-    top: 50%; left: 20%;
+    position: fixed; 
     background-color: white; 
     border-radius: 5px;
     width: 200px;
@@ -671,4 +671,10 @@ input {
             cursor: pointer;
         }
     }
+}
+.pointer-csr {
+    cursor: pointer;
+}
+.not-allowed-csr {
+    cursor: not-allowed;
 }

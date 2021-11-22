@@ -30,7 +30,7 @@ export class DataService {
     return returnVal;
   }
 
-  emitChildEvent(msg: string){
+  emitChildEvent(msg: any){
     this.childClickedEvent.next(msg)
  }
 

@@ -159,16 +159,16 @@
                     <div class="controller-btn"><img style=" transform: rotate(180deg); " src="/assets/images/Expamd-02.svg" alt="" (click)="ExpandOutGraph()"></div>
                 </div>
             </div>
-            <div #nodeInfo id="box" *ngIf="ifClicked">
-                <h6 class="node-properties" style="margin-top: 10px;"> Name: {{ deviceName }}</h6>
-                <h6 class="node-properties"> Type: {{ deviceType }}</h6>
-                <h6 class="node-properties"> IP: {{ ip }}</h6>
-                <h6 class="node-properties"> DC: {{ dc }}</h6>
+            <div id="box" (blur)="onPopUpOut()" tabindex="22">
+                <h6 class="node-properties" style="margin-top: 10px;"> Name: {{ this.nodeInfoPopUp.Name }}</h6>
+                <h6 class="node-properties"> Type: {{ this.nodeInfoPopUp.Type }}</h6>
+                <h6 class="node-properties"> IP: {{ this.nodeInfoPopUp.Ip }}</h6>
+                <h6 class="node-properties"> DC: {{ this.nodeInfoPopUp.DC }}</h6>
                 <h6 class="node-properties" style="border-bottom: 1px solid lightgrey"> Severity:  </h6>
-                <img (click)="inventoryClick()" src="assets/images/Inventory.svg" style="margin-left: 15px; margin-top: 5px; margin-right: 5px;" />
-                <img  src="assets/images/Alarm.svg" style="margin-top: 5px; margin-right: 5px;"/> 
-                <img  src="assets/images/Graph.svg" style="margin-top: 5px; margin-right: 5px;"/> 
-                <img  src="assets/images/Traffic.svg" style="margin-top: 5px"/> 
+                <img class="pointer-csr" (click)="inventoryClick()" src="assets/images/Inventory.svg" style="margin-left: 15px; margin-top: 5px; margin-right: 5px;" />
+                <img class="not-allowed-csr" src="assets/images/Alarm.svg" style="margin-top: 5px; margin-right: 5px;"/> 
+                <img class="not-allowed-csr" src="assets/images/Graph.svg" style="margin-top: 5px; margin-right: 5px;"/> 
+                <img class="not-allowed-csr" src="assets/images/Traffic.svg" style="margin-top: 5px"/> 
             </div>
         </div>
         <!-- Graph End -->

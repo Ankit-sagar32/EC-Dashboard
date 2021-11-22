@@ -42,10 +42,8 @@ export class TabDetails implements OnInit {
     @ViewChild(SankeyComponent ) sankeyGraph: SankeyComponent | undefined ; 
     @ViewChild(NetworkGraph ) radialGraph: NetworkGraph | undefined ; 
 
-    ip: any;
-    deviceType: any;
-    dc:any;
-    ifClicked: boolean = false;
+    showNodeInfoPopUp: boolean = false;
+    nodeInfoPopUp: any = {};
 
     constructor(
         private tabService: TabsService,
@@ -76,33 +74,32 @@ export class TabDetails implements OnInit {
       let clickedNodeData: any;
       this.dataSvc.childEventListner().subscribe(info =>{
         clickedNodeData = info;
-        if(clickedNodeData.doubleClicked) {
-            const deviceName = clickedNodeData?.name;
-            const deviceType = clickedNodeData?.type;
+        var d = document.getElementById('box');
+        if(clickedNodeData?.searched) {
+            this.showNodeInfoPopUp = false;
+            const deviceName = clickedNodeData.node?.name;
+            const deviceType = clickedNodeData.node?.type;
             this.getGraphData(deviceType,deviceName);
         }
-        if(clickedNodeData.doubleClicked === false) { 
-            this.ifClicked = true;
-    
-            console.log("selectedNodeData:", clickedNodeData);
-            console.log("clickedNodeDataDataX:", clickedNodeData.fx);
-            console.log("clickedNodeDataDataY:", clickedNodeData.fy);
-            
-            this.ip = clickedNodeData?.properties[2].value;
-            this.deviceType = clickedNodeData?.properties[4].value; 
-            this.deviceName = clickedNodeData?.properties[5].value;
-            this.dc = clickedNodeData?.properties[6].value;
-            let _self = this;
-            let leftPosition = clickedNodeData.fx;
-            let topPosition = clickedNodeData.fy;
-            setTimeout(()=>{ 
-            //_self.renderer.setStyle(_self.nodeInfo.nativeElement, 'transform', `translate(${event.pageX}px, ${event.pageY}px)`);
-            }, 150);
+        else if(clickedNodeData?.node && !clickedNodeData.searched) {
+
+            this.nodeInfoPopUp.Name = clickedNodeData.node.name;
+            this.nodeInfoPopUp.Type = clickedNodeData.node.type;
+            this.nodeInfoPopUp.Ip = this.utilityService.getPropertyValue(clickedNodeData?.node, "ip");
+            this.nodeInfoPopUp.DC = this.utilityService.getPropertyValue(clickedNodeData?.node, "group");
+            this.nodeInfoPopUp.links = ""; // ADD the links in similar way
+            var d = document.getElementById('box');
+            if(d){
+                d.style.left = clickedNodeData.posX +'px';
+                d.style.top = clickedNodeData.posY +'px';
+            }
+            d?.focus();
+            this.showNodeInfoPopUp = true; 
+        } else {
+            console.log(document.activeElement);
+            this.showNodeInfoPopUp = false;
         }
-        if(clickedNodeData.blurNode === true)
-        {
-            // this.ifClicked = false; //COMMENTED THIS LINE TO PREVENT INVENTORY OPENING CONFLICTS
-        }
+        if(d) d.style.display = this.showNodeInfoPopUp? "block": "none";
      })
     }
 
@@ -131,7 +128,11 @@ export class TabDetails implements OnInit {
       }
       this.getGraphData();
     }
-
+    onPopUpOut() {
+        this.showNodeInfoPopUp = false;
+        var d = document.getElementById('box');
+        if(d) d.style.display = "none";
+    }
     getGraphData(deviceName?: any, siteName?: any) {
         this.exposureService.getGraphData(deviceName? deviceName: this.deviceName, siteName? siteName: this.siteName).subscribe((res: any) => {
           this.graphData = res;
@@ -325,7 +326,6 @@ export class TabDetails implements OnInit {
     }
 
   inventoryClick(){
-    this.ifClicked = false;
     this.displayTabComp = 'inventory';
     console.log("in Inventory code.");
   }

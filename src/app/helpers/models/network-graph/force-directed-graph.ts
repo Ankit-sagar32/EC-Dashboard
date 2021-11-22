@@ -12,11 +12,9 @@ const FORCES = {
 export class ForceDirectedGraph {
   public ticker: EventEmitter<any> = new EventEmitter<any>();
   public simulation!: d3.Simulation<any, any>;
-  iconwidth = 30;
-  iconht = 30;
-  linkdistance = 20;
-  collidedistance = 20;
-  chargedStrength = -400;
+  linkdistance = 25;
+  collidedistance = 25;
+  chargedStrength = -750;
   xdenom = 0.5;
   ydenom = 0.5;
   xstrength = 0.2;
@@ -80,8 +78,8 @@ export class ForceDirectedGraph {
       .force('link', d3.forceLink().id((d:any) => d['id']).distance(this.linkdistance))
       .force('charge', d3.forceManyBody().strength(this.chargedStrength))
       .force('center', d3.forceCenter(options.width/2, options.height/2))
-      .force('forceX', d3.forceX(options.width / this.xdenom).strength(this.xstrength))
-      .force('forceY', d3.forceY(options.height / this.ydenom).strength(this.ystrength))
+      //.force('forceX', d3.forceX(options.width / this.xdenom).strength(this.xstrength))
+      //.force('forceY', d3.forceY(options.height / this.ydenom).strength(this.ystrength))
       .force("collide", d3.forceCollide(this.collidedistance));
       // .force('charge',
       //     d3.forceManyBody()
