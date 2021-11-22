@@ -85,8 +85,8 @@ export class TabDetails implements OnInit {
 
             this.nodeInfoPopUp.Name = clickedNodeData.node.name;
             this.nodeInfoPopUp.Type = clickedNodeData.node.type;
-            this.nodeInfoPopUp.Ip = this.utilityService.getPropertyValue(clickedNodeData?.node, "ip");
-            this.nodeInfoPopUp.DC = this.utilityService.getPropertyValue(clickedNodeData?.node, "group");
+            this.nodeInfoPopUp.Ip = this.utilityService.getPropertyValue(clickedNodeData?.node, "ip") || "NA";
+            this.nodeInfoPopUp.DC = this.utilityService.getPropertyValue(clickedNodeData?.node, "group") || "NA";
             this.nodeInfoPopUp.links = ""; // ADD the links in similar way
             var d = document.getElementById('box');
             if(d){

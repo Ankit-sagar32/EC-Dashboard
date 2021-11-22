@@ -13,7 +13,7 @@ import { D3Service, ForceDirectedGraph, Node } from '../../../../helpers/service
       <g id="radial-graph">
         <g [linkVisual]="link" *ngFor="let link of links"></g>
         <g class="btn" [nodeVisual]="node" *ngFor="let node of nodes"
-            [draggableNode]="node" [draggableInGraph]="graph" (click)="click(node, $event)" (dblclick)="onDoubleClickNode(node)"></g>
+            [draggableNode]="node" [draggableInGraph]="graph" (click)="click(node, $event)"></g>
             <g>      
         </g>
       </g>
