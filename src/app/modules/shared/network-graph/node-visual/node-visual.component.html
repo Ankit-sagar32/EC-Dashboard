@@ -1,4 +1,4 @@
-<svg:g [attr.transform]="'translate(' + node?.x + ',' + node?.y + ')'" height="20px" width="20px" class='{{"node-wrapper "+ getState(node)}}'>
+<svg:g [attr.transform]="'translate(' + node?.x + ',' + node?.y + ')'" height="20px" width="20px" class='{{"node-wrapper "+ getState(node)}}' (mouseenter)="highlightLinks(node, true)" (mouseleave)="highlightLinks(node, false)">
     <svg:g>
         <svg:circle
           class="node"

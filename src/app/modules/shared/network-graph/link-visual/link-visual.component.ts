@@ -5,7 +5,7 @@ import { Link } from 'src/app/helpers/models/network-graph';
   selector: '[linkVisual]',
   template: `
     <svg:line
-        class="link"
+        class="{{'link ' + getLinkClasses(link)}}"
         [attr.x1]="link?.source?.x"
         [attr.y1]="link?.source?.y"
         [attr.x2]="link?.target?.x"
@@ -16,4 +16,8 @@ import { Link } from 'src/app/helpers/models/network-graph';
 })
 export class LinkVisualComponent  {
   @Input('linkVisual') link: Link | undefined;
+
+  getLinkClasses(link: any) {
+    return link?.source?.id + " " + link?.target?.id;
+  }
 }
