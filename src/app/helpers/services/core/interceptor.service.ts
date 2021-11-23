@@ -150,22 +150,24 @@ export class InterceptorService implements HttpInterceptor, ErrorHandler {
     }
   }
   handleErrors(err: HttpErrorResponse) {
+    console.log(err);
+    let errorMessage = err.error.message || err.message || "Sorry, something is wrong with the system. Please try after sometime.";
     switch (err.status) {
       case 404:
-          this.toaster.showErrorToaster("Sorry, something is wrong with the system. Please try after sometime.");
           break;
       case 500:
-          this.toaster.showErrorToaster(err.message);
+        // errorMessage = "";
           break;
       default:
-        this.toaster.showErrorToaster("Sorry, something is wrong with the system. Please try after sometime.");
+        errorMessage = "Sorry, something is wrong with the system. Please try after sometime.";
     }
+    this.toaster.showErrorToaster(errorMessage);
   } 
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     let authReq;
     if (req.url.indexOf('login') < 0 && req.url.indexOf('token') < 0) {
-      const accesstoken = sessionStorage.getItem("jwt-token");
+      const accesstoken = sessionStorage.getItem("login-token");
       authReq = req.clone({
         headers: req.headers
           .set('Authorization', "Bearer " + accesstoken)
