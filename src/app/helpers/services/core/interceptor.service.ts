@@ -151,7 +151,7 @@ export class InterceptorService implements HttpInterceptor, ErrorHandler {
   }
   handleErrors(err: HttpErrorResponse) {
     console.log(err);
-    let errorMessage = err.error.message || err.message || "Sorry, something is wrong with the system. Please try after sometime.";
+    let errorMessage = err?.error.message || err?.message || "Sorry, something is wrong with the system. Please try after sometime.";
     switch (err.status) {
       case 404:
           break;
