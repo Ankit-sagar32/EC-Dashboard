@@ -23,7 +23,14 @@ export class TableDefault implements OnChanges, OnInit{
         let D = dt.getDate();
         let M = dt.getMonth()+1;
         let Y = dt.getFullYear();
-        return `${D}/${M}/${Y}`;
+        let hr = dt.getHours() || '00';
+        let mn = dt.getMinutes() || '00';
+        let sec = dt.getSeconds() || '00';
+        
+        hr = hr<9? '0' + hr : hr;
+        mn = mn<9? '0' + mn : mn;
+        sec = sec<9? '0' + sec : sec;
+        return `${D}-${M}-${Y} ${hr}:${mn}:${sec}`;
     }
 
     ngOnChanges() {

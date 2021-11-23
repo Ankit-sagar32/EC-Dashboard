@@ -46,7 +46,7 @@ export class HeaderComponent implements OnInit {
    
     let options = {
       headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
-        .set("Authorization", "Bearer " + btoa(this.boatId + ":"))
+        .set("Authorization", "Bearer " + sessionStorage.getItem("login-token"))
     }
 
     this.metadataService.revokeToken(this.boatId, sessionStorage.getItem("login-token") || "", options).subscribe((res: any)=>{
