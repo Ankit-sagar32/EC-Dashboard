@@ -159,7 +159,7 @@
                     <div class="controller-btn"><img style=" transform: rotate(180deg); " src="/assets/images/Expamd-02.svg" alt="" (click)="ExpandOutGraph()"></div>
                 </div>
             </div>
-            <div id="box" (blur)="onPopUpOut()" tabindex="22">
+            <div #nodeInfo id="box" (blur)="onPopUpOut()" tabindex="22">
                 <h6 class="node-properties" style="margin-top: 10px;"> Name: {{ this.nodeInfoPopUp.Name }}</h6>
                 <h6 class="node-properties"> Type: {{ this.nodeInfoPopUp.Type }}</h6>
                 <h6 class="node-properties"> IP: {{ this.nodeInfoPopUp.Ip }}</h6>
@@ -250,12 +250,12 @@
         
         <div *ngIf="displayTabComp == 'inventory'" style="width: 100%">
             <div class="container-node-options">
-                <div (click)="changeNodeOptions('inventory')" class="node-options"><img  src="assets/images/Inventory.svg"/></div>
+                <div id="nodeInventoryBtn" (click)="changeNodeOptions('inventory')" class="node-options"><img  src="assets/images/Inventory.svg"/></div>
                 <div (click)="changeNodeOptions('alarms')" class="node-options"><img  src="assets/images/Alarm.svg"/> </div>
                 <div (click)="changeNodeOptions('graph')" class="node-options"><img  src="assets/images/Graph.svg"/></div>
                 <div (click)="changeNodeOptions('traffic')" class="node-options"><img  src="assets/images/Traffic.svg"/></div>
             </div>
-            <app-inventory></app-inventory>
+            <app-inventory [selectedNodeInventoryDetails]="inventory"></app-inventory>
         </div>
     </div>
 </div>

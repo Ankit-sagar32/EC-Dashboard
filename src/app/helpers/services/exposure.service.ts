@@ -29,4 +29,15 @@ export class ExposureService {
     return this.apiService.postOptions(url, params, {headers: headerParams});
     // return this.apiService.get(url);
   }
+
+  getInventoryData(params?: any) {
+    let url = this.exposureUrl + "/nodes/Network/nodedetails";
+    let headerParams = {"Content-Type": "application/json"}
+    return this.apiService.get(url);
+  }
+
+  getInventoryEntityData(url: string, params?: any) {
+    let headerParams = {"Content-Type": "application/json"}
+    return this.apiService.get(url);
+  }
 }

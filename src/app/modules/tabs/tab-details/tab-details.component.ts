@@ -41,9 +41,18 @@ export class TabDetails implements OnInit {
 
     @ViewChild(SankeyComponent ) sankeyGraph: SankeyComponent | undefined ; 
     @ViewChild(NetworkGraph ) radialGraph: NetworkGraph | undefined ; 
+    @ViewChild(InventoryComponent) inventoryComponent: InventoryComponent | undefined;
 
     showNodeInfoPopUp: boolean = false;
     nodeInfoPopUp: any = {};
+    ip: any;
+    deviceType: any;
+    dc:any;
+    ifClicked: boolean = false;
+    selectedNodeData: any;
+
+    inventory : any = null;
+    inventoryFlag : boolean = false;
 
     constructor(
         private tabService: TabsService,
@@ -82,7 +91,7 @@ export class TabDetails implements OnInit {
             this.getGraphData(deviceType,deviceName);
         }
         else if(clickedNodeData?.node && !clickedNodeData.searched) {
-
+            this.selectedNodeData = clickedNodeData;
             this.nodeInfoPopUp.Name = clickedNodeData.node.name;
             this.nodeInfoPopUp.Type = clickedNodeData.node.type;
             this.nodeInfoPopUp.Ip = this.utilityService.getPropertyValue(clickedNodeData?.node, "ip") || "NA";
@@ -328,6 +337,36 @@ export class TabDetails implements OnInit {
   inventoryClick(){
     this.displayTabComp = 'inventory';
     console.log("in Inventory code.");
+    console.log(this.selectedNodeData);
+    let selectedNodeId = this.selectedNodeData?.node?.id;
+    this.exposureService.getInventoryData().subscribe((res: any) => {
+        let nodes = res.nodes || [];
+        let nodedDetails = res.nodes.find( (item: any) => item.id === selectedNodeId);
+        let groupingView = nodedDetails?.groupingView;
+
+        if(groupingView)
+        {
+            this.inventory = groupingView?.inventory;
+            this.inventoryFlag = this.inventory?.flag;
+        }
+    }, err => {
+        console.error("Error occurred while fetching the nodes Data: ", err);
+    })
+
+    setTimeout(()=>{
+        document.getElementById('nodeInventoryBtn')?.classList.remove('node-options');
+        document.getElementById('nodeInventoryBtn')?.classList.add('node-select');
+        let inventoryTabElement = document.getElementById('nodeInventoryBtn');
+        if(inventoryTabElement)
+        inventoryTabElement.getElementsByTagName('img')[0].src = "assets/images/Inventory-select.svg";
+        let invlabel = document.createElement('Label');
+        invlabel.innerHTML = 'Inventory';
+        invlabel.style.color = 'white';
+
+        invlabel.classList.add("node-label");
+        inventoryTabElement?.appendChild(invlabel);
+    }, 0);
+    
   }
 
   changeNodeOptions(option?: string){
