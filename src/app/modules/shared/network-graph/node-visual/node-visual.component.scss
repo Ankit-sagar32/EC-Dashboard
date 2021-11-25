@@ -20,15 +20,15 @@
   }
   
   .nodeImg {
-    height: 6px;
-    width: 6px;
-    transform: translate(-3px, -3px);
+    height: 5px;
+    width: 5px;
+    transform: translate(-2.5px, -2.5px);
     fill:green;
   }  
 
-  .nodeImg:hover {
-    fill:green;
-  }  
+  // .nodeImg:hover {
+  //   fill:green;
+  // }  
 
   // .node:hover {
   //   stroke: white;
@@ -45,19 +45,21 @@
 }
 .normal {
   image {
-    filter: invert(60%) sepia(90%) saturate(6103%) hue-rotate(253deg) brightness(78%) contrast(92%);
-    color: #8840c2;
+    filter: invert(13%) sepia(88%) saturate(6133%) hue-rotate(266deg) brightness(70%) contrast(102%);
+    color: #5414B4;
   }  
 }
-
+.node-group:hover {
+  transform: scale(1.2);
+}
 .normal:hover {
   image {
     filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(158deg) brightness(107%) contrast(101%);
     color: white;
   }  
   .node {
-    fill:#8840c2;
     filter: drop-shadow(0px 0px 3px rgb(84 20 180 / 0.6));
+    fill:#5414B4;
   }
 }
 
@@ -65,6 +67,10 @@
   image {
     filter: invert(53%) sepia(74%) saturate(2892%) hue-rotate(83deg) brightness(121%) contrast(124%);
     color: #ff0000;
+  }
+  .node {
+    filter: drop-shadow(0px 0px 3px #ff0000);
+    fill:#ff0000;
   }  
 }
 .down {
@@ -72,4 +78,11 @@
     filter: invert(20%) sepia(91%) saturate(7465%) hue-rotate(359deg) brightness(104%) contrast(116%);
     color: #00ff00;
   }  
+  .node {
+    filter: drop-shadow(0px 0px 3px #00ff00);
+    fill:#00ff00;
+  } 
 }
+// .node-wrapper:hover {
+  
+// }

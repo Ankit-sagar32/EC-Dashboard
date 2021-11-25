@@ -13,8 +13,6 @@ export class NodeVisualComponent implements OnInit{
   nodeSVG: any;
 
   constructor(){
-    console.log("node: ", this.node);
-    
   }
 
   ngOnInit(){
@@ -28,7 +26,12 @@ export class NodeVisualComponent implements OnInit{
     return img;
   }
   getState(nod:any){
-    switch (nod?.name?.substr(nod?.name.length - 1)) {
+    let alarmstate = nod?.groupingView?.alarm?.status
+    switch (alarmstate) {
+      case "up":
+        return "up";
+      case "down":
+        return "down";
       default:
         return "normal";
     }

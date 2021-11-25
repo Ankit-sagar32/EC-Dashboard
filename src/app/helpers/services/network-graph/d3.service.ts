@@ -40,11 +40,11 @@ export class D3Service {
       }
 
       d3.event.on('drag', () => {
-        console.log("drag started!");
+        // console.log("drag started!");
         node.fx = d3.event.x;
         node.fy = d3.event.y;
       }).on('end', () => {
-        console.log("drag ended!");
+        // console.log("drag ended!");
         if (!d3.event.active) {
           graph.simulation.alphaTarget(0);
         }

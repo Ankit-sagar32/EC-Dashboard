@@ -56,7 +56,7 @@ export class NetworkGraph implements OnInit, OnChanges {
             nodes.map(node => {
                 legends.push({
                     name: node.type,
-                    image: 'assets/images/'+ node.type+".svg"
+                    image: 'assets/images/'+ node.type+"-01.svg"
                 })
             });
         }

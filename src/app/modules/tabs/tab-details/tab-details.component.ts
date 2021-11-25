@@ -105,7 +105,6 @@ export class TabDetails implements OnInit {
             d?.focus();
             this.showNodeInfoPopUp = true; 
         } else {
-            console.log(document.activeElement);
             this.showNodeInfoPopUp = false;
         }
         if(d) d.style.display = this.showNodeInfoPopUp? "block": "none";
