@@ -159,16 +159,22 @@
                     <div class="controller-btn"><img style=" transform: rotate(180deg); " src="/assets/images/Expamd-02.svg" alt="" (click)="ExpandOutGraph()"></div>
                 </div>
             </div>
-            <div #nodeInfo id="box" (blur)="onPopUpOut()" tabindex="22">
-                <h6 class="node-properties" style="margin-top: 10px;"> Name: {{ this.nodeInfoPopUp.Name }}</h6>
-                <h6 class="node-properties"> Type: {{ this.nodeInfoPopUp.Type }}</h6>
-                <h6 class="node-properties"> IP: {{ this.nodeInfoPopUp.Ip }}</h6>
-                <h6 class="node-properties"> DC: {{ this.nodeInfoPopUp.DC }}</h6>
-                <h6 class="node-properties" style="border-bottom: 1px solid lightgrey"> Severity:  </h6>
-                <img class="pointer-csr" (click)="inventoryClick()" src="assets/images/Inventory.svg" style="margin-left: 15px; margin-top: 5px; margin-right: 5px;" />
-                <img class="not-allowed-csr" src="assets/images/Alarm.svg" style="margin-top: 5px; margin-right: 5px;"/> 
-                <img class="not-allowed-csr" src="assets/images/Graph.svg" style="margin-top: 5px; margin-right: 5px;"/> 
-                <img class="not-allowed-csr" src="assets/images/Traffic.svg" style="margin-top: 5px"/> 
+            <div #nodeInfo id="node-popup" (blur)="onPopUpOut()" tabindex="22">
+                <span class="dismiss-popup" (click)="onPopUpOut()">x</span>
+                <div class="popup-properties-section">
+                    <h6 class="node-properties" style="margin-top: 10px;"><div class="property-name">Name : </div><div class="property-value">{{ this.nodeInfoPopUp.Name }}</div></h6>
+                    <h6 class="node-properties"> <div class="property-name">Type : </div> <div class="property-value">{{ this.nodeInfoPopUp.Type }}</div></h6>
+                    <h6 class="node-properties"> <div class="property-name">IP : </div> <div class="property-value">{{ this.nodeInfoPopUp.Ip }}</div></h6>
+                    <h6 class="node-properties"> <div class="property-name">DC : </div> <div class="property-value">{{ this.nodeInfoPopUp.DC }}</div></h6>
+                    <!-- <h6 class="node-properties" style="border-bottom: 1px solid lightgrey"> Severity:  </h6> -->
+                </div>
+                <hr/>
+                <div class="popup-icon-section">
+                    <img class="popup-icon pointer-csr" (click)="inventoryClick()" src="assets/images/Inventory.svg"/>
+                    <img class="popup-icon not-allowed-csr" src="assets/images/Alarm.svg"/> 
+                    <img class="popup-icon not-allowed-csr" src="assets/images/Graph.svg"/> 
+                    <img class="popup-icon not-allowed-csr" src="assets/images/Traffic.svg" /> 
+                </div>
             </div>
         </div>
         <!-- Graph End -->

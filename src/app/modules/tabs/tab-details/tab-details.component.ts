@@ -83,7 +83,7 @@ export class TabDetails implements OnInit {
       let clickedNodeData: any;
       this.dataSvc.childEventListner().subscribe(info =>{
         clickedNodeData = info;
-        var d = document.getElementById('box');
+        var d = document.getElementById('node-popup');
         if(clickedNodeData?.searched) {
             this.showNodeInfoPopUp = false;
             const deviceName = clickedNodeData.node?.name;
@@ -97,7 +97,7 @@ export class TabDetails implements OnInit {
             this.nodeInfoPopUp.Ip = this.utilityService.getPropertyValue(clickedNodeData?.node, "ip") || "NA";
             this.nodeInfoPopUp.DC = this.utilityService.getPropertyValue(clickedNodeData?.node, "group") || "NA";
             this.nodeInfoPopUp.links = ""; // ADD the links in similar way
-            var d = document.getElementById('box');
+            var d = document.getElementById('node-popup');
             if(d){
                 d.style.left = clickedNodeData.posX +'px';
                 d.style.top = clickedNodeData.posY +'px';
@@ -138,7 +138,7 @@ export class TabDetails implements OnInit {
     }
     onPopUpOut() {
         this.showNodeInfoPopUp = false;
-        var d = document.getElementById('box');
+        var d = document.getElementById('node-popup');
         if(d) d.style.display = "none";
     }
     getGraphData(deviceName?: any, siteName?: any) {
