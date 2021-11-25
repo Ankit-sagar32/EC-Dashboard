@@ -10,7 +10,9 @@ import { Link } from 'src/app/helpers/models/network-graph';
         [attr.y1]="link?.source?.y"
         [attr.x2]="link?.target?.x"
         [attr.y2]="link?.target?.y"
-    ></svg:line>
+    >
+    <title>{{getLinkHoverInfo(link)}}</title>
+    </svg:line>
   `,
   styleUrls: ['./link-visual.component.scss']
 })
@@ -19,5 +21,8 @@ export class LinkVisualComponent  {
 
   getLinkClasses(link: any) {
     return link?.source?.id + " " + link?.target?.id;
+  }
+  getLinkHoverInfo(link: any) {
+    return link?.source?.name + ' → ' + link?.target?.name;
   }
 }
