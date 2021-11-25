@@ -35,6 +35,7 @@ export class SankeyComponent implements OnInit, OnDestroy {
     private ngZone: NgZone,
     private dataServcice: DataService,
     private utilityService : UtilityService,
+    private dataSvc: DataService,
     @Inject(DOCUMENT) private document : Document
   ) {
     this.userFlowData = new UserFlow();
@@ -357,10 +358,19 @@ export class SankeyComponent implements OnInit, OnDestroy {
           .selectAll('.node')
           .data(subNodes)
           .enter().append('g')
+          .attr('id', (d: any) => d.name + "_" + d.id)
           .on('mouseover', this.fade(chartData, svg, 1))
           .on('mouseout', this.fade(chartData, svg, 0.7))
-          .on('click', (d) => {
+          .on('click', (d: any) => {
             this.fnOnNodeClicked(d);
+            const el = document.getElementById(d.name + "_" + d.id);
+            const {top, left} = this.getCoords(el);
+            this.dataSvc.emitChildEvent({
+              searched: false,
+              node: d,
+              posX: left + 8,
+              posY: top - 22
+            });
           });
 
         eachNodeChart.append('rect')
@@ -446,6 +456,12 @@ export class SankeyComponent implements OnInit, OnDestroy {
     }
   }
 
+  onBackGroundClick(){
+    this.dataSvc.emitChildEvent({
+      searched: false
+    });
+  }
+  
   // function gets called on click of a node
   fnOnNodeClicked(clickedNode: any): void {
     if(this.window){
@@ -470,6 +486,23 @@ export class SankeyComponent implements OnInit, OnDestroy {
       console.log('node clicked', node);
     }
   }
+  getCoords(elem: any) {
+    var box = elem.getBoundingClientRect();
+
+    var body = document.body;
+    var docEl = document.documentElement;
+
+    var scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop;
+    var scrollLeft = window.pageXOffset || docEl.scrollLeft || body.scrollLeft;
+
+    var clientTop = docEl.clientTop || body.clientTop || 0;
+    var clientLeft = docEl.clientLeft || body.clientLeft || 0;
+
+    var top  = box.top +  scrollTop - clientTop;
+    var left = box.left + scrollLeft - clientLeft;
+
+    return { top: Math.round(top), left: Math.round(left) };
+}
 
   PanGraph(direction: string) {
     switch (direction) {
