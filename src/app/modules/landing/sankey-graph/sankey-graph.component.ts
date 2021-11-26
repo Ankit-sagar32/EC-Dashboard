@@ -580,6 +580,13 @@ export class SankeyComponent implements OnInit, OnDestroy {
 		.transition()
 		.call(this.zoom.scaleBy, 0.5);
   }
+  
+  ResetGraph() {
+    this.isFetchingUserFlowData = true;
+    setTimeout(() => {
+        this.isFetchingUserFlowData = false;
+    }, 100);
+  }
 
   ngOnDestroy(): void {
     // Unsubscribe from all subscriptions

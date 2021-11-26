@@ -196,13 +196,17 @@ export class NetworkGraph implements OnInit, OnChanges {
         this.radialGraph?.PanGraph(direction);
     }
 
-    ExpandGraph () {
-
-    }
     ZoomInGraph () {
         this.radialGraph?.ZoomInGraph();
     }
     ZoomOutGraph () {
         this.radialGraph?.ZoomOutGraph();
     }
+
+    ResetGraph() {
+        this.isLoading = true;
+        setTimeout(() => {
+            this.isLoading = false;
+        }, 100);
+      }
 }

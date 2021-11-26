@@ -319,7 +319,35 @@ export class TabDetails implements OnInit {
     }
 
     ExpandGraph () {
-
+        var doc: any = document;
+        if (
+              doc.fullscreenElement ||
+              doc.webkitFullscreenElement ||
+              doc.mozFullScreenElement ||
+              doc.msFullscreenElement
+            ) {
+              if (doc.exitFullscreen) {
+                doc.exitFullscreen();
+              } else if (doc.mozCancelFullScreen) {
+                doc.mozCancelFullScreen();
+              } else if (doc.webkitExitFullscreen) {
+                doc.webkitExitFullscreen();
+              } else if (doc.msExitFullscreen) {
+                doc.msExitFullscreen();
+              }
+            } else {
+              let element: any = document.getElementById("graphBody");
+              let el: any = Element;
+              if (element && element.requestFullscreen) {
+                element.requestFullscreen();
+              } else if (element && element.mozRequestFullScreen) {
+                element.mozRequestFullScreen();
+              } else if (element && element.webkitRequestFullscreen) {
+                element.webkitRequestFullscreen(el.ALLOW_KEYBOARD_INPUT);
+              } else if (element && element.msRequestFullscreen) {
+                element.msRequestFullscreen();
+              }
+            }
     }
     ZoomInGraph () {
         if(this.graphToLoad == 'sankey_graph')
@@ -333,8 +361,18 @@ export class TabDetails implements OnInit {
         else if(this.graphToLoad == 'radial-view')
             this.radialGraph?.ZoomOutGraph();
     }
-    ExpandOutGraph () {
-
+    ResetGraph () {
+        // if(this.graphToLoad == 'sankey_graph')
+        //     this.sankeyGraph?.ResetGraph();
+        // else if(this.graphToLoad == 'radial-view')
+        //     this.radialGraph?.ResetGraph();
+    }
+    isFullScreen() {
+        var doc: any = document;
+        return doc.fullscreenElement ||
+        doc.webkitFullscreenElement ||
+        doc.mozFullScreenElement ||
+        doc.msFullscreenElement;
     }
 
   inventoryClick(){

@@ -5,7 +5,7 @@
     
           <!-- if data not loading -->
           <!-- data found -->
-          <svg [hidden]="!userFlowData.nodes.length" id="sankey" class="p-1 pb-3" (mousedown)="onBackGroundClick()"></svg>
+          <svg [hidden]="isFetchingUserFlowData&&!userFlowData.nodes.length" id="sankey" class="p-1 pb-3" (mousedown)="onBackGroundClick()"></svg>
           <!-- data not found -->
           <div [hidden]="userFlowData.nodes.length">
             <div class="d-flex justify-content-center">
