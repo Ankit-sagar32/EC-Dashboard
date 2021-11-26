@@ -186,11 +186,23 @@
                 <div class="alarms-header">
                     <div class="alarms-name">{{'Alarms'}}</div>
     
+                    <div class="alarms-search">
+                        <!-- <app-data-list [dataList]="deviceNames" (onChange)="onDeviceNameChange($event)"
+                        [placeHolderText]="'Search for Devices'"></app-data-list> -->
+                        <input class="form-control data-list-inp" list="datalistOptions" id="exampleDataList" [value]="selectedValue" (change)="onSelectData($event)" placeholder="{{placeHolderText}}">
+                        <datalist id="datalistOptions">
+                            <option *ngFor="let option of dataList" [value]="option.name">
+                        </datalist>
+                        <div class="search {{!!this.selectedDeviceType && !!this.selectedDeviceNames?'active':''}}"
+                            (click)="!!this.selectedDeviceType && !!this.selectedDeviceNames && searchSelectedDevice()">
+                            <i class="fas fa-lg fa-search search-icon"></i>
+                        </div>
+                    </div>
                     <div class="alarms-header-controls">
-                        <div class="filters">
+                        <!-- <div class="filters">
                             <i class="far fa-filter"></i>
                             <span>Filters</span>
-                        </div>
+                        </div> -->
     
                         <div class="exportCSV">
                             <img class="not-allowed-csr" src="assets/images/download.svg" />

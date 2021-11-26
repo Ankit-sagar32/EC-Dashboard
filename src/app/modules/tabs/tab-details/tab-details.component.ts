@@ -35,6 +35,10 @@ export class TabDetails implements OnInit {
     expandTopologyBool: boolean = true;
     expandAlarmsBool: boolean = true;
     displayTabComp: string = "native";
+    selectedValue: string = "";
+    dataList :any[] = [];
+    placeHolderText: string = "Search for Devices";
+
 
     @ViewChild('alarmsWrapper') alarmsWrapper!: ElementRef ;
     @ViewChild('graphsWrapper') graphsWrapper!: ElementRef ;
@@ -368,8 +372,23 @@ export class TabDetails implements OnInit {
     
   }
 
-  changeNodeOptions(option?: string){
+    changeNodeOptions(option?: string){
     this.displayTabComp = 'native'
+    }
+
+    onSelectData(event:any){
+        let selectedOption = event.target.value;
+        if(this.isValidOption(selectedOption)){
+            this.selectedValue = selectedOption;
+            // this.onChange.emit(selectedOption);
+        }else {
+            this.selectedValue = "";
+        }
+    }
+
+    isValidOption(option:any){
+        let filterdData = this.dataList.filter(item => item.name === option);
+        return filterdData.length > 0;
     }
 
 }
