@@ -636,13 +636,19 @@ input {
         padding-right: 14px;
         font-size: 16px;
         .node-properties {
+            font-size: smaller; 
+            margin-left: 2px;
             color: #5414B4;
+            display: flex;
             .property-name {
                 display: inline-block;
                 width: 28%;
             }
             .property-value {
                 display: inline-block;
+                white-space: inherit;
+                word-break: break-word;
+                width: 70%;
             }
         }
     }
@@ -682,15 +688,6 @@ input {
 	border-top: 25px solid transparent;
 	border-left: 50px solid #555;
 	border-bottom: 25px solid transparent;
-}
-
-.node-properties{
-    color:#a7a6a6;
-    font-size: smaller; 
-    margin-left: 2px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .container-node-options{

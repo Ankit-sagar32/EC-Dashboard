@@ -9,7 +9,8 @@ export class DataService {
 
   onDataTypeSelectionChange : BehaviorSubject<any> = new BehaviorSubject("");
   private childClickedEvent = new BehaviorSubject<any>('');
-
+  private legendUpdate = new BehaviorSubject<any>([]);
+  
   constructor(private http: HttpClient) { }
 
   /**
@@ -36,6 +37,14 @@ export class DataService {
 
  childEventListner(){
     return this.childClickedEvent.asObservable();
+  } 
+
+  emitLegendUpdate(legend: any){
+    this.legendUpdate.next(legend)
+  }
+
+  legendListner(){
+    return this.legendUpdate.asObservable();
   } 
 
 }

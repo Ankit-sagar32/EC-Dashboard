@@ -54,16 +54,18 @@ export class SankeyComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.loadData();
+    this.loadData(this.graphData);
+    this.buildLegends(this.graphData.nodes);
+    this.dataSvc.legendListner().subscribe(legend => {
+      this.filterGraphDataByLegend(legend);
+    });
   }
 
   /* This will call API and load data */
-  loadData(): void {
-    this.legends = [];
-    let updatedGraphData = this.adjustGraphNodesAndLinks(this.graphData)
+  loadData(graphData: any): void {
+    let updatedGraphData = this.adjustGraphNodesAndLinks(graphData);
     let transformedData = this.transformData(updatedGraphData);
-        this.userFlowData.nodes = transformedData.nodes;
-    this.buildLegends(transformedData['nodes']);
+    this.userFlowData.nodes = transformedData.nodes;
     this.userFlowData.links = transformedData.links;
     if (this.userFlowData.nodes.length) {
       this.drawChart(this.userFlowData);
@@ -73,18 +75,52 @@ export class SankeyComponent implements OnInit, OnDestroy {
   }
   
   buildLegends(nodes:any[]){
-    let legends : any[] = [];
+    this.legends = [];
     if(nodes.length > 0){
         nodes.map(node => {
-            legends.push({
+            this.legends.push({
                 name: node.type,
-                color: this.selectColorCode(node.type)
+                color: this.selectColorCode(node.type),
+                selected: true
             })
         });
     }
-    this.legends = this.utilityService.countOccurrence(legends, "name");
-}
+    this.legends = this.utilityService.countOccurrence(this.legends, "name");
+    this.dataSvc.emitLegendUpdate(this.legends);
+  }
 
+  filterGraphDataByLegend(legend: any[]) {
+    //if(JSON.stringify(legend) == JSON.stringify(this.legends)) return;
+    this.legends = legend;
+    let filteredGraphData = {
+      nodes : this.graphData.nodes.map((m:any) => m),
+      links: this.graphData.links.map((m:any) => m),
+      hrefs: this.graphData.hrefs.map((m:any) => m),
+    };
+    let nodeStatus: any = {};
+    filteredGraphData.nodes?.forEach((node: any) => {
+      for (var i = 0; i < legend.length; ++i) {
+          if(legend[i].name == node?.type){ 
+              nodeStatus[node?.name] = legend[i].selected;
+              return;
+          }
+      }
+      nodeStatus[node?.name] = false;
+      return;
+    });
+    Object.keys(nodeStatus).forEach((key) => {
+      Array.prototype.forEach.call(document.getElementsByClassName(key), function(element) {
+          let status = true;
+          for (var i = 0; i < element.classList.length; ++i) {
+              if(nodeStatus[element.classList[i]] === false) {
+                  status = false;
+                  break;
+              }
+          }
+          element.style.display = status?"inline":"none";
+      });
+   });
+  }
   sankeyLinkPath(link:any) {
     // this is a drop in replacement for d3.sankeyLinkHorizontal()
     // well, without the accessors/options
@@ -319,6 +355,7 @@ export class SankeyComponent implements OnInit, OnDestroy {
         .data(subLinks)
         .enter()
         .append('path')
+        .attr('class', (d: any) => d.source.name + " " + d.target.name)
         .attr('d', (d) => this.sankeyLinkPath(d))
         .attr('fill', (d) => { return "url(#" + this.getGradID(d) + ")";})
         .attr('stroke', (d) => { return "url(#" + this.getGradID(d) + ")";})
@@ -359,6 +396,8 @@ export class SankeyComponent implements OnInit, OnDestroy {
           .data(subNodes)
           .enter().append('g')
           .attr('id', (d: any) => d.name + "_" + d.id)
+          .attr('class', (d: any) => d.name)
+          .style('cursor', 'pointer')
           .on('mouseover', this.fade(chartData, svg, 1))
           .on('mouseout', this.fade(chartData, svg, 0.7))
           .on('click', (d: any) => {
@@ -369,7 +408,7 @@ export class SankeyComponent implements OnInit, OnDestroy {
               searched: false,
               node: d,
               posX: left + 8,
-              posY: top - 22
+              posY: top - 18
             });
           });
 

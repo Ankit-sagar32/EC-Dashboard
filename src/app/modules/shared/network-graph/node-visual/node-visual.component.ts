@@ -52,7 +52,7 @@ export class NodeVisualComponent implements OnInit{
     if(node?.id){
       let elements = document.getElementsByClassName(node.id);
       if(elements && elements.length>0){
-        Array.prototype.forEach.call(document.getElementsByClassName(node.id), function(element) {
+        Array.prototype.forEach.call(document.getElementsByClassName(node.id + " link"), function(element) {
           element.style["stroke-width"] = highlight?"0.5px":"0.25";
           element.style.stroke = highlight?"#5414B4":"grey";
       });

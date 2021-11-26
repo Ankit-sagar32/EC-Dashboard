@@ -7,6 +7,7 @@ import { TableDefault } from './table/table.component';
 import { D3_DIRECTIVES } from 'src/app/helpers/directives/network-graph';
 import { SHARED_VISUALS } from './network-graph/';
 import { GraphComponent } from './network-graph/graph/graph.component';
+import { GraphLegendComponent } from './graph-legend/graph-legend.component';
 
 
 
@@ -17,7 +18,8 @@ import { GraphComponent } from './network-graph/graph/graph.component';
     TableDefault,
     GraphComponent,
     ...SHARED_VISUALS,
-    ...D3_DIRECTIVES
+    ...D3_DIRECTIVES,
+    GraphLegendComponent
   ],
   imports: [
     CommonModule,
@@ -28,6 +30,7 @@ import { GraphComponent } from './network-graph/graph/graph.component';
     DropDown,
     TableDefault,
     GraphComponent,
+    GraphLegendComponent,
     ...SHARED_VISUALS,
     ...D3_DIRECTIVES
   ]

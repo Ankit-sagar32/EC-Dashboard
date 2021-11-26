@@ -31,37 +31,77 @@ export class NetworkGraph implements OnInit, OnChanges {
         private dataServcie: DataService, 
         private utilityService : UtilityService,
         private route: ActivatedRoute,
+        private dataSvc: DataService,
         ) {
     }
     
-    ngOnInit() { 
-        console.log("Graph Data", this.graphData);
-        this.legends = [];
-        const transformedData : any = this.transformData(this.graphData);
-        this.convertDataToGraphData(transformedData);
-        this.buildLegends(transformedData['nodes']);
+    ngOnInit() {
+        this.loadData(this.graphData);
+        this.buildLegends(this.graphData?.nodes);
+        this.dataSvc.legendListner().subscribe(legend => {
+            this.filterGraphDataByLegend(legend);
+          });
     }
     
     ngOnChanges(changes: SimpleChanges): void {
         if(!changes.graphData.firstChange && changes.graphData) {
-            const transformedData : any = this.transformData(changes.graphData.currentValue);
-            this.convertDataToGraphData(transformedData);
-            this.buildLegends(transformedData['nodes']);
+            this.loadData(changes.graphData.currentValue)
+            this.buildLegends(this.graphData?.nodes);
         }
     }
 
+    loadData(graphData: any) {
+        const transformedData : any = this.transformData(graphData);
+        this.convertDataToGraphData(transformedData);
+    }
+
     buildLegends(nodes:any[]){
-        let legends : any[] = [];
+        this.legends = [];
         if(nodes.length > 0){
             nodes.map(node => {
-                legends.push({
+                this.legends.push({
                     name: node.type,
-                    image: 'assets/images/'+ node.type+"-01.svg"
+                    image: 'assets/images/'+ node.type+"-01.svg",
+                    selected: true
                 })
             });
         }
-        this.legends = this.utilityService.countOccurrence(legends, "name");
+        this.legends = this.utilityService.countOccurrence(this.legends, "name");
+        this.dataSvc.emitLegendUpdate(this.legends);
     }
+
+    filterGraphDataByLegend(legend: any[]) {
+        //if(JSON.stringify(legend) == JSON.stringify(this.legends)) return;
+        this.legends = legend;
+        let filteredGraphData = {
+            nodes : this.graphData.nodes.map((m:any) => m),
+            links: this.graphData.links.map((m:any) => m),
+            hrefs: this.graphData.hrefs.map((m:any) => m),
+        };
+        let nodeStatus: any = {};
+        filteredGraphData.nodes?.forEach((node: any) => {
+            for (var i = 0; i < legend.length; ++i) {
+                if(legend[i].name == node?.type){ 
+                    nodeStatus[node?.id] = legend[i].selected;
+                    return;
+                }
+            }
+            nodeStatus[node?.id] = false;
+            return;
+        });
+        Object.keys(nodeStatus).forEach((key) => {
+            Array.prototype.forEach.call(document.getElementsByClassName(key), function(element) {
+                let status = true;
+                for (var i = 0; i < element.classList.length; ++i) {
+                    if(nodeStatus[element.classList[i]] === false) {
+                        status = false;
+                        break;
+                    }
+                }
+                element.style.display = status?"inline":"none";
+            });
+         });
+      }
 
     convertDataToGraphData(data:any) {
         this.nodes = [];

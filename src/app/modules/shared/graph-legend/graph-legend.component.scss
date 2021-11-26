@@ -1,0 +1,30 @@
+.legendWrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 2px;
+    padding-left: 10px;
+    font-weight: 500;
+    z-index: 5;
+    flex-flow: wrap;
+    .legend {
+      display: flex;
+      align-items: center;
+      padding: 8px 7px;
+      .legendColorImage {
+        height: 15px;
+        margin-right: 3px;
+        width: 15px;
+        border-radius: 2px;
+      }
+      .legendCheckbox {
+        margin-right: 3px;
+      }
+      .legendImage {
+        height: 20px;
+        margin-right: 3px;
+        filter: invert(13%) sepia(88%) saturate(6133%) hue-rotate(266deg) brightness(70%) contrast(102%);
+        color: #5414B4;
+    }
+    }
+  }

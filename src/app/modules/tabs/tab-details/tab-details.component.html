@@ -126,6 +126,7 @@
               
             </div>
             <div class="graph-body" *ngIf="showGraph && graphData">
+                <app-graph-legend style="position: absolute; z-index: 5;"></app-graph-legend>
                 <ng-template [ngIf]="graphToLoad == 'sankey_graph'">
                     <app-sankey-graph [graphData]="graphData"></app-sankey-graph>
                 </ng-template>
