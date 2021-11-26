@@ -190,9 +190,9 @@
                     <div class="alarms-search">
                         <!-- <app-data-list [dataList]="deviceNames" (onChange)="onDeviceNameChange($event)"
                         [placeHolderText]="'Search for Devices'"></app-data-list> -->
-                        <input class="form-control data-list-inp" list="datalistOptions" id="exampleDataList" [value]="selectedValue" (change)="onSelectData($event)" placeholder="{{placeHolderText}}">
-                        <datalist id="datalistOptions">
-                            <option *ngFor="let option of dataList" [value]="option.name">
+                        <input class="form-control data-list-inp" list="alarmlistOptions" id="exampleDataList" [value]="selectedValue" (change)="onSelectData($event)" placeholder="{{placeHolderText}}">
+                        <datalist id="alarmlistOptions">
+                            <option *ngFor="let option of alarmsOptions" [value]="option.entityname">
                         </datalist>
                         <div class="search {{!!this.selectedDeviceType && !!this.selectedDeviceNames?'active':''}}"
                             (click)="!!this.selectedDeviceType && !!this.selectedDeviceNames && searchSelectedDevice()">

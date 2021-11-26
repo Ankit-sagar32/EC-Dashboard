@@ -26,6 +26,7 @@ export class TabDetails implements OnInit {
     graphToLoad: string = "sankey_graph";
     toggleGraphSettings: boolean = false;
     alarms: any[] = [];
+    alarmsOptions: any[] = [];
     insights = {"alarmCount":0, "deviceCount":27, "alarmDeviceCount":0};
     alarmsTableColumns: any[] = [];
     entityTableColumns: any[] = [];
@@ -37,7 +38,7 @@ export class TabDetails implements OnInit {
     displayTabComp: string = "native";
     selectedValue: string = "";
     dataList :any[] = [];
-    placeHolderText: string = "Search for Devices";
+    placeHolderText: string = "Search";
 
 
     @ViewChild('alarmsWrapper') alarmsWrapper!: ElementRef ;
@@ -177,6 +178,7 @@ export class TabDetails implements OnInit {
         let url = "alarm/api/view";
         this.exposureService.getAlarmData({"nodes": nodes}).subscribe((res: any) => {
             this.alarms = res.deviceData || [];
+            this.alarmsOptions = res.deviceData || [];
             this.insights.alarmCount = res.alarmCount || 0;
             this.insights.deviceCount = res.deviceCount || 0;
             this.insights.alarmDeviceCount = res.alarmDeviceCount || 0;
@@ -415,18 +417,14 @@ export class TabDetails implements OnInit {
     }
 
     onSelectData(event:any){
-        let selectedOption = event.target.value;
-        if(this.isValidOption(selectedOption)){
-            this.selectedValue = selectedOption;
-            // this.onChange.emit(selectedOption);
-        }else {
-            this.selectedValue = "";
-        }
-    }
 
-    isValidOption(option:any){
-        let filterdData = this.dataList.filter(item => item.name === option);
-        return filterdData.length > 0;
+        let selectedOption = event.target.value;
+        if(selectedOption == ''){
+            this.alarms = this.alarmsOptions;
+        } else {
+            let filterdData = this.alarmsOptions.filter(item => item.entityname === selectedOption);
+            this.alarms = filterdData;
+        }
     }
 
 }
