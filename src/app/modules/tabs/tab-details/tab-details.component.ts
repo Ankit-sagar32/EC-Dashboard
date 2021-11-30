@@ -39,6 +39,7 @@ export class TabDetails implements OnInit {
     selectedValue: string = "";
     dataList :any[] = [];
     placeHolderText: string = "Search";
+    nodetabs: any[] = [];
 
 
     @ViewChild('alarmsWrapper') alarmsWrapper!: ElementRef ;
@@ -382,6 +383,9 @@ export class TabDetails implements OnInit {
     console.log("in Inventory code.");
     console.log(this.selectedNodeData);
     let selectedNodeId = this.selectedNodeData?.node?.id;
+    
+    this.displayTabComp = 'node_'+selectedNodeId;
+
     this.exposureService.getInventoryData().subscribe((res: any) => {
         let nodes = res.nodes || [];
         let nodedDetails = res.nodes.find( (item: any) => item.id === selectedNodeId);
@@ -391,6 +395,7 @@ export class TabDetails implements OnInit {
         {
             this.inventory = groupingView?.inventory;
             this.inventoryFlag = this.inventory?.flag;
+            this.nodetabs.push({id: selectedNodeId, name: "node_"+ selectedNodeId});
         }
     }, err => {
         console.error("Error occurred while fetching the nodes Data: ", err);
@@ -426,6 +431,31 @@ export class TabDetails implements OnInit {
             this.alarms = filterdData;
         }
     }
+
+    onTopologyViewTabClick()
+    {
+      this.displayTabComp = 'native';
+    }
+  
+    nodeTabClick(tab?: any) {
+      //this.displayTabComp = 'inventory';
+      let tabname = tab?.name;
+      let id = tab?.id;
+
+        for (var tab of this.nodetabs) {
+            if (tabname === tab.name) {
+                this.displayTabComp = tab.name;
+            }
+            else if(tab.name == 'Topology View') {
+                this.displayTabComp = 'native';
+            }
+        }
+    }
+
+    isNodeTabVisible(tab: any){
+        //console.log(eval(value));
+        return this.displayTabComp == tab?.name; 
+      }
 
 }
 

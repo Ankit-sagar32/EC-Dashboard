@@ -1,9 +1,16 @@
 <div class="tabDetailsWrapper">
     <div class="tab-header">
-        <div class="dashboard">
+        <div class="dashboard" (click)="onTopologyViewTabClick()">
             <p>
             Topology View
             </p>
+        </div>
+        <div *ngFor="let tab of nodetabs">
+            <div class="dashboard" (click)="nodeTabClick(tab)">
+                <p>
+                {{tab.name}}
+                </p>
+            </div>
         </div>
         <div class="signals">
             <!-- <div class="up">
@@ -268,7 +275,18 @@
         </div>
         <!-- Alarms End -->
         
-        <div *ngIf="displayTabComp == 'inventory'" style="width: 100%">
+        <!-- <div #inventoryWrapper *ngIf="displayTabComp == 'inventory'" style="width: 100%">
+            <div class="container-node-options">
+                <div id="nodeInventoryBtn" (click)="changeNodeOptions('inventory')" class="node-options"><img  src="assets/images/Inventory.svg"/></div>
+                <div (click)="changeNodeOptions('alarms')" class="node-options"><img  src="assets/images/Alarm.svg"/> </div>
+                <div (click)="changeNodeOptions('graph')" class="node-options"><img  src="assets/images/Graph.svg"/></div>
+                <div (click)="changeNodeOptions('traffic')" class="node-options"><img  src="assets/images/Traffic.svg"/></div>
+            </div>
+            <app-inventory [selectedNodeInventoryDetails]="inventory"></app-inventory>
+        </div> -->
+    <div *ngFor="let tab of nodetabs">
+        <div #inventoryWrapper *ngIf="displayTabComp != 'native'" style="width: 200%">
+            <div id=[tab.id] *ngIf="isNodeTabVisible(tab)">
             <div class="container-node-options">
                 <div id="nodeInventoryBtn" (click)="changeNodeOptions('inventory')" class="node-options"><img  src="assets/images/Inventory.svg"/></div>
                 <div (click)="changeNodeOptions('alarms')" class="node-options"><img  src="assets/images/Alarm.svg"/> </div>
@@ -277,5 +295,7 @@
             </div>
             <app-inventory [selectedNodeInventoryDetails]="inventory"></app-inventory>
         </div>
+    </div>
+    </div>
     </div>
 </div>
