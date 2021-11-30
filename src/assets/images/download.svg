@@ -1,76 +1,14 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
-<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 490 490" style="enable-background:new 0 0 490 490;" xml:space="preserve">
-<g>
-	<g>
-		<g>
-			<path d="M245,0c-9.5,0-17.2,7.7-17.2,17.2v331.2L169,289.6c-6.7-6.7-17.6-6.7-24.3,0s-6.7,17.6,0,24.3l88.1,88.1
-				c3.3,3.3,7.7,5,12.1,5c4.4,0,8.8-1.7,12.1-5l88.1-88.1c6.7-6.7,6.7-17.6,0-24.3c-6.7-6.7-17.6-6.7-24.3,0L262,348.4V17.1
-				C262.1,7.6,254.5,0,245,0z"/>
-			<path d="M462.1,472.9v-99.7c0-9.5-7.7-17.2-17.2-17.2s-17.2,7.7-17.2,17.2v82.6H62.2v-82.6c0-9.5-7.7-17.2-17.1-17.2
-				s-17.2,7.7-17.2,17.2v99.7c0,9.5,7.7,17.1,17.2,17.1h399.8C454.4,490,462.1,482.4,462.1,472.9z"/>
-		</g>
-	</g>
-	<g>
-	</g>
-	<g>
-	</g>
-	<g>
-	</g>
-	<g>
-	</g>
-	<g>
-	</g>
-	<g>
-	</g>
-	<g>
-	</g>
-	<g>
-	</g>
-	<g>
-	</g>
-	<g>
-	</g>
-	<g>
-	</g>
-	<g>
-	</g>
-	<g>
-	</g>
-	<g>
-	</g>
-	<g>
-	</g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-Download">
+      <rect width="24" height="24"/>
+    </clipPath>
+  </defs>
+  <g id="Download" clip-path="url(#clip-Download)">
+    <g id="Icon_feather-download" data-name="Icon feather-download" transform="translate(3.75 3.75)">
+      <path id="Path_14324" data-name="Path 14324" d="M19.19,29H6.31A2.493,2.493,0,0,1,4.5,28.22a2.707,2.707,0,0,1-.75-1.886V22.5a.721.721,0,1,1,1.44,0v3.834a1.184,1.184,0,0,0,.328.825,1.091,1.091,0,0,0,.792.342H19.19a1.146,1.146,0,0,0,1.12-1.167V22.5a.721.721,0,1,1,1.44,0v3.834A2.618,2.618,0,0,1,19.19,29Z" transform="translate(-4.5 -11.751)"/>
+      <path id="Path_14325" data-name="Path 14325" d="M14.917,20.542a.674.674,0,0,1-.494-.22L9.955,15.53a.789.789,0,0,1,0-1.061.666.666,0,0,1,.989,0l3.973,4.262,3.973-4.262a.666.666,0,0,1,.989,0,.789.789,0,0,1,0,1.061l-4.467,4.792A.674.674,0,0,1,14.917,20.542Z" transform="translate(-6.666 -6.895)"/>
+      <path id="Path_14326" data-name="Path 14326" d="M18,16.75a.75.75,0,0,1-.75-.75V4.5a.75.75,0,0,1,1.5,0V16A.75.75,0,0,1,18,16.75Z" transform="translate(-9.75 -4.5)"/>
+    </g>
+  </g>
 </svg>
