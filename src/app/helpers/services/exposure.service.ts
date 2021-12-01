@@ -7,8 +7,11 @@ import { DataService } from "src/app/helpers/services/core/interceptor.service";
 })
 export class ExposureService {
   exposureUrl: string = '';
+  hostbaseUrl: string = '';
+
   constructor(private apiService: DataService, private startUp: StartUpService) {
     this.exposureUrl = this.startUp.getConfig('exposure');
+    this.hostbaseUrl = this.startUp.getConfig('hostbaseurl');
    }
 
   getSiteNames(deviceType: string){
@@ -30,14 +33,11 @@ export class ExposureService {
     // return this.apiService.get(url);
   }
 
-  getInventoryData(params?: any) {
-    let url = this.exposureUrl + "/nodes/Network/nodedetails";
-    let headerParams = {"Content-Type": "application/json"}
-    return this.apiService.get(url);
-  }
-
   getInventoryEntityData(url: string, params?: any) {
+    let host = window.location.protocol + "//" + window.location.host;
+    let entityUrl = this.hostbaseUrl + "/" + url.replace("<protocol>://<host>/", '');
+
     let headerParams = {"Content-Type": "application/json"}
-    return this.apiService.get(url);
+    return this.apiService.get(entityUrl);
   }
 }

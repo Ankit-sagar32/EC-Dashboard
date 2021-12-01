@@ -13,6 +13,7 @@ export class StartUpService {
   error = '';
   private appConfig: any = {};
   public baseUrl: any;
+  public hostConfigUrl: any;
 
   constructor() {
     this.baseUrl = UrlConfig.baseUrl;
@@ -34,18 +35,22 @@ export class StartUpService {
   getAppConfiguration(configUrls: any): Observable<any> {
     const appConfig: any = {};
     if (!configUrls.includes('localhost')) {
+      this.hostConfigUrl = configUrls;
       for (const url in this.baseUrl) {
         if (url !== 'OTHER') {
           appConfig[url] = configUrls + this.baseUrl[url];
         }
       }
+      appConfig["hostbaseurl"] = this.hostConfigUrl;
     } else {
       const localEnv = UrlConfig['localhost:4200'].configuration;
+      this.hostConfigUrl = localEnv;
       for (const url in this.baseUrl) {
         if (url !== 'OTHER') {
           appConfig[url] = localEnv + this.baseUrl[url];
         }
       }
+      appConfig["hostbaseurl"] = this.hostConfigUrl;
     }
     return appConfig;
   }

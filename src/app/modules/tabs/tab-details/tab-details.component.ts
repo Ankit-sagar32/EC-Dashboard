@@ -380,30 +380,21 @@ export class TabDetails implements OnInit {
 
   inventoryClick(){
     this.displayTabComp = 'inventory';
-    console.log("in Inventory code.");
-    console.log(this.selectedNodeData);
     let selectedNodeId = this.selectedNodeData?.node?.id;
-    
     this.displayTabComp = 'node_'+selectedNodeId;
 
-    this.exposureService.getInventoryData().subscribe((res: any) => {
-        let nodes = res.nodes || [];
-        let nodedDetails = res.nodes.find( (item: any) => item.id === selectedNodeId);
-        let groupingView = nodedDetails?.groupingView;
+    let nodedDetails = this.graphData.nodes.find( (item: any) => item.id === selectedNodeId);
+    let groupingView = nodedDetails?.groupingView;
 
-        if(groupingView)
-        {
-            this.inventory = groupingView?.inventory;
-            this.inventoryFlag = this.inventory?.flag;
+    if(groupingView)
+    {
+        this.inventory = groupingView?.inventory;
+        this.inventoryFlag = this.inventory?.flag;
 
-            const checkNodeId = (obj:any) => (obj.id === selectedNodeId);
-
-            if(!this.nodetabs.some(checkNodeId))
-                this.nodetabs.push({id: selectedNodeId, name: "node_"+ selectedNodeId});
-        }
-    }, err => {
-        console.error("Error occurred while fetching the nodes Data: ", err);
-    })
+        const checkNodeId = (obj:any) => (obj.id === selectedNodeId);
+        if(!this.nodetabs.some(checkNodeId))
+            this.nodetabs.push({id: selectedNodeId, name: "node_"+ selectedNodeId});
+    }
 
     setTimeout(()=>{
         document.getElementById('nodeInventoryBtn')?.classList.remove('node-options');

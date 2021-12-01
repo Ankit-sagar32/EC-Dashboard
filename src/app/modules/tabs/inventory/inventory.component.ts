@@ -23,11 +23,8 @@ export class InventoryComponent implements OnInit,OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.selectedNodeInventoryDetails.currentValue) {
       let entityHrefUrl = changes.selectedNodeInventoryDetails.currentValue?.entityHref;
-      let host = window.location.protocol + "//" + window.location.host;
-      // let entityHrefUrlPathName = new URL(entityHrefUrl);
-      let entityUrl = this.locationhost + "/" + entityHrefUrl.replace("<protocol>://<host>/", '');
-
-      this.exposureService.getInventoryEntityData(entityUrl).subscribe((res: any) => {
+      
+      this.exposureService.getInventoryEntityData(entityHrefUrl, this.locationhost).subscribe((res: any) => {
         let nodeProperties = res.nodes || [];
         this.entityHrefData = nodeProperties[0]?.properties;
       });
