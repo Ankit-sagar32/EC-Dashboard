@@ -83,6 +83,28 @@
     fill:#00ff00;
   } 
 }
+
+.orange {
+  image {
+    filter: invert(20%) sepia(91%) saturate(7465%) hue-rotate(359deg) brightness(104%) contrast(116%);
+    color: orange;
+  }  
+  .node {
+    filter: drop-shadow(0px 0px 3px #00ff00);
+    fill: orange;
+  } 
+}
+
+.yellow {
+  image {
+    filter: invert(20%) sepia(91%) saturate(7465%) hue-rotate(359deg) brightness(104%) contrast(116%);
+    color: yellow;
+  }  
+  .node {
+    filter: drop-shadow(0px 0px 3px #00ff00);
+    fill:yellow;
+  } 
+}
 // .node-wrapper:hover {
   
 // }

@@ -26,11 +26,17 @@ export class NodeVisualComponent implements OnInit{
     return img;
   }
   getState(nod:any){
-    let alarmstate = nod?.groupingView?.alarm?.status
+    let alarmstate = nod?.groupingView?.alarm?.severity;
     switch (alarmstate) {
-      case "up":
+      case 1:
         return "up";
-      case "down":
+      case 2:
+        return "orange";
+      case 3:
+        return "yellow";
+      case 4:
+        return "down";
+      case 5:
         return "down";
       default:
         return "normal";
