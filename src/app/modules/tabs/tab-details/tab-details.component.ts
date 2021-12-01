@@ -23,7 +23,7 @@ export class TabDetails implements OnInit {
     selectedDeviceType: string = "";
     selectedDeviceNames: string = "";
 
-    graphToLoad: string = "sankey_graph";
+    graphToLoad: string = "radial-view";
     toggleGraphSettings: boolean = false;
     alarms: any[] = [];
     alarmsOptions: any[] = [];
