@@ -166,7 +166,7 @@ export class InterceptorService implements HttpInterceptor, ErrorHandler {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     let authReq;
-    if (req.url.indexOf('login') < 0 && req.url.indexOf('token') < 0) {
+    if (req.url.indexOf('login') < 0 && req.url.indexOf('token') < 0 && req.url.indexOf('logout') < 0) {
       const accesstoken = sessionStorage.getItem("login-token");
       authReq = req.clone({
         headers: req.headers
