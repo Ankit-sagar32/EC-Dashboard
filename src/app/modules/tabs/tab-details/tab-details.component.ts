@@ -382,6 +382,7 @@ export class TabDetails implements OnInit {
     this.displayTabComp = 'inventory';
     let selectedNodeId = this.selectedNodeData?.node?.id;
     this.displayTabComp = 'node_'+selectedNodeId;
+    let nodeTabName = this.selectedNodeData?.node?.name;
 
     let nodedDetails = this.graphData.nodes.find( (item: any) => item.id === selectedNodeId);
     let groupingView = nodedDetails?.groupingView;
@@ -393,7 +394,7 @@ export class TabDetails implements OnInit {
 
         const checkNodeId = (obj:any) => (obj.id === selectedNodeId);
         if(!this.nodetabs.some(checkNodeId))
-            this.nodetabs.push({id: selectedNodeId, name: "node_"+ selectedNodeId});
+            this.nodetabs.push({id: selectedNodeId, name: "node_"+ selectedNodeId, tabName: nodeTabName});
     }
 
     setTimeout(()=>{
