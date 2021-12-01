@@ -395,7 +395,11 @@ export class TabDetails implements OnInit {
         {
             this.inventory = groupingView?.inventory;
             this.inventoryFlag = this.inventory?.flag;
-            this.nodetabs.push({id: selectedNodeId, name: "node_"+ selectedNodeId});
+
+            const checkNodeId = (obj:any) => (obj.id === selectedNodeId);
+
+            if(!this.nodetabs.some(checkNodeId))
+                this.nodetabs.push({id: selectedNodeId, name: "node_"+ selectedNodeId});
         }
     }, err => {
         console.error("Error occurred while fetching the nodes Data: ", err);
