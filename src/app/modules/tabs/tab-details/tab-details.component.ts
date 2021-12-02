@@ -32,7 +32,7 @@ export class TabDetails implements OnInit {
     entityTableColumns: any[] = [];
     serviceTableColumns: any[] = [];
     showGraph: boolean = true;
-
+    nodeOptions: string = 'inventory';
     expandTopologyBool: boolean = true;
     expandAlarmsBool: boolean = true;
     displayTabComp: string = "native";
@@ -420,8 +420,8 @@ export class TabDetails implements OnInit {
     
   }
 
-    changeNodeOptions(option?: string){
-        this.displayTabComp = 'native'
+    changeNodeOptions(option: string){
+        this.nodeOptions = option;
     }
 
     resetNodeTabsActiveStatus(){
