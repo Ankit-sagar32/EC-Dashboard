@@ -709,6 +709,7 @@ input {
 
 .container-node-options{
     display: flex;
+    align-items: center;
     gap: 15px;
 }
 
@@ -719,20 +720,26 @@ input {
         // border-radius: 5px;
         // border: 1px solid #5414B4;
         img{
-            width: 40px;
+            height: 40px;
             cursor: pointer;
+        }
+
+        label{
+            margin: 0;
         }
     }
     &-select {
-        padding: 2px;
-        height: 40px;
-        width: 120px;
+        padding: 2px 6px;
+        height: 44px;
+        width: auto;
         background-color: #8C5BD8;
         border: 2px solid white;
         border-radius: 5px;
+        display: flex;
+        align-items: center;
+        gap: 7px;
         img{
-            src: 'assets/images/Inventory-select.svg';
-            width: 33px;
+            height: 40px;
             cursor: pointer;
         }
     }
