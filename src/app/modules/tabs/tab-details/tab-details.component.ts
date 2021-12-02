@@ -393,8 +393,12 @@ export class TabDetails implements OnInit {
         this.inventoryFlag = this.inventory?.flag;
 
         const checkNodeId = (obj:any) => (obj.id === selectedNodeId);
-        if(!this.nodetabs.some(checkNodeId))
-            this.nodetabs.push({id: selectedNodeId, name: "node_"+ selectedNodeId, tabName: nodeTabName});
+        if(!this.nodetabs.some(checkNodeId)){
+            this.nodetabs.push({id: selectedNodeId, 
+                name: "node_"+ selectedNodeId,
+                tabid: "nodetabid_"+selectedNodeId, 
+                tabName: nodeTabName});
+        }
     }
 
     setTimeout(()=>{
@@ -409,12 +413,29 @@ export class TabDetails implements OnInit {
 
         invlabel.classList.add("node-label");
         inventoryTabElement?.appendChild(invlabel);
+        let nodedata = Object.keys(this.nodetabs);
+        this.resetNodeTabsActiveStatus();
+        document.getElementById('nodetabid_'+ selectedNodeId)?.classList.add('active');
     }, 0);
     
   }
 
     changeNodeOptions(option?: string){
-    this.displayTabComp = 'native'
+        this.displayTabComp = 'native'
+    }
+
+    resetNodeTabsActiveStatus(){
+        this.nodetabs.forEach((element, index, array) => {
+            let nodetabid = element?.tabid;
+            if(document.getElementById(nodetabid)?.classList.contains('active'))
+            {
+                document.getElementById(nodetabid)?.classList.remove('active');
+            }
+            if(document.getElementById('topologyViewTab')?.classList.contains('active'))
+            {
+                document.getElementById('topologyViewTab')?.classList.remove('active');
+            }
+        });
     }
 
     onSelectData(event:any){
@@ -431,16 +452,23 @@ export class TabDetails implements OnInit {
     onTopologyViewTabClick()
     {
       this.displayTabComp = 'native';
+      this.resetNodeTabsActiveStatus();
+      document.getElementById('topologyViewTab')?.classList.add('active');
     }
   
     nodeTabClick(tab?: any) {
-      //this.displayTabComp = 'inventory';
-      let tabname = tab?.name;
-      let id = tab?.id;
-
+        //this.displayTabComp = 'inventory';
+        let tabname = tab?.name;
+        let id = tab?.id;
+        this.resetNodeTabsActiveStatus();
         for (var tab of this.nodetabs) {
             if (tabname === tab.name) {
                 this.displayTabComp = tab.name;
+                if(document.getElementById('topologyViewTab')?.classList.contains('active'))
+                {
+                    document.getElementById('topologyViewTab')?.classList.remove('active');
+                }
+                document.getElementById(tab.tabid)?.classList.add('active');
             }
             else if(tab.name == 'Topology View') {
                 this.displayTabComp = 'native';
