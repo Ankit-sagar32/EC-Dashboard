@@ -35,7 +35,7 @@ export class ExposureService {
 
   getInventoryEntityData(url: string, params?: any) {
     let host = window.location.protocol + "//" + window.location.host;
-    let entityUrl = this.hostbaseUrl + "/" + url.replace("<protocol>://<host>/", '');
+    let entityUrl = this.exposureUrl + "/" + url.replace("<protocol>://<host>/", '');
 
     let headerParams = {"Content-Type": "application/json"}
     return this.apiService.get(entityUrl);
