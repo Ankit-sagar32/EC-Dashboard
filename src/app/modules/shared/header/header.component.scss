@@ -69,3 +69,43 @@
         margin: 0;
     }
 }
+
+.dashboard-section{
+    border-bottom: 3px solid white;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.container{
+
+    &-dashboard{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        p{
+            margin: 0;
+            font-weight: 500;
+        }
+
+        img{
+            height: 20px;
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(
+268deg) brightness(89%) contrast(93%);
+        }
+    }
+}
+
+.left-header-container{
+    display: flex;
+    gap: 20px;
+    .menu{
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        p{
+            margin: 0;
+        }
+    }
+}

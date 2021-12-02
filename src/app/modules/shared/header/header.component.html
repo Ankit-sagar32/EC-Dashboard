@@ -1,11 +1,24 @@
 <div class="header">
     <nav class="navbar navbar-expand-lg navbar-light ">
         <div class="container-fluid">
-            <div class="navbar-brand" (click)="onClickLogo()" tabindex="0">
-                <img src="assets/images/Logo.svg" alt="BT Logo" height="30px" />
-                <span class="brand-name">Enterprise Cloud</span>
+            <div class="left-header-container">
+                <div class="menu">
+                    <p>Menu</p>
+                </div>
+                <div class="navbar-brand" (click)="onClickLogo()" tabindex="0">
+                    <img src="assets/images/Logo.svg" alt="BT Logo" height="30px" />
+                    <span class="brand-name">Enterprise Cloud</span>
+                </div>
             </div>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+           
+            <div class="dashboard-section">
+                <div class="container-dashboard">
+                    <img src="assets/images/Dashboard.svg" alt="BT Logo" />
+                    <p>Dashboard</p>
+                </div>
+
+            </div>
+            <button  class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
                 aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
