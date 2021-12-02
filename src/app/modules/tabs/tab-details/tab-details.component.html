@@ -178,10 +178,10 @@
                     </div>
                     <hr/>
                     <div class="popup-icon-section">
-                        <img class="popup-icon pointer-csr" (click)="inventoryClick()" src="assets/images/Inventory.svg"/>
-                        <img class="popup-icon not-allowed-csr" src="assets/images/Alarm.svg"/> 
-                        <img class="popup-icon not-allowed-csr" src="assets/images/Graph.svg"/> 
-                        <img class="popup-icon not-allowed-csr" src="assets/images/Traffic.svg" /> 
+                        <img [ngClass]="inventoryFlag?'popup-icon pointer-csr':'popup-icon not-allowed-csr'" (click)="inventoryClick()" src="assets/images/Inventory.svg"/>
+                        <img [ngClass]="alarmFlag?'popup-icon pointer-csr':'popup-icon not-allowed-csr'" src="assets/images/Alarm.svg"/> 
+                        <img [ngClass]="reportFlag?'popup-icon pointer-csr':'popup-icon not-allowed-csr'" src="assets/images/Graph.svg"/> 
+                        <img [ngClass]="logFlag?'popup-icon pointer-csr':'popup-icon not-allowed-csr'" src="assets/images/Traffic.svg" /> 
                     </div>
                 </div>
             </div>

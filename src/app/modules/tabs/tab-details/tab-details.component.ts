@@ -59,7 +59,10 @@ export class TabDetails implements OnInit {
 
     inventory : any = null;
     inventoryFlag : boolean = false;
-
+    reportFlag : boolean = false;
+    alarmFlag : boolean = false;
+    logFlag : boolean = false;
+    
     constructor(
         private tabService: TabsService,
         private route: ActivatedRoute,
@@ -109,6 +112,7 @@ export class TabDetails implements OnInit {
                 d.style.top = clickedNodeData.posY +'px';
             }
             d?.focus();
+            this.updateNodeInfoPopup();
             this.showNodeInfoPopUp = true; 
         } else {
             this.showNodeInfoPopUp = false;
@@ -118,6 +122,25 @@ export class TabDetails implements OnInit {
     }
 
     ngAfterViewInit() {
+    }
+
+    updateNodeInfoPopup() {
+        let selectedNodeId = this.selectedNodeData?.node?.id;
+        // this.displayTabComp = 'node_'+selectedNodeId;
+
+        let nodeDetails = this.graphData.nodes.find( (item: any) => item.id === selectedNodeId);
+        let groupingView = nodeDetails?.groupingView;
+
+        if(groupingView)
+        {
+            this.inventory = groupingView?.inventory;
+            this.inventoryFlag = groupingView?.inventory?.flag;
+            this.alarmFlag = groupingView?.alarm?.flag;
+            this.reportFlag = groupingView?.report?.flag;
+            this.logFlag = groupingView?.log?.flag;
+            this.reportFlag = false;
+            this.logFlag = false;
+        }
     }
 
     updateGraphData() {
@@ -401,8 +424,23 @@ export class TabDetails implements OnInit {
         }
     }
 
+    setTimeout(()=>{
+            document.getElementById('nodeInventoryBtn')?.classList.remove('node-options');
+            document.getElementById('nodeInventoryBtn')?.classList.add('node-select');
+            let inventoryTabElement = document.getElementById('nodeInventoryBtn');
+            if(inventoryTabElement)
+            inventoryTabElement.getElementsByTagName('img')[0].src = "assets/images/Inventory-select.svg";
+            let invlabel = document.createElement('Label');
+            invlabel.innerHTML = 'Inventory';
+            invlabel.style.color = 'white';
 
-}
+            invlabel.classList.add("node-label");
+            inventoryTabElement?.appendChild(invlabel);
+            let nodedata = Object.keys(this.nodetabs);
+            this.resetNodeTabsActiveStatus();
+            document.getElementById('nodetabid_'+ selectedNodeId)?.classList.add('active');
+        }, 0);
+    }
 
     changeNodeOptions(option: string){
         this.nodeOptions = option;

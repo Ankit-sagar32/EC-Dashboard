@@ -13,10 +13,10 @@ export class ForceDirectedGraph {
   public ticker: EventEmitter<any> = new EventEmitter<any>();
   public simulation!: d3.Simulation<any, any>;
   linkdistance = 25;
-  collidedistance = 25;
-  chargedStrength = -750;
-  xdenom = 0.5;
-  ydenom = 0.5;
+  collidedistance = 10;
+  chargedStrength = -200;
+  xdenom = 1;
+  ydenom = 1;
   xstrength = 0.2;
   ystrength = 0.2;
 
@@ -77,6 +77,23 @@ export class ForceDirectedGraph {
       this.simulation = d3.forceSimulation()
       .force('link', d3.forceLink().id((d:any) => d['id']).distance(this.linkdistance))
       .force('charge', d3.forceManyBody().strength(this.chargedStrength))
+      .force('center', d3.forceCenter(options.width, options.height))
+      .force('forceX', d3.forceX(options.width / this.xdenom).strength(this.xstrength))
+      .force('forceY', d3.forceY(options.height / this.ydenom).strength(this.ystrength))
+      // .force('charge',
+      //     d3.forceManyBody()
+      //       .strength((d:any) => FORCES.CHARGE * d['r'])
+      //   )
+        .force('collide',
+          d3.forceCollide(this.collidedistance)
+            // .strength(FORCES.COLLISION)
+            .radius(10)
+            // .iterations(2)
+        );
+
+/*
+      .force('link', d3.forceLink().id((d:any) => d['id']).distance(this.linkdistance))
+      .force('charge', d3.forceManyBody().strength(this.chargedStrength))
       .force('center', d3.forceCenter(options.width/2, options.height/2))
       //.force('forceX', d3.forceX(options.width / this.xdenom).strength(this.xstrength))
       //.force('forceY', d3.forceY(options.height / this.ydenom).strength(this.ystrength))
@@ -91,7 +108,7 @@ export class ForceDirectedGraph {
       //       .radius(5)
       //       .iterations(2)
       //   );
-
+*/
       // Connecting the d3 ticker to an angular event emitter
       this.simulation.on('tick', () => {
         ticker.emit(this);
