@@ -1,6 +1,9 @@
 <div class="legendWrapper" *ngIf="legends.length > 0">
     <div class="legend" *ngFor="let legend of legends; let i = index">
-        <input class="legendCheckbox" type="checkbox" name="legend.name" value="legend.name" checked="legend.selected" (click)="toggleType(i)">
+        <mat-checkbox [value]="legend.name" [checked]="legend.selected" (click)="toggleType(i)" class="legendCheckbox">
+            
+        </mat-checkbox>
+        <!-- <input class="legendCheckbox" type="checkbox" name="legend.name" value="legend.name" checked="legend.selected" (click)="toggleType(i)"> -->
         <img class="legendImage" *ngIf="legend.image" [src]="legend.image" [alt]="legend.name" />
         <div class="legendColorImage" *ngIf="legend.color" [style.background-color]="legend.color"></div>
         <div class="legendName">{{legend.name}}</div>

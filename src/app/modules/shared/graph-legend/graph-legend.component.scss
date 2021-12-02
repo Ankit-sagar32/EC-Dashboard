@@ -28,3 +28,37 @@
     }
     }
   }
+
+  :host ::ng-deep {
+    .mat-checkbox-inner-container {
+      border-radius: 50%;
+    }
+  
+    .mat-checkbox-background,
+      .mat-checkbox-frame {
+        border-radius: 70% !important;
+        border: 1px solid #777777;
+      }
+    
+  
+    .mat-checkbox-checked.mat-accent
+      .mat-checkbox-background,
+    .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+      background-color: #5414B4;
+    }
+  
+    .mat-checkbox-checked.mat-accent
+      .mat-checkbox-ripple
+      .mat-ripple-element {
+      background-color: #5414B4 !important;
+    }
+  
+    
+    .mat-checkbox-background,
+      .mat-checkbox-frame:checked {
+        border: none;
+      }
+    
+  
+    .mat-checkbox-layout{margin-bottom: 0;}
+  }
