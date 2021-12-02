@@ -24,28 +24,28 @@
         display: flex;
         align-items: center;
         padding: 15px;
-        background-color: #8C5BD8;
+        background-color: #a1a1a1;
         margin-bottom: 20px;
         border-radius: 5px;
         box-shadow: 0.5px 2px 2px 2px lightgrey;
         cursor: pointer;
         margin-right: 7px;
         p{
+            font-size: 1.2rem;
             margin: 0;
-            color: #fff;
+            color: white;
             font-size: 1.1rem;
             font-weight: 500;
         }
 
         &.active {
-            background-color: whitesmoke;
-            box-shadow: 2px 2px 3px 2px #8C5BD8;
-
+            background-color: #E8DEF6;
             p{
                 margin: 0;
-                color: #8C5BD8;
                 font-size: 1.1rem;
                 font-weight: 500;
+                color: #5414B4;
+                font-size: 1.2rem;
             }
         }
     }
