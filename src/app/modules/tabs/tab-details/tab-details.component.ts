@@ -402,27 +402,35 @@ export class TabDetails implements OnInit {
     }
 
   inventoryClick(){
-    this.displayTabComp = 'inventory';
-    let selectedNodeId = this.selectedNodeData?.node?.id;
-    this.displayTabComp = 'node_'+selectedNodeId;
-    let nodeTabName = this.selectedNodeData?.node?.name;
+        this.displayTabComp = 'inventory';
+        let selectedNodeId = this.selectedNodeData?.node?.id;
+        this.displayTabComp = 'node_'+selectedNodeId;
+        let nodeTabName = this.selectedNodeData?.node?.name;
 
-    let nodedDetails = this.graphData.nodes.find( (item: any) => item.id === selectedNodeId);
-    let groupingView = nodedDetails?.groupingView;
+        let nodedDetails = this.graphData.nodes.find( (item: any) => item.id === selectedNodeId);
+        let groupingView = nodedDetails?.groupingView;
 
-    if(groupingView)
-    {
-        this.inventory = groupingView?.inventory;
-        this.inventoryFlag = this.inventory?.flag;
+        if(groupingView)
+        {
+            let inventory = groupingView?.inventory;
+            let inventoryFlag = this.inventory?.flag;
 
-        const checkNodeId = (obj:any) => (obj.id === selectedNodeId);
-        if(!this.nodetabs.some(checkNodeId)){
-            this.nodetabs.push({id: selectedNodeId, 
-                name: "node_"+ selectedNodeId,
-                tabid: "nodetabid_"+selectedNodeId, 
-                tabName: nodeTabName});
+            let entityHrefUrl = inventory?.entityHref;
+            this.exposureService.getInventoryEntityData(entityHrefUrl).subscribe((res: any) => {
+                let nodeProperties = res.nodes || [];
+                // this.entityHrefData = nodeProperties[0]?.properties;
+                // this.dataSvc.emitInventoryUpdate(nodeProperties);
+                const checkNodeId = (obj:any) => (obj.id === selectedNodeId);
+                if(!this.nodetabs.some(checkNodeId)){
+                    this.nodetabs.push({id: selectedNodeId, 
+                        name: "node_"+ selectedNodeId,
+                        tabid: "nodetabid_"+selectedNodeId, 
+                        tabName: nodeTabName,
+                        inventory: nodeProperties[0]?.properties,
+                        inventoryFlag: inventoryFlag});
+                }
+            });
         }
-    }
 
     }
 

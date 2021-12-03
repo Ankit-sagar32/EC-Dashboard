@@ -30,7 +30,7 @@
                         <!-- LOOP THE API RESPONSE IN THE BELOW DIV - 'table-row' -->
 
 
-                        <div *ngFor="let item of entityHrefData" class="table-row">
+                        <div *ngFor="let item of nodeDetailsProperties" class="table-row">
                             <div class="table-entity-name">
                                 <p>{{item.name}}</p>
                             </div>
@@ -38,24 +38,6 @@
                                 <p>{{item.value}}</p>
                             </div>
                         </div>
-
-                        <!-- <div class="table-row">
-                            <div class="table-entity-name">
-                                <p>Element Name</p>
-                            </div>
-                            <div class="table-entity-value">
-                                <p>Element Value</p>
-                            </div>
-                        </div>
-
-                        <div class="table-row">
-                            <div class="table-entity-name">
-                                <p>Element Name</p>
-                            </div>
-                            <div class="table-entity-value">
-                                <p>Element Value</p>
-                            </div>
-                        </div> -->
                     </div>
                 </div>
             </div>

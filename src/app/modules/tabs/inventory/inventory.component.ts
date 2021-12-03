@@ -1,6 +1,7 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { StartUpService } from "src/app/helpers/services";
 import { ExposureService } from 'src/app/helpers/services/exposure.service';
+import { DataService } from 'src/app/helpers/services/network-graph/data.service';
 
 @Component({
   selector: 'app-inventory',
@@ -10,28 +11,20 @@ import { ExposureService } from 'src/app/helpers/services/exposure.service';
 export class InventoryComponent implements OnInit,OnChanges {
 
   @Input() selectedNodeInventoryDetails: any ; 
-  entityHrefData: any;
-  locationhost: string = '';
+  nodeDetailsProperties: any;
   
   constructor(private startUp: StartUpService,
-    private exposureService: ExposureService) {
+    private exposureService: ExposureService,
+    private dataSvc: DataService) {
      let exposureUrl= this.startUp.getConfig('exposure');
      let Url = new URL(exposureUrl);
-     this.locationhost = Url.origin;
    }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes.selectedNodeInventoryDetails.currentValue) {
-      let entityHrefUrl = changes.selectedNodeInventoryDetails.currentValue?.entityHref;
-      
-      this.exposureService.getInventoryEntityData(entityHrefUrl, this.locationhost).subscribe((res: any) => {
-        let nodeProperties = res.nodes || [];
-        this.entityHrefData = nodeProperties[0]?.properties;
-      });
+   ngOnInit(): void {
+      this.nodeDetailsProperties = this.selectedNodeInventoryDetails;
     }
-  }
 
-  ngOnInit(): void {
-  }
+    ngOnChanges(changes: SimpleChanges): void {
+    }
 
 }
