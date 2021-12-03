@@ -424,22 +424,6 @@ export class TabDetails implements OnInit {
         }
     }
 
-    setTimeout(()=>{
-            document.getElementById('nodeInventoryBtn')?.classList.remove('node-options');
-            document.getElementById('nodeInventoryBtn')?.classList.add('node-select');
-            let inventoryTabElement = document.getElementById('nodeInventoryBtn');
-            if(inventoryTabElement)
-            inventoryTabElement.getElementsByTagName('img')[0].src = "assets/images/Inventory-select.svg";
-            let invlabel = document.createElement('Label');
-            invlabel.innerHTML = 'Inventory';
-            invlabel.style.color = 'white';
-
-            invlabel.classList.add("node-label");
-            inventoryTabElement?.appendChild(invlabel);
-            let nodedata = Object.keys(this.nodetabs);
-            this.resetNodeTabsActiveStatus();
-            document.getElementById('nodetabid_'+ selectedNodeId)?.classList.add('active');
-        }, 0);
     }
 
     changeNodeOptions(option: string){
