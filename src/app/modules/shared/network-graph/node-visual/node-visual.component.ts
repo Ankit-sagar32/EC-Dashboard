@@ -35,7 +35,7 @@ export class NodeVisualComponent implements OnInit{
       case 3:
         return "yellow";
       case 4:
-        return "down";
+        return "blue";
       case 5:
         return "down";
       default:

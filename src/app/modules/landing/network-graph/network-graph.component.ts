@@ -120,6 +120,7 @@ export class NetworkGraph implements OnInit, OnChanges {
             }
             const newNode  = new Node(node.id, node.name, node.type, node.imgUrl);
             newNode.properties = node.properties;
+            newNode.groupingView = node.groupingView;
             this.nodes.push(newNode);
         })
 
@@ -161,7 +162,8 @@ export class NetworkGraph implements OnInit, OnChanges {
                 name: this.dataServcie.isFormattedJSONDataType ? eachNode.name : eachNode.labels[0],
                 id: parseInt(eachNode.id),
                 type: this.dataServcie.isFormattedJSONDataType ? eachNode.type : eachNode.labels[0],
-                properties: eachNode.properties
+                properties: eachNode.properties,
+                groupingView: eachNode.groupingView
             }
             transformingData["nodes"][obj.id] = obj;
         });

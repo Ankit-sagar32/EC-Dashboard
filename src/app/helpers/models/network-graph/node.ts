@@ -17,6 +17,7 @@ export class Node implements d3.SimulationNodeDatum {
   imgUrl: string;
 
   properties: any;
+  groupingView: any;
 
   constructor(id:string, name:string, type:string, imgUrl: string) {
     this.id = id;
