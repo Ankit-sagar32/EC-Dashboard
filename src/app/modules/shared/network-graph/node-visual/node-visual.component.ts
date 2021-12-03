@@ -65,4 +65,33 @@ export class NodeVisualComponent implements OnInit{
       }
     }
   }
+
+  onmouseover(event: any, nod:any) {
+    var circlesvg = document.getElementById("circle_"+ nod?.id);
+    if(circlesvg){
+      circlesvg.setAttribute('r', '9');
+    }
+    // event?.target.setAttribute('r', '9');
+    var nodeimg = document.getElementById("nodeimg_"+ nod?.id);
+    if(nodeimg)
+    {
+      nodeimg.style.height = "7px";
+      nodeimg.style.width = "7px";
+      nodeimg.style.transform = "translate(-3.5px, -3.5px)";
+    }
+  }
+  onmouseleave(event: any, nod:any) {
+    var circlesvg = document.getElementById("circle_"+ nod?.id);
+    if(circlesvg){
+      circlesvg.setAttribute('r', '6');
+    }
+    // event?.target.setAttribute('r', '6');
+    var nodeimg = document.getElementById("nodeimg_"+ nod?.id);
+    if(nodeimg)
+    {
+      nodeimg.style.height = "6px";
+      nodeimg.style.width = "6px";
+      nodeimg.style.transform = "translate(-3px, -3px)";
+    }
+  }
 }

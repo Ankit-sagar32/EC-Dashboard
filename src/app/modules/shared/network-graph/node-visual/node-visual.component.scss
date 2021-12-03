@@ -26,6 +26,12 @@
     fill:green;
   }  
 
+  .nodeImg:hover {
+    height: 7px;
+    width: 7px;
+    transform: translate(-3.5px, -3.5px);
+  }
+
   // .nodeImg:hover {
   //   fill:green;
   // }  
