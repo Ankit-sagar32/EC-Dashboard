@@ -742,6 +742,10 @@ input {
             cursor: pointer;
         }
     }
+
+    &-tabs{
+        width: 100%;
+    }
 }
 .nodeTab-label{ 
     margin: 0;

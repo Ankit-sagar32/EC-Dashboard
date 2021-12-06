@@ -275,8 +275,8 @@
         </div>
         <!-- Alarms End -->
 
-        <div *ngFor="let tab of nodetabs">
-            <div #inventoryWrapper *ngIf="displayTabComp != 'native'" style="width: 200%">
+        <div *ngFor="let tab of nodetabs" class="node-tabs">
+            <div #inventoryWrapper *ngIf="displayTabComp != 'native'">
                 <div [id]="tab.id" *ngIf="isNodeTabVisible(tab)">
                 <div class="container-node-options">
                     <div id="nodeInventoryBtn" (click)="changeNodeOptions('inventory')" class="node-options" [ngClass]="{'node-select': nodeOptions == 'inventory'}">
