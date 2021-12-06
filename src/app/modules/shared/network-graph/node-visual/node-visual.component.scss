@@ -71,55 +71,45 @@
 
 .up {
   image {
-    filter: invert(53%) sepia(74%) saturate(2892%) hue-rotate(83deg) brightness(121%) contrast(124%);
-    color: #ff0000;
+    filter: invert(25%) sepia(96%) saturate(5917%) hue-rotate(355deg) brightness(96%) contrast(122%);
   }
   .node {
-    filter: drop-shadow(0px 0px 3px #ff0000);
-    fill:#ff0000;
+    stroke:#ff0000;
   }  
 }
 .down {
   image {
-    filter: invert(20%) sepia(91%) saturate(7465%) hue-rotate(359deg) brightness(104%) contrast(116%);
-    color: #00ff00;
+    filter: invert(53%) sepia(84%) saturate(2553%) hue-rotate(83deg) brightness(120%) contrast(121%);
   }  
   .node {
-    filter: drop-shadow(0px 0px 3px #00ff00);
-    fill:#00ff00;
+    stroke:#00ff00;
   } 
 }
 
 .orange {
   image {
-    filter: invert(20%) sepia(91%) saturate(7465%) hue-rotate(359deg) brightness(104%) contrast(116%);
-    color: orange;
+    filter: invert(66%) sepia(49%) saturate(3020%) hue-rotate(0deg) brightness(104%) contrast(106%);
   }  
   .node {
-    filter: drop-shadow(0px 0px 3px #00ff00);
-    fill: orange;
+    stroke: orange;
   } 
 }
 
 .yellow {
   image {
-    filter: invert(20%) sepia(91%) saturate(7465%) hue-rotate(359deg) brightness(104%) contrast(116%);
-    color: yellow;
+    filter: invert(84%) sepia(50%) saturate(1074%) hue-rotate(6deg) brightness(110%) contrast(104%);
   }  
   .node {
-    filter: drop-shadow(0px 0px 3px #00ff00);
-    fill:yellow;
+    stroke: yellow;
   } 
 }
 
 .blue {
   image {
-    filter: invert(20%) sepia(91%) saturate(7465%) hue-rotate(359deg) brightness(104%) contrast(116%);
-    color: blue;
+    filter: invert(8%) sepia(100%) saturate(7447%) hue-rotate(248deg) brightness(99%) contrast(143%);
   }  
   .node {
-    filter: drop-shadow(0px 0px 3px #00ff00);
-    fill:blue;
+    stroke:#0000FF;
   } 
 }
 // .node-wrapper:hover {
