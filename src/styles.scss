@@ -4,14 +4,23 @@
 /* Importing partial sass files needed for the application level */
 @import "./assets/sass/partials/palette";
 
+
+@font-face {
+    font-family: 'BT Curve';
+    src: url(assets/fonts/BTCurve_Rg.ttf) format("truetype");
+}
+
 //Body font-size
 html {
     font-size: 14px;
     color: $bt-black;
-    // font-family: $Font_Family!important;
-    // font-weight: $Regular_Font;
 }
 
+body{
+    font-family: 'BT Curve';
+}
+
+  
 
 /* You can add global styles to this file, and also import other style files */
 .search-wrapper {
