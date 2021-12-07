@@ -24,7 +24,7 @@
         </div>
     </div>
 
-    <div class="tab-body-wrapper">
+    <div class="tab-body-wrapper" [ngStyle]="{'display': displayTabComp == 'native' ? 'flex' : 'block'}">
         <!-- Graph Start -->
         <div class="graphs-wrapper" #graphsWrapper *ngIf="displayTabComp == 'native'">
 
@@ -275,9 +275,9 @@
         </div>
         <!-- Alarms End -->
         <ng-container  *ngIf="displayTabComp != 'native'">
-            <div *ngFor="let tab of nodetabs" class="node-tabs">
-                <div #inventoryWrapper>
-                    <div [id]="tab.id" *ngIf="isNodeTabVisible(tab)">
+            <div *ngFor="let tab of nodetabs">
+                <div #inventoryWrapper *ngIf="isNodeTabVisible(tab)" class="node-tabs">
+                    <div [id]="tab.id" >
                     <div class="container-node-options">
                         <div id="nodeInventoryBtn" (click)="changeNodeOptions('inventory')" class="node-options" [ngClass]="{'node-select': nodeOptions == 'inventory'}">
                             <img [src]="nodeOptions == 'inventory' ? 'assets/images/Inventory-select.svg' : 'assets/images/Inventory.svg'"/>
