@@ -52,7 +52,7 @@
 .normal {
   image {
     filter: invert(13%) sepia(88%) saturate(6133%) hue-rotate(266deg) brightness(70%) contrast(102%);
-    color: #5414B4;
+    color: #9932CC;
   }  
 }
 .node-group:hover {
@@ -65,7 +65,7 @@
   }  
   .node {
     filter: drop-shadow(0px 0px 3px rgb(84 20 180 / 0.6));
-    fill:#5414B4;
+    fill:#9932CC;
   }
 }
 
@@ -74,7 +74,7 @@
     filter: invert(25%) sepia(96%) saturate(5917%) hue-rotate(355deg) brightness(96%) contrast(122%);
   }
   .node {
-    stroke:#ff0000;
+    stroke:#FF0000;
   }  
 }
 
@@ -84,7 +84,7 @@
   }
   .node {
     filter: drop-shadow(0px 0px 3px rgb(255 0 0 / 0.6));
-    fill:#ff0000;
+    fill:#FF0000;
   }  
 }
 
@@ -93,7 +93,7 @@
     filter: invert(53%) sepia(84%) saturate(2553%) hue-rotate(83deg) brightness(120%) contrast(121%);
   }  
   .node {
-    stroke:#00ff00;
+    stroke:#51CB20;
   } 
 }
 
@@ -103,7 +103,7 @@
   }
   .node {
     filter: drop-shadow(0px 0px 3px rgb(0 255 0 / 0.6));
-    fill:#00ff00;
+    fill:#51CB20;
   }  
 }
 
@@ -112,7 +112,7 @@
     filter: invert(66%) sepia(49%) saturate(3020%) hue-rotate(0deg) brightness(104%) contrast(106%);
   }  
   .node {
-    stroke: orange;
+    stroke: #FF8C00;
   } 
 }
 
@@ -122,7 +122,7 @@
   }
   .node {
     filter: drop-shadow(0px 0px 3px rgb(255 165 0 / 0.6));
-    fill: orange;
+    fill: #FF8C00;
   }  
 }
 
@@ -131,7 +131,7 @@
     filter: invert(84%) sepia(50%) saturate(1074%) hue-rotate(6deg) brightness(110%) contrast(104%);
   }  
   .node {
-    stroke: yellow;
+    stroke: #FFD700;
   } 
 }
 
@@ -141,7 +141,7 @@
   }
   .node {
     filter: drop-shadow(0px 0px 3px rgb(255 255 254 / 0.6));
-    fill: yellow;
+    fill: #FFD700;
   }  
 }
 
@@ -150,7 +150,7 @@
     filter: invert(8%) sepia(100%) saturate(7447%) hue-rotate(248deg) brightness(99%) contrast(143%);
   }  
   .node {
-    stroke:#0000FF;
+    stroke:#1E90FF;
   } 
 }
 
@@ -160,7 +160,7 @@
   }
   .node {
     filter: drop-shadow(0px 0px 3px rgb(0 0 255 / 0.6));
-    fill: blue;
+    fill: #1E90FF;
   }  
 }
 // .node-wrapper:hover {
