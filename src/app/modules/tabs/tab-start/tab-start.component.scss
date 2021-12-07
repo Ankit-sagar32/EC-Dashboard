@@ -41,10 +41,10 @@
         display: flex;
         align-items: center;
         gap: 40px;
-        // justify-content: space-evenly;
+        justify-content: center;
         width: 82%;
         margin: 20px 0;
-
+        flex-wrap: wrap;
         .selection-item {
             display: inline-flex;
             margin: 10px;
