@@ -274,31 +274,33 @@
             </div>         -->
         </div>
         <!-- Alarms End -->
-
-        <div *ngFor="let tab of nodetabs" class="node-tabs">
-            <div #inventoryWrapper *ngIf="displayTabComp != 'native'">
-                <div [id]="tab.id" *ngIf="isNodeTabVisible(tab)">
-                <div class="container-node-options">
-                    <div id="nodeInventoryBtn" (click)="changeNodeOptions('inventory')" class="node-options" [ngClass]="{'node-select': nodeOptions == 'inventory'}">
-                        <img [src]="nodeOptions == 'inventory' ? 'assets/images/Inventory-select.svg' : 'assets/images/Inventory.svg'"/>
-                        <label *ngIf="nodeOptions == 'inventory'" class="node-label" style="color: white;">Inventory</label>
+        <ng-container  *ngIf="displayTabComp != 'native'">
+            <div *ngFor="let tab of nodetabs" class="node-tabs">
+                <div #inventoryWrapper>
+                    <div [id]="tab.id" *ngIf="isNodeTabVisible(tab)">
+                    <div class="container-node-options">
+                        <div id="nodeInventoryBtn" (click)="changeNodeOptions('inventory')" class="node-options" [ngClass]="{'node-select': nodeOptions == 'inventory'}">
+                            <img [src]="nodeOptions == 'inventory' ? 'assets/images/Inventory-select.svg' : 'assets/images/Inventory.svg'"/>
+                            <label *ngIf="nodeOptions == 'inventory'" class="node-label" style="color: white;">Inventory</label>
+                        </div>
+                        <div (click)="changeNodeOptions('alarms')" class="node-options" [ngClass]="{'node-select': nodeOptions == 'alarms'}">
+                            <img  src="assets/images/Alarm.svg" style="color: red"/>
+                            <label *ngIf="nodeOptions == 'alarms'" class="node-label" style="color: white;">Alarms</label>
+                        </div>
+                        <div (click)="changeNodeOptions('graph')" class="node-options" [ngClass]="{'node-select': nodeOptions == 'graph'}">
+                            <img  src="assets/images/Graph.svg"/>
+                            <label *ngIf="nodeOptions == 'graph'" class="node-label" style="color: white;">Graph</label>
+                        </div>
+                        <div (click)="changeNodeOptions('traffic')" class="node-options" [ngClass]="{'node-select': nodeOptions == 'traffic'}">
+                            <img  src="assets/images/Traffic.svg"/>
+                            <label *ngIf="nodeOptions == 'traffic'" class="node-label" style="color: white;">Traffic</label>
+                        </div>
                     </div>
-                    <div (click)="changeNodeOptions('alarms')" class="node-options" [ngClass]="{'node-select': nodeOptions == 'alarms'}">
-                        <img  src="assets/images/Alarm.svg" style="color: red"/>
-                        <label *ngIf="nodeOptions == 'alarms'" class="node-label" style="color: white;">Alarms</label>
-                    </div>
-                    <div (click)="changeNodeOptions('graph')" class="node-options" [ngClass]="{'node-select': nodeOptions == 'graph'}">
-                        <img  src="assets/images/Graph.svg"/>
-                        <label *ngIf="nodeOptions == 'graph'" class="node-label" style="color: white;">Graph</label>
-                    </div>
-                    <div (click)="changeNodeOptions('traffic')" class="node-options" [ngClass]="{'node-select': nodeOptions == 'traffic'}">
-                        <img  src="assets/images/Traffic.svg"/>
-                        <label *ngIf="nodeOptions == 'traffic'" class="node-label" style="color: white;">Traffic</label>
-                    </div>
+                    <app-inventory [selectedNodeInventoryDetails]="tab.inventory"></app-inventory>
                 </div>
-                <app-inventory [selectedNodeInventoryDetails]="tab.inventory"></app-inventory>
             </div>
-        </div>
-    </div>
+            </div>
+        </ng-container>
+       
     </div>
 </div>
