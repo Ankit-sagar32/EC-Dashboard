@@ -34,11 +34,11 @@
                 </app-drop-down>
             </div>
             <div class="selection-item">
-                <app-data-list
-                    [dataList]="siteNames"
+                <app-drop-down 
+                    [dropDownList]="siteNames"
                     (onChange)="onDeviceChange($event)"
                     [placeHolderText]="'Search for Devices'"
-                ></app-data-list>
+                ></app-drop-down>
             </div>
             <div class="selection-item" *ngIf="ise2eSelected">
                 <app-drop-down 
