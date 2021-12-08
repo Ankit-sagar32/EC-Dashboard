@@ -33,8 +33,8 @@ export class TabsHeader implements OnInit{
     }
 
      truncate(input: string) {
-        if (input.length > 18) {
-           return input.substring(0, 18) + '...';
+        if (input.length > 16) {
+           return input.substring(0, 16) + '...';
         }
         return input;
      };

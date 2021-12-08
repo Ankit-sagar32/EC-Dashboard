@@ -1,9 +1,9 @@
 <div class="tabDetailsWrapper">
     <div class="tab-header">
         <div id="topologyViewTab" class="dashboard active" (click)="onTopologyViewTabClick()">
-            <p>
+            <span>
             Topology View
-            </p>
+            </span>
         </div>
         <div *ngFor="let tab of nodetabs">
             <div [id]="tab.tabid" class="dashboard" (click)="nodeTabClick(tab)">
