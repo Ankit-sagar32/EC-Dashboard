@@ -4,15 +4,31 @@
     background-color: #5414B4;
     color: white;
     position: relative;
+    height: 76px;
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
+    // justify-content: center;
+    .navbar{
+        height: 100%;
+    }
     .navbar-brand{
         cursor: pointer;
         display: flex;
         align-items: center;
+
+        img{
+            width: auto;
+            height: 2.5rem;
+        }
     }
     .brand-name {
         color: white;
+        margin: 0;
         margin-left: 20px;
         text-transform: uppercase;
+        margin-top: 0.25em;
+        font-family: 'BT Curve Bold';
     }
 
     .nav-right {
@@ -88,11 +104,12 @@
         gap: 10px;
         span{
             font-weight: 500;
-            font-size: initial;
+            font-size: 1.2rem;
+            font-family: 'BT Curve Bold';
         }
 
         img{
-            height: 20px;
+            height: 25px;
             filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(158deg) brightness(107%) contrast(101%);
         }
     }
@@ -105,8 +122,12 @@
         display: flex;
         align-items: center;
         cursor: pointer;
-        font-size: large;
-
+        
+        span{
+            margin-left: 5px;
+            margin-top: 0.25em;
+            font-size: 1.2rem;
+        }
         img{
             filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(158deg) brightness(107%) contrast(101%);
         }
