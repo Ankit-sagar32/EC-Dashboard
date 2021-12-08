@@ -72,7 +72,7 @@ export class TabStart implements OnInit {
 
     getDeviceTypes(event: any) {
         this.selectedDataCenter = event;
-        if(!this.deviceTypes)
+        //if(!this.deviceTypes)
         this.deviceTypes = [
             {
                 name: "Network",
