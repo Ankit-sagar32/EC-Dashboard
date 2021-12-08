@@ -22,6 +22,7 @@ export class TabDetails implements OnInit {
     deviceNames: any[] = [];
     selectedDeviceType: string = "";
     selectedDeviceNames: string = "";
+    ise2eSelected: boolean = false;
 
     graphToLoad: string = "radial-view";
     toggleGraphSettings: boolean = false;
@@ -62,6 +63,8 @@ export class TabDetails implements OnInit {
     reportFlag : boolean = false;
     alarmFlag : boolean = false;
     logFlag : boolean = false;
+    sourceID: any;
+    destinationID: any;
     
     constructor(
         private tabService: TabsService,
@@ -79,6 +82,9 @@ export class TabDetails implements OnInit {
                 this.deviceName = res.deviceName;
                 this.siteName = res.siteName;
                 this.viewName = res.viewName
+                this.ise2eSelected = res.ise2eSelected;
+                this.sourceID = res.sourceID;
+                this.destinationID = res.destinationID;
                 this.updateGraphData();
             } else {
                 // if required route params not found navigate back to graph selection.
@@ -171,19 +177,38 @@ export class TabDetails implements OnInit {
         if(d) d.style.display = "none";
     }
     getGraphData(deviceName?: any, siteName?: any) {
-        this.exposureService.getGraphData(deviceName? deviceName: this.deviceName, siteName? siteName: this.siteName).subscribe((res: any) => {
-          this.graphData = res;
-          this.graphData.nodes.forEach((m: any) => {m.type = m.type || this.utilityService.getPropertyValue(m, "nodeType"); m.name = m.name || this.utilityService.getPropertyValue(m, "deviceName");});
-          this.getAlarmsData();
-          this.deviceTypes = this.utilityService.countOccurrence(this.graphData.nodes, "type").map((m: any) => ({isSelected: false, name: m.type}));
-          // To not update filter based on serach use next lines
-          // this.deviceTypes = this.deviceTypes && this.deviceTypes.length > 0? this.deviceTypes: this.utilityService.countOccurrence(this.graphData.nodes, "type").map((m: any) => ({isSelected: false, name: m.type}));
-          !deviceName && !siteName && this.updateTabWithGraphData();
-          this.deviceNames = [];
-          this.resetGraph();
-        }, err => {
-            console.error("Error occurred while fetching the Graph Data: ", err);
-        });
+        if(!this.ise2eSelected)
+        {
+            this.exposureService.getGraphData(deviceName? deviceName: this.deviceName, siteName? siteName: this.siteName).subscribe((res: any) => {
+            this.graphData = res;
+            this.graphData.nodes.forEach((m: any) => {m.type = m.type || this.utilityService.getPropertyValue(m, "nodeType"); m.name = m.name || this.utilityService.getPropertyValue(m, "deviceName");});
+            this.getAlarmsData();
+            this.deviceTypes = this.utilityService.countOccurrence(this.graphData.nodes, "type").map((m: any) => ({isSelected: false, name: m.type}));
+            // To not update filter based on serach use next lines
+            // this.deviceTypes = this.deviceTypes && this.deviceTypes.length > 0? this.deviceTypes: this.utilityService.countOccurrence(this.graphData.nodes, "type").map((m: any) => ({isSelected: false, name: m.type}));
+            !deviceName && !siteName && this.updateTabWithGraphData();
+            this.deviceNames = [];
+            this.resetGraph();
+            }, err => {
+                console.error("Error occurred while fetching the Graph Data: ", err);
+            });
+        }
+        else{
+            this.exposureService.gete2eGraphData(this.sourceID, this.destinationID, siteName? siteName: this.siteName).subscribe((res: any) => {
+                this.graphData = res;
+                this.graphData.nodes.forEach((m: any) => {m.type = m.type || this.utilityService.getPropertyValue(m, "nodeType"); m.name = m.name || this.utilityService.getPropertyValue(m, "deviceName");});
+                this.getAlarmsData();
+                this.deviceTypes = this.utilityService.countOccurrence(this.graphData.nodes, "type").map((m: any) => ({isSelected: false, name: m.type}));
+                // To not update filter based on serach use next lines
+                // this.deviceTypes = this.deviceTypes && this.deviceTypes.length > 0? this.deviceTypes: this.utilityService.countOccurrence(this.graphData.nodes, "type").map((m: any) => ({isSelected: false, name: m.type}));
+                !deviceName && !siteName && this.updateTabWithGraphData();
+                this.deviceNames = [];
+                this.resetGraph();
+                }, err => {
+                    console.error("Error occurred while fetching the Graph Data: ", err);
+                });
+        
+        }
     }
 
     updateTabWithGraphData() {

@@ -23,13 +23,22 @@ export class TabStart implements OnInit {
     viewTypes: any[] = [];
     deviceTypes: any[] = [];
     siteNames: any[] = [];
+    selectedSiteNameID: string = '';
+    selectedDeviceID: string = '';
+    selectedDeviceName: string = '';
+    selectedSiteNameDataCenter:string = '';
+    
     dataCenters: any[] = [];
     destinationDeviceTypes: any[] = [];
+    destsiteNames: any[] = [];
     ise2eSelected: boolean = false;
     enableSearchButton: boolean = false;
     selectedDevice: string = "";
+    selectedDestDevice: string = "";
     selectedDeviceType: string = "";
+    selectedDestDeviceType: string = "";
     selectedViewType: string = "";
+    selectedDataCenter: string = "";
     constructor(
         private tabsService: TabsService,
         private apiService: DataService,
@@ -62,6 +71,8 @@ export class TabStart implements OnInit {
     }
 
     getDeviceTypes(event: any) {
+        this.selectedDataCenter = event;
+        if(!this.deviceTypes)
         this.deviceTypes = [
             {
                 name: "Network",
@@ -109,14 +120,55 @@ export class TabStart implements OnInit {
         });
     }
 
+    getdeviceIDsBySitename(event: any) {
+        this.selectedDeviceType = event;
+        this.siteNames = [];
+        this.exposureService.getdeviceIDsBySitename(this.selectedDeviceType, this.selectedDataCenter).subscribe((res: any) => {
+                
+            if (res && res.nodes.length > 0) {
+                let devices: any[] = [];
+                res.nodes.map((node: string) => {
+                    devices.push({
+                        name: node,
+                        isSelected: false
+                    })
+                })
+                this.siteNames = devices;
+            }
+        });
+    }
+
+    createIsSelectedArray(data: any){
+        let dataArray = data;
+        let isSelectableArray : any[] = [];
+        for (let index = 0; index < dataArray.length; index++) {
+            const element = dataArray[index];
+            isSelectableArray.push({
+                    name: element,
+                    isSelected: false
+                })
+        }
+        return isSelectableArray;
+    }
+
     getDataCenterNames(event: any) {
-        this.apiService.post("/getDataCenter", { selectedView: event }).subscribe((res: any) => {
-            this.dataCenters = res;
-        })
+        this.exposureService.getDataCentersData().subscribe((res: any) => {
+            if (res ) {
+                let deviceTypesArray =  res?.deviceTypes;
+                let dataCentersArray =  res?.dataCenters;
+
+                this.dataCenters = this.createIsSelectedArray(dataCentersArray);
+                this.deviceTypes = this.createIsSelectedArray(deviceTypesArray);
+            }
+        });
     }
 
     onDeviceTypeChange(event: any) {
-        this.getSiteNames(event);
+        this.selectedDeviceType = event;
+        if(this.ise2eSelected)
+            this.getdeviceIDsBySitename(event);
+        else
+            this.getSiteNames(event);
     }
 
     onDeviceChange(event: any) {
@@ -125,28 +177,114 @@ export class TabStart implements OnInit {
             this.enableSearchButton = true;
         } else {
             this.enableSearchButton = false;
+            this.getAllDestinationDeviceBySourceID();
         }
     }
 
-    onDestinationDeviceTypeChange(event: any) {
+    onDestDeviceChange(event: any) {
+        this.selectedDestDevice = event;
+        if (this.ise2eSelected) {
+            this.enableSearchButton = true;
+        }
+    }
 
+    getAllDestinationDeviceBySourceID()
+    {
+        let viewName = this.selectedViewType;
+        let deviceName = this.selectedDeviceType;
+        let deviceID = this.selectedDevice;
+        let hopcount = '6';
+        let sitename = this.selectedDataCenter;
+        this.exposureService.getDatabySourceIDData(deviceName, deviceID, hopcount, sitename ).subscribe((res: any) => {
+                
+            if (res && res.nodes.length > 0) {
+                let destDeviceNames: any[] = [];
+                var destinationDevicetypes: any[] = [];
+                res.nodes.map((node: any) => {
+                    if (Object.values(destinationDevicetypes).indexOf(node.type) == -1) {
+                            destinationDevicetypes.push({
+                            name: node.type,
+                            isSelected: false
+                        })
+                    }
+                    if (Object.values(destDeviceNames).indexOf(node.name) == -1) {
+                        destDeviceNames.push({
+                            name: node.name,
+                            isSelected: false
+                        })
+                    }
+                })
+                // get all destination device types
+                destinationDevicetypes = destinationDevicetypes.filter((node, index, self) =>
+                    index === self.findIndex((t) => (
+                        t.name === node.name
+                    ))
+                )
+
+                // get unique destination deviceIds
+                destDeviceNames = destDeviceNames.filter((node, index, self) =>
+                    index === self.findIndex((t) => (
+                        t.name === node.name
+                    ))
+                )
+
+                this.destinationDeviceTypes = destinationDevicetypes;
+                this.destsiteNames = destDeviceNames;
+            }
+        });
+    }
+
+    onDestinationDeviceTypeChange(event: any) {
+        this.selectedDestDeviceType = event;
     }
 
     onSearchClick() {
         let viewName = this.selectedViewType;
         let deviceName = this.selectedDeviceType;
         let siteName = this.selectedDevice;
-        let tabDisplayName = deviceName + "( " + viewName + " - " + siteName + " )";
-        let routePath = "/tabs/view/" + viewName + "/device/" + deviceName + "/site/" + siteName;
-        let newTab = {
-            tabDisplayName: tabDisplayName,
-            isActive: true,
-            path: routePath
+
+        let destinationDeviceType = this.selectedDestDeviceType;
+        let destinationDeviceID = this.selectedDestDevice;
+        let selectedsitename = this.selectedDataCenter;
+
+        if(!this.ise2eSelected) 
+        {
+
+            let tabDisplayName = deviceName + "( " + viewName + " - " + siteName + " )";
+            let routePath = "/tabs/view/" + viewName + "/device/" + deviceName + "/site/" + siteName;
+            let newTab = {
+                tabDisplayName: tabDisplayName,
+                isActive: true,
+                path: routePath
+            }
+            this.tabsService.addNewTab(newTab).then(res => {
+                this.router.navigate([routePath]);
+            }).catch(err => {
+                console.error("Error occured while adjusting routes: ", err);
+            });
         }
-        this.tabsService.addNewTab(newTab).then(res => {
-            this.router.navigate([routePath]);
-        }).catch(err => {
-            console.error("Error occured while adjusting routes: ", err);
-        });
+        else {
+            let sourceID = this.selectedDevice;
+            let destinationDeviceID = this.selectedDestDevice;
+
+            let tabDisplayName = deviceName + "( " + viewName + " - " + siteName + " )";
+            let routePath = "/tabs/view/" + viewName + "/device/" + deviceName + "/site/" + siteName;
+            let newTab = {
+                tabDisplayName: tabDisplayName,
+                isActive: true,
+                path: routePath
+            }
+
+            this.tabsService.addNewTab(newTab).then(res => {
+                this.router.navigate([routePath, {
+                                    ise2eSelected: this.ise2eSelected, 
+                                    sourceID: sourceID,
+                                    destinationID: destinationDeviceID
+                                }]);
+            }).catch(err => {
+                console.error("Error occured while adjusting routes: ", err);
+            });
+
+        }
     }
 }

@@ -19,8 +19,18 @@ export class ExposureService {
     return this.apiService.get(url);
   }
 
+  getdeviceIDsBySitename(deviceType: string, siteName: string){
+    let url = this.exposureUrl + "/nodes/" + deviceType + "/"+ siteName;
+    return this.apiService.get(url);
+  }
+
   getGraphData(deviceName: string, siteName: string) {
     let url = this.exposureUrl + "/nodes/" + deviceName + "/" + siteName + "/1/null/ops";
+    return this.apiService.get(url);
+  }
+
+  gete2eGraphData(sourceId: string, destinationId: string, group: string) {
+    let url = this.exposureUrl + "/nodes/paths/all/" + sourceId + "/" + destinationId + "/" + group;
     return this.apiService.get(url);
   }
 
@@ -30,7 +40,7 @@ export class ExposureService {
 
     let headerParams = {"Content-Type": "application/json"}
     return this.apiService.postOptions(url, params, {headers: headerParams});
-    // return this.apiService.get(url);
+    //return this.apiService.get(url);
   }
 
   getInventoryEntityData(url: string, params?: any) {
@@ -39,5 +49,23 @@ export class ExposureService {
 
     let headerParams = {"Content-Type": "application/json"}
     return this.apiService.get(entityUrl);
+  }
+
+  getDataCentersData(params?: any) {
+    let url = this.exposureUrl +  "/nodes/E2E_connectivity_view";
+    // let url = this.exposureUrl +  "/nodes/E2E connectivity view";
+
+    let headerParams = {"Content-Type": "application/json"}
+    //return this.apiService.postOptions(url, params, {headers: headerParams});
+    return this.apiService.get(url);
+  }
+
+  getDatabySourceIDData(deviceName: string, deviceId: string, hopCount: string, siteName: string) {
+    let url = this.exposureUrl +  "/nodes/"+ deviceName +  "/" + deviceId + "/" + hopCount + "/" + siteName + "/ops";
+    // let url = this.exposureUrl +  "/nodes/E2E connectivity view";
+
+    let headerParams = {"Content-Type": "application/json"}
+    //return this.apiService.postOptions(url, params, {headers: headerParams});
+    return this.apiService.get(url);
   }
 }

@@ -49,11 +49,11 @@
                 </app-drop-down>
             </div>
             <div class="selection-item" *ngIf="ise2eSelected" >
-                <app-data-list
-                    [dataList]="siteNames"
-                    (onChange)="onDeviceChange($event)"
-                    [placeHolderText]="'Search for Devices'"
-                ></app-data-list>
+                <app-drop-down 
+                    [dropDownList]="destsiteNames"
+                    (onChange)="onDestDeviceChange($event)"
+                    [placeHolderText]="'Search for Destination Devices'"
+                ></app-drop-down>
             </div>
             <div class="search" *ngIf="enableSearchButton" tabindex="0" (click)="onSearchClick()">
                 <i class="fas fa-search search-icon"></i>
