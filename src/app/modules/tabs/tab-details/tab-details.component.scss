@@ -130,8 +130,14 @@
             }
 
             .refresh-wrapper {
+              
+
                 .refresh {
-                    padding: 4px 10px;
+                    width: 2.3rem;
+                    height: 2.3rem;
+                    display: flex;
+                    align-items: center;
+                    padding: 4px 5px;
                     background-color: #979797;
                     font-size: 10px;
                     color: white;
@@ -139,20 +145,21 @@
                     border-radius: 5px;
                     cursor: pointer;
                     background-color: white;
-                    border: 1px solid lightgray;
+                    border: 1px solid #a8a8a9;
+
                 }
             }
     
             .count-wrapper {
-    
+
                 .number-inp {
-                    width: 30px;
+                    width: 2.3rem;
                     border: none;
-                    border-top: 1px solid lightgray;
-                    border-bottom: 1px solid lightgray;
+                    border-top: 1px solid #a8a8a9;
+                    border-bottom: 1px solid #a8a8a9;
                     padding: 3px;
                     text-align: center;
-                    height: 30px;
+                    height: 2.3rem;
 
                 }
     
@@ -174,7 +181,7 @@
                 }
     
                 .minus, .plus {
-                    height: 30px;
+                    height: 2.3rem;
                     color: #9370d2;
                     background-color: white;
                     cursor: pointer;
@@ -190,12 +197,12 @@
                 .minus {
                     border-top-right-radius: 5px;
                     border-bottom-right-radius: 5px;
-                    border: 1px solid lightgray;
+                    border: 1px solid #a8a8a9;
                 }
                 .plus {
                     border-top-left-radius: 5px;
                     border-bottom-left-radius: 5px;
-                    border: 1px solid lightgray;
+                    border: 1px solid #a8a8a9;
                 }
     
             }
@@ -263,12 +270,13 @@
     
                 .filters, .exportCSV {
                     padding: 2px ;
-                    border: 1px solid gray;
+                    border: 1px solid #a8a8a9;
                     border-radius: 5px;
                     color: $color;
                     cursor: pointer;
                     background-color: white;
-                    height: 30px ;
+                    height: 2.3rem ;
+                    width: 2.3rem;
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -283,6 +291,7 @@
                 }
     
                 .expand-wrapper {
+
                     .expand {
                         color: $color;
                         background-color: white;
@@ -465,6 +474,7 @@
 	display: flex;
 	align-items: center;
 	float: right;
+    width: 2.3rem;
 }
 .switch {
 	position: relative;
@@ -530,25 +540,26 @@ input {
 
 .gear-icon {
     background-color: white;
-    height: 30px;
-    width: 30px;
+    height: 2.3rem;
+    width: 2.3rem;
     border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid lightgray !important;
+    border: 1px solid #a8a8a9;
+
     cursor: pointer;
   }
   
   .expand-icon {
     background-color: white;
-    height: 30px;
-    width: 30px;
+    height: 2.3rem;
+    width: 2.3rem;
     border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid lightgray;
+    border: 1px solid #a8a8a9;
     cursor: pointer;
   }
 
@@ -778,8 +789,8 @@ hr {
         color: white;
         font-weight: bold;
         border-radius: 5px;
-        height: 30px;
-        width: 30px;
+        height: 2.3rem;
+        width: 2.3rem;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -801,8 +812,8 @@ hr {
     width: 130px;
     border-color: #979797;
     background-color: transparent;
-    height: 30px;
-    margin-left: 10px;
+    height: 2.3rem;
+    margin:0 10px;
     background-color: white;
 }
 

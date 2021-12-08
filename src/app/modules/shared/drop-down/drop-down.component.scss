@@ -2,12 +2,14 @@
 
 .dropDownWrapper {
     position: relative;
-    height: 30px;
+    height: 2.3rem;
+    display: flex;
+    align-items: center;
     .drop-down-selected-wrapper {
         padding: 2px 20px;
         border: 1px solid $color;
         border-radius: 5px;
-        height: 30px;
+        height: 2.3rem;
         display: flex;
         align-items: center;
     }
