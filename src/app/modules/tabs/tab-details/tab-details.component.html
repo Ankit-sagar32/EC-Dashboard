@@ -7,9 +7,9 @@
         </div>
         <div *ngFor="let tab of nodetabs">
             <div [id]="tab.tabid" class="dashboard" (click)="nodeTabClick(tab)">
-                <p>
+                <span>
                 {{tab.tabName}}
-                </p>
+                </span>
             </div>
         </div>
         <div class="signals">
