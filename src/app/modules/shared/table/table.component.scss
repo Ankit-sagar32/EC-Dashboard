@@ -65,7 +65,7 @@
 table{
     table-layout: fixed;
     width: 100%;  
-    border: 1px solid lightgrey; 
+    // border: 1px solid lightgrey; 
 }
 
 tr{
@@ -77,6 +77,8 @@ tr{
 
 thead tr{
     border: none;
+    background-color: #f0f4ff;
+    outline: none;
 }
 
 tbody{

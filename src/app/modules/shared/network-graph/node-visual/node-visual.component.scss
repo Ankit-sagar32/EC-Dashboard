@@ -52,7 +52,6 @@
 .normal {
   image {
     filter: invert(13%) sepia(88%) saturate(6133%) hue-rotate(266deg) brightness(70%) contrast(102%);
-    color: #9932CC;
   }  
 }
 .node-group:hover {
@@ -65,7 +64,7 @@
   }  
   .node {
     filter: drop-shadow(0px 0px 3px rgb(84 20 180 / 0.6));
-    fill:#9932CC;
+    fill:rgb(84 20 180);
   }
 }
 

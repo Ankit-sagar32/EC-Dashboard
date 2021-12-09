@@ -587,10 +587,12 @@ input {
 
 .controllers-arrow{
     left: 5px;
+    align-items: center;
 }
 
 .controllers-zoom{
     right: 5px;
+    align-items: flex-end;
 }
 
 .controllers-arrow, .controllers-zoom{
@@ -601,7 +603,6 @@ input {
     padding: 15px;
     display: flex;
     justify-content: center;
-    align-items: center;
     flex-direction: column;
     gap: 5px;
 }
