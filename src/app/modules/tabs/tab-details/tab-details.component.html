@@ -160,9 +160,10 @@
                 <div class="controllers-zoom">
                     <div class="first-row">
                         <div class="controller-btn"><img [src]="isFullScreen() ? '/assets/images/collapse-full-screen.svg' : '/assets/images/Expand-01.svg'" alt="" (click)="ExpandGraph()" title="{{isFullScreen()?'Exit Full Screen':'Full Screen'}}"></div>
+                        <div class="controller-btn"><img src="/assets/images/Zoom-in.svg" alt="" (click)="ZoomInGraph()" title="Zoom In"></div>
                     </div>
                     <div class="second-row">
-                        <div class="controller-btn"><img src="/assets/images/Zoom-in.svg" alt="" (click)="ZoomInGraph()" title="Zoom In"></div>
+                    
                         <div class="controller-btn"><img src="/assets/images/Zoom-out.svg" alt="" (click)="ZoomOutGraph()" title="Zoom Out"></div>
                         <div class="controller-btn"><img style=" transform: rotate(180deg); " src="/assets/images/Expamd-02.svg" alt="" (click)="ResetGraph()" title="Reset"></div>
                     </div>

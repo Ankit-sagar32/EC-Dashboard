@@ -369,8 +369,8 @@
     }
 
     .entity-divs{
-        height: 75px;
         width: 150px;
+        padding-top:5px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -380,8 +380,7 @@
 
         p{
             margin: 0;
-            font-weight: 600;
-            font-size: 13px;
+            font-family: 'BT Curve';
             overflow-wrap: break-word;
             text-align: center;
         }
@@ -389,12 +388,12 @@
 
     .entity-label{
         color: #000;
-        font-weight: 500;
-        font-size: 12px !important;
+        font-weight: 400;
+        font-size: 1rem !important;
     }
 
     .entity-value{
-        font-size: 23px;
+        font-size: 2rem;
         font-weight: 500;
     }
     }
@@ -405,8 +404,10 @@
     // border: 1px solid lightgray;
     p{
         margin: 0;
-        font-weight: 600;
+        font-weight: 500;
+        font-size: 1rem;
         color: #636773;
+        font-family: 'BT Curve Bold';
     }
 }
 
@@ -784,11 +785,12 @@ hr {
 
     .search {
         padding: 6px 10px;
-        background-color: #979797;
+        background-color: #5414b4;
         font-size: 10px;
         color: white;
         font-weight: bold;
-        border-radius: 5px;
+        border-bottom-right-radius: 5px;
+        border-top-right-radius: 5px;
         height: 2.3rem;
         width: 2.3rem;
         display: flex;
@@ -809,12 +811,15 @@ hr {
 }
 
 .data-list-inp{
-    width: 130px;
+    width: 235px;
     border-color: #979797;
     background-color: transparent;
     height: 2.3rem;
-    margin:0 10px;
+    margin-left: 15%;
     background-color: white;
+    border-radius: 0%;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
 }
 
 .data-list-inp:focus {
