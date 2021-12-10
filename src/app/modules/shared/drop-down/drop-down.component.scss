@@ -27,6 +27,7 @@
             background-color: transparent;
             width: 100%;
             color: black;
+            text-align: center;
         }
         .selected-text.default {
             color: lightgray;
@@ -55,16 +56,17 @@
         border: 1px solid lightgray;
         border-radius: 5px;
         z-index: 10000;
-        height: 250px;
+        max-height: 500px;
         overflow-y: auto;
         overflow-x: hidden;
-        top: 50%;
-        margin-top: 1em;
+        // top: 50%;
+        // margin-top: 1em;
 
         .option {
             padding: 10px;
             cursor: pointer;
             color: black;
+            text-align: center;
         }
 
         .option.disabled {

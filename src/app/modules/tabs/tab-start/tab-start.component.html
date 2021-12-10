@@ -40,7 +40,7 @@
                     [placeHolderText]="'Search for Devices'"
                 ></app-drop-down>
             </div>
-            <div class="selection-item" *ngIf="ise2eSelected">
+            <div class="selection-item" *ngIf="ise2eSelected && isSourceSelected">
                 <app-drop-down 
                     [dropDownList]="destinationDeviceTypes"
                     [placeHolderText]="'Select Destination Device Type'"
@@ -48,7 +48,7 @@
                     >
                 </app-drop-down>
             </div>
-            <div class="selection-item" *ngIf="ise2eSelected" >
+            <div class="selection-item" *ngIf="ise2eSelected && isSourceSelected" >
                 <app-drop-down 
                     [dropDownList]="destsiteNames"
                     (onChange)="onDestDeviceChange($event)"

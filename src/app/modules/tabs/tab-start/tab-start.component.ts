@@ -32,6 +32,7 @@ export class TabStart implements OnInit {
     destinationDeviceTypes: any[] = [];
     destsiteNames: any[] = [];
     ise2eSelected: boolean = false;
+    isSourceSelected: boolean = false;
     enableSearchButton: boolean = false;
     selectedDevice: string = "";
     selectedDestDevice: string = "";
@@ -177,6 +178,7 @@ export class TabStart implements OnInit {
             this.enableSearchButton = true;
         } else {
             this.enableSearchButton = false;
+            this.isSourceSelected = true;
             this.getAllDestinationDeviceBySourceID();
         }
     }
