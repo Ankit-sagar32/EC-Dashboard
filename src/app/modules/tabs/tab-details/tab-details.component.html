@@ -298,7 +298,11 @@
                             <label *ngIf="nodeOptions == 'traffic'" class="node-label" style="color: white;">Traffic</label>
                         </div>
                     </div>
-                    <app-inventory [selectedNodeInventoryDetails]="tab.inventory"></app-inventory>
+                  
+                        <app-inventory *ngIf="nodeOptions == 'inventory'" [selectedNodeInventoryDetails]="tab.inventory"></app-inventory>
+               
+                   
+                    <app-alarms  *ngIf="nodeOptions == 'alarms'"></app-alarms>
                 </div>
             </div>
             </div>
