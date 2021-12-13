@@ -7,7 +7,7 @@ import { DataService } from "src/app/helpers/services/network-graph/data.service
 import { SankeyComponent } from "../../landing/sankey-graph/sankey-graph.component";
 import { NetworkGraph } from "../../landing/network-graph/network-graph.component";
 import { GraphComponent } from "../../shared/network-graph/graph/graph.component";
-import {InventoryComponent} from "../inventory/inventory.component";
+import { InventoryComponent } from "../inventory/inventory.component";
 @Component({
     selector: "app-tab-details",
     templateUrl: "./tab-details.component.html",
@@ -19,6 +19,7 @@ export class TabDetails implements OnInit {
     siteName: string = "";
     graphData: any;
     deviceTypes: any[] = [];
+    deviceTypeNames: any[] = [];
     deviceNames: any[] = [];
     selectedDeviceType: string = "";
     selectedDeviceNames: string = "";
@@ -157,6 +158,10 @@ export class TabDetails implements OnInit {
         this.graphData = currentTabDetails.tabGraphData;
         this.getAlarmsData();
         this.deviceTypes = this.utilityService.countOccurrence(this.graphData.nodes, "type").map((m: any) => ({isSelected: false, name: m.type}));
+        this.deviceTypes.forEach(element => {
+            this.deviceTypeNames.push(element.name);
+        });
+        //this.deviceTypeNames = this.utilityService.countOccurrence(this.graphData.nodes, "type").map((m: any) => ({isSelected: false, name: m.type}));
         this.deviceNames = [];
         this.resetGraph();
         return;
@@ -187,6 +192,13 @@ export class TabDetails implements OnInit {
             // To not update filter based on serach use next lines
             // this.deviceTypes = this.deviceTypes && this.deviceTypes.length > 0? this.deviceTypes: this.utilityService.countOccurrence(this.graphData.nodes, "type").map((m: any) => ({isSelected: false, name: m.type}));
             !deviceName && !siteName && this.updateTabWithGraphData();
+            this.deviceTypes.forEach(element => {
+                    
+                var deviceNameArray = this.graphData?.nodes?.filter((m: any) => m.type == element.name).map((m: any) => ({value: m.name, viewValue: m.name, type: element.name}));
+                this.deviceTypeNames.push({devicetype: element.name, deviceNames: deviceNameArray});
+
+            });
+
             this.deviceNames = [];
             this.resetGraph();
             }, err => {
@@ -202,6 +214,15 @@ export class TabDetails implements OnInit {
                 // To not update filter based on serach use next lines
                 // this.deviceTypes = this.deviceTypes && this.deviceTypes.length > 0? this.deviceTypes: this.utilityService.countOccurrence(this.graphData.nodes, "type").map((m: any) => ({isSelected: false, name: m.type}));
                 !deviceName && !siteName && this.updateTabWithGraphData();
+                this.deviceTypes.forEach(element => {
+                    
+                    var deviceNameArray = this.graphData?.nodes?.filter((m: any) => m.type == element.name).map((m: any) => ({value: m.name, viewValue: m.name, type: element.name}));
+                    this.deviceTypeNames.push({devicetype: element.name, deviceNames: deviceNameArray});
+
+                });
+
+
+                
                 this.deviceNames = [];
                 this.resetGraph();
                 }, err => {

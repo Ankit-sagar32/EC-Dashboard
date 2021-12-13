@@ -1,0 +1,24 @@
+<mat-form-field>
+  <!-- <mat-label>Toppings</mat-label> -->
+  <mat-select [formControl]="toppingsControl" multiple>
+
+    <mat-select-trigger>
+      <mat-chip-list>
+        <mat-chip *ngFor="let topping of toppingsControl.value"
+          [removable]="true" (removed)="onToppingRemoved(topping)" style="background-color:#E8DEF6;">
+          {{ topping }}
+          <mat-icon matChipRemove>cancel</mat-icon>
+        </mat-chip>
+      </mat-chip-list>
+    </mat-select-trigger>
+
+    <!-- <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option> -->
+    <mat-optgroup *ngFor="let group of toppingList" [label]="group.devicetype"
+                [disabled]="group.disabled">
+      <mat-option *ngFor="let deviceName of group.deviceNames" [value]="deviceName.value">
+        {{deviceName.viewValue}}
+      </mat-option>
+    </mat-optgroup>
+
+  </mat-select>
+</mat-form-field>

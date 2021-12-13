@@ -1,0 +1,33 @@
+mat-form-field {
+  width: 300px;
+  background: white;
+  height: 60px;
+  margin: 2px;
+}
+
+mat-chip {
+  background-color: rgb(178, 32, 32);
+}
+mat-select-arrow-wrapper {
+  transform: translateY(-50%); 
+}
+
+mat-form-field-wrapper {
+padding-bottom: 1em;
+}
+
+mat-select-arrow-wrapper {
+display: block; 
+}
+
+mat-select-arrow-wrapper {
+transform: unset !important;
+}
+
+.mat-select-arrow-wrapper {
+transform: unset !important;
+}
+
+.mat-form-field-appearance-fill {
+transform: unset !important;
+}

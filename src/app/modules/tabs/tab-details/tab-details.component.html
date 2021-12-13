@@ -34,7 +34,7 @@
 
                 <div class="graph-header-controls">
                     <div class="search-wrapper">
-                        <app-drop-down [dropDownList]="deviceTypes" [placeHolderText]="'Select Device Type'"
+                        <!--<app-drop-down [dropDownList]="deviceTypes" [placeHolderText]="'Select Device Type'"
                             (onChange)="onDeviceTypeChange($event)">
                         </app-drop-down>
                         <app-data-list [dataList]="deviceNames" (onChange)="onDeviceNameChange($event)"
@@ -42,7 +42,8 @@
                         <div class="search {{!!this.selectedDeviceType && !!this.selectedDeviceNames?'active':''}}"
                             (click)="!!this.selectedDeviceType && !!this.selectedDeviceNames && searchSelectedDevice()">
                             <i class="fas fa-lg fa-search search-icon"></i>
-                        </div>
+                        </div> -->
+                        <app-select-multiple [toppingList]="deviceTypeNames" ></app-select-multiple>
                     </div>
                   
                     <div class="container-right-side-btns">
