@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   password: string = "";
   domain: string = "";
   toggleViewPwd: boolean = false;
+  acceptTCBoolean: boolean = false;
 
   constructor(
     private router: Router,
@@ -34,8 +35,12 @@ export class LoginComponent implements OnInit {
     inp.type = this.toggleViewPwd ? "text" : "password";
   }
 
+  acceptTC(){
+    this.acceptTCBoolean = !this.acceptTCBoolean;
+  }
+
   onLoginClick() {
-    if (this.boatId && this.password && this.domain) {
+    if (this.boatId && this.password && this.domain && this.acceptTCBoolean) {
       sessionStorage.setItem("userdetails", "loggedin");
       sessionStorage.setItem("boatId", this.boatId);
       var encrypted = this.encryptDecryptService.set('123456$#@$^@1ERF', this.password);
@@ -64,6 +69,9 @@ export class LoginComponent implements OnInit {
         });
       });
     } else {
+      if(!this.acceptTCBoolean){
+        this.toastr.showErrorToaster("Please Accept Terms & Conditions");
+      }
       // alert("All fields are mandatory, please check and try again!");
       if (!this.boatId) {
         this.toastr.showErrorToaster("Please enter Username");
