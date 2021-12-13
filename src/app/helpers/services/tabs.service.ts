@@ -11,7 +11,7 @@ export class TabsService {
         {
             tabDisplayName: "Start",
             isActive: true,
-            path: "/tabs/start"
+            path: "/landing/tabs/start"
         }
     ];
 

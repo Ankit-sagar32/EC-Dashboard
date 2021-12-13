@@ -253,7 +253,7 @@ export class TabStart implements OnInit {
         {
 
             let tabDisplayName = deviceName + "( " + viewName + " - " + siteName + " )";
-            let routePath = "/tabs/view/" + viewName + "/device/" + deviceName + "/site/" + siteName;
+            let routePath = "/landing/tabs/view/" + viewName + "/device/" + deviceName + "/site/" + siteName;
             let newTab = {
                 tabDisplayName: tabDisplayName,
                 isActive: true,
@@ -270,7 +270,7 @@ export class TabStart implements OnInit {
             let destinationDeviceID = this.selectedDestDevice;
 
             let tabDisplayName = deviceName + "( " + viewName + " - " + siteName + " )";
-            let routePath = "/tabs/view/" + viewName + "/device/" + deviceName + "/site/" + siteName;
+            let routePath = "/landing/tabs/view/" + viewName + "/device/" + deviceName + "/site/" + siteName;
             let newTab = {
                 tabDisplayName: tabDisplayName,
                 isActive: true,

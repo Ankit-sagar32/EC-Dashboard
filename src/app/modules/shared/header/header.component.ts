@@ -32,7 +32,7 @@ export class HeaderComponent implements OnInit {
 
   onClickLogo() {
     if (this.loginService.isLoggedIn) {
-      this.router.navigate(["tabs/start"])
+      this.router.navigate(["landing/tabs/start"])
     }else {
       this.router.navigate([""]);
     }

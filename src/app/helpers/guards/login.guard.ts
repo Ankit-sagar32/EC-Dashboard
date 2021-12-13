@@ -14,7 +14,7 @@ export class LoginGuard implements CanActivate {
             return true;
         }
         // logged in so redirect to login page
-        this.router.navigate(['tabs/start']);
+        this.router.navigate(['landing/tabs/start']);
         return false;
     }
 

@@ -40,7 +40,7 @@ export class ExposureService {
 
     let headerParams = {"Content-Type": "application/json"}
     return this.apiService.postOptions(url, params, {headers: headerParams});
-    //return this.apiService.get(url);
+    // return this.apiService.get(url);
   }
 
   getInventoryEntityData(url: string, params?: any) {
@@ -52,8 +52,8 @@ export class ExposureService {
   }
 
   getDataCentersData(params?: any) {
-    let url = this.exposureUrl +  "/nodes/E2E_connectivity_view";
-    // let url = this.exposureUrl +  "/nodes/E2E connectivity view";
+    // let url = this.exposureUrl +  "/nodes/E2E_connectivity_view";
+    let url = this.exposureUrl +  "/nodes/E2E connectivity view";
 
     let headerParams = {"Content-Type": "application/json"}
     //return this.apiService.postOptions(url, params, {headers: headerParams});

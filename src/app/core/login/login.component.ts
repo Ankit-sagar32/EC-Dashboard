@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit {
         this.metadataService.getToken(options).subscribe((res: any) => {
           sessionStorage.setItem("login-token", res.access_token);
           this.loginService.updateLoginStatus(true);
-          this.router.navigate(["tabs/start"]);
+          this.router.navigate(["landing/tabs/start"]);
         });
       });
     } else {
