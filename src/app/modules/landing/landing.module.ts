@@ -5,12 +5,17 @@ import { LandingComponent } from './landing.component';
 import { AuthGuard } from '../../helpers/guards/index';
 
 const childRoutes: Routes = [
+  // {
+  //   path: '', component: LandingComponent, canActivate: [AuthGuard]
+  // },
   {
-    path: '', component: LandingComponent, canActivate: [AuthGuard]
-  },
-  {
-    path: 'landing', component: LandingComponent, canActivate: [AuthGuard]
+    path: '',
+    children: [{
+      path: 'tabs', loadChildren: () => import('../../modules/tabs/tabs.module').then(m => m.TabsModule),
+      // canActivate: [AuthGuard]
+    }],
   }
+ 
 ];
 
 

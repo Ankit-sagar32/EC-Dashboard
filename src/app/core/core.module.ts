@@ -6,7 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 
 const coreRoutes: Routes = [
-  { path: "", component: LoginComponent },
+  { path: "", component: WelcomePageComponent },
+  { path: "login", component: LoginComponent },
 ];
 
 @NgModule({

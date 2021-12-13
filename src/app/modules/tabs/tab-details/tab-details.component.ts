@@ -88,7 +88,7 @@ export class TabDetails implements OnInit {
                 this.updateGraphData();
             } else {
                 // if required route params not found navigate back to graph selection.
-                this.router.navigate(["/tab/start"]);
+                this.router.navigate(["landing/tab/start"]);
             }
         })
     }
