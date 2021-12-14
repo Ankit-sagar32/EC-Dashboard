@@ -333,8 +333,16 @@ export class TabDetails implements OnInit {
     }
 
     searchSelectedDevice() {
-      this.getGraphData(this.selectedDeviceType, this.selectedDeviceNames);
+        this.getGraphData(this.selectedDeviceType, this.selectedDeviceNames);
     }
+
+    searchSelectedChipDevice(option: any) {
+        var searchOption = option;
+        let searchedDeviceType = option.type;
+        let searchedDeviceName = option.value;
+        this.getGraphData(searchedDeviceType, searchedDeviceName);
+    }
+
     resetGraph() {
       this.showGraph = false;
       setTimeout(() => {

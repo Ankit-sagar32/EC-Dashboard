@@ -15,7 +15,7 @@
     <!-- <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option> -->
     <mat-optgroup *ngFor="let group of toppingList" [label]="group.devicetype"
                 [disabled]="group.disabled">
-      <mat-option *ngFor="let deviceName of group.deviceNames" [value]="deviceName.value">
+      <mat-option #matOption *ngFor="let deviceName of group.deviceNames" [value]="deviceName.value" (click)="clickOption(deviceName, matOption.selected)">
         {{deviceName.viewValue}}
       </mat-option>
     </mat-optgroup>

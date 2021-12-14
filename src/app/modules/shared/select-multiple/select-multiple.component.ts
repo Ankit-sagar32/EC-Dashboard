@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 /** @title Select with multiple selection by Rishi */
@@ -11,6 +11,8 @@ export class SelectMultipleComponent implements OnInit {
 
   toppingsControl = new FormControl([]);
   @Input() toppingList :any[] = [];
+  
+  @Output() selectedDeviceEmitter: EventEmitter<any> = new EventEmitter<any>();
   //pokemonGroups: any[] = [];
   // toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
   // pokemonGroups: any[] = [{
@@ -56,5 +58,10 @@ export class SelectMultipleComponent implements OnInit {
     if (index !== -1) {
       array.splice(index, 1);
     }
+  }
+
+  clickOption(option: any, matSelected: boolean) {
+    console.log(option , " - ",matSelected);
+    this.selectedDeviceEmitter.emit(option);
   }
 }
