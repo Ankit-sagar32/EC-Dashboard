@@ -37,8 +37,8 @@
                         <app-drop-down [dropDownList]="deviceTypes" [placeHolderText]="'Select Device Type'"
                             (onChange)="onDeviceTypeChange($event)">
                         </app-drop-down>
-                        <!-- <app-data-list [dataList]="deviceNames" (onChange)="onDeviceNameChange($event)"
-                            [placeHolderText]="'Search for Devices'"></app-data-list> -->
+                        <app-data-list [dataList]="deviceNames" (onChange)="onDeviceNameChange($event)"
+                            [placeHolderText]="'Search for Devices'"></app-data-list>
                         <div class="search {{!!this.selectedDeviceType && !!this.selectedDeviceNames?'active':''}}"
                             (click)="!!this.selectedDeviceType && !!this.selectedDeviceNames && searchSelectedDevice()"
                             >
@@ -48,7 +48,7 @@
                   
                     <div class="container-right-side-btns">
                         <div class="refresh-wrapper">
-                            <div class="refresh" (click)="updateGraphData()">
+                            <div class="refresh" (click)="updateGraphData(true)">
                                 <img  src="assets/images/Refresh.svg"
                                     style="width: 20px;height: 20px; border: none; color: blueviolet; filter: invert(9%) sepia(88%) saturate(6634%) hue-rotate(268deg) brightness(89%) contrast(93%);" />
                             </div>

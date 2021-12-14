@@ -94,7 +94,7 @@ export class TabDetails implements OnInit {
     }
 
     ngOnInit() {
-      this.updateGraphData();
+      this.updateGraphData(false);
       let clickedNodeData: any;
       this.dataSvc.childEventListner().subscribe(info =>{
         clickedNodeData = info;
@@ -149,27 +149,33 @@ export class TabDetails implements OnInit {
         }
     }
 
-    updateGraphData() {
+    updateGraphData(serverGraphDataBool?: boolean) {
       let path = decodeURI(location.pathname);
       let tabname = this.deviceName + "( " + this.viewName + " - " + this.siteName + " )";
       let currentTabDetails = this.tabService.tabs.find(tab => tab.tabDisplayName == tabname && tab.path == path)
-      if(currentTabDetails && currentTabDetails.tabGraphData) {
-        this.graphData = currentTabDetails.tabGraphData;
-        this.getAlarmsData();
-        this.deviceTypes = this.utilityService.countOccurrence(this.graphData.nodes, "type").map((m: any) => ({isSelected: false, name: m.type}));
-        this.deviceNames = [];
-        this.resetGraph();
-        return;
+      if(serverGraphDataBool)
+      {
+        this.getGraphData();
       }
-      if (!currentTabDetails) {
-          // Add the current tab to the tabs service data - (While navigated via Deeplinking).
-          this.tabService.addNewTab({
-              tabDisplayName: tabname,
-              isActive: true,
-              path: path
-          });
-      }
-      this.getGraphData();
+      else{
+            if(currentTabDetails && currentTabDetails.tabGraphData) {
+                this.graphData = currentTabDetails.tabGraphData;
+                this.getAlarmsData();
+                this.deviceTypes = this.utilityService.countOccurrence(this.graphData.nodes, "type").map((m: any) => ({isSelected: false, name: m.type}));
+                this.deviceNames = [];
+                this.resetGraph();
+                return;
+            }
+            if (!currentTabDetails) {
+                // Add the current tab to the tabs service data - (While navigated via Deeplinking).
+                this.tabService.addNewTab({
+                    tabDisplayName: tabname,
+                    isActive: true,
+                    path: path
+                });
+            }
+            this.getGraphData();
+        }
     }
     onPopUpOut() {
         this.showNodeInfoPopUp = false;
