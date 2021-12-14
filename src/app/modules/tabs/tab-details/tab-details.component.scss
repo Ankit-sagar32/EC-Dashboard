@@ -77,7 +77,7 @@
         margin-right: 20px;
         height: 75vh;
         min-height: 440px;
-        max-height: 75vh;
+        height: 80vh;
         overflow: hidden;
         position: relative;
         
@@ -241,7 +241,7 @@
         box-sizing: border-box;
         box-shadow: 1px 1px 14px 3px lightgrey;
         min-height: 440px;
-        max-height: 75vh;
+        height: 80vh;
         overflow: hidden;
         display: flex;
         flex-direction: column;
@@ -349,7 +349,7 @@
 
         .alarms-body {
             background-color: white;
-            padding: 20px;
+            padding: 15px 20px;
             font-size: small;
         }
     }
@@ -357,7 +357,7 @@
 
     .container-entity-service{
    
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     padding: 0 20px;
   
 

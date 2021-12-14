@@ -37,10 +37,11 @@
                         <app-drop-down [dropDownList]="deviceTypes" [placeHolderText]="'Select Device Type'"
                             (onChange)="onDeviceTypeChange($event)">
                         </app-drop-down>
-                        <app-data-list [dataList]="deviceNames" (onChange)="onDeviceNameChange($event)"
-                            [placeHolderText]="'Search for Devices'"></app-data-list>
+                        <!-- <app-data-list [dataList]="deviceNames" (onChange)="onDeviceNameChange($event)"
+                            [placeHolderText]="'Search for Devices'"></app-data-list> -->
                         <div class="search {{!!this.selectedDeviceType && !!this.selectedDeviceNames?'active':''}}"
-                            (click)="!!this.selectedDeviceType && !!this.selectedDeviceNames && searchSelectedDevice()">
+                            (click)="!!this.selectedDeviceType && !!this.selectedDeviceNames && searchSelectedDevice()"
+                            >
                             <i class="fas fa-lg fa-search search-icon"></i>
                         </div>
                     </div>

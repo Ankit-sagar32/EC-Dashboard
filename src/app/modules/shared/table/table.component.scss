@@ -64,8 +64,8 @@
 
 table{
     table-layout: fixed;
-    width: 100%;  
-    max-height: 300px;
+    width: 100%;
+    margin-bottom: 0;
 }
 
 tr{
@@ -82,7 +82,7 @@ thead tr{
 }
 
 tbody{
-    max-height: 350px;
+    max-height: 186px;
     display: block;
     overflow-y: auto;
 } 
