@@ -85,7 +85,7 @@ export class TabDetails implements OnInit {
                 this.ise2eSelected = res.ise2eSelected;
                 this.sourceID = res.sourceID;
                 this.destinationID = res.destinationID;
-                this.updateGraphData();
+                // this.updateGraphData();
             } else {
                 // if required route params not found navigate back to graph selection.
                 this.router.navigate(["landing/tab/start"]);
