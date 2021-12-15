@@ -8,7 +8,6 @@ import { D3_DIRECTIVES } from 'src/app/helpers/directives/network-graph';
 import { SHARED_VISUALS } from './network-graph/';
 import { GraphComponent } from './network-graph/graph/graph.component';
 import { GraphLegendComponent } from './graph-legend/graph-legend.component';
-import { MatCheckboxModule } from '@angular/material/checkbox';
 @NgModule({
   declarations: [
     DataList,
@@ -22,7 +21,6 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
   imports: [
     CommonModule,
     FormsModule,
-    MatCheckboxModule,
   ],
   exports: [
     DataList,
