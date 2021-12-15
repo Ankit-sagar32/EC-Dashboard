@@ -26,22 +26,24 @@
             <div class="collapse navbar-collapse nav-right" id="navbarScroll">
                 <ng-template [ngIf]="isLoggedIn" [ngIfElse]="defaultRightHeader">
                     <div class="searchHeader">
-                        <i class="fas fa-search"></i>
+                        <img src="assets/images/Search.svg" alt="search" style="filter: invert(100%) sepia(3%) saturate(0%) hue-rotate(207deg) brightness(103%) contrast(103%);" height="15px" />
+                        
                     </div>
                     <div class="notificationWrapper">
-                        <i class="fas fa-bell"></i>
+                        <img src="assets/images/bell.svg" alt="search" height="15px" style="filter: invert(100%) sepia(3%) saturate(0%) hue-rotate(207deg) brightness(103%) contrast(103%);" height="15px"/>
                     </div>
                     <div class="vertical-seperator"></div>
                     <div class="profile-info d-flex float-right align-items-center"  (click)="logoutBool = !logoutBool" >
                         <div class="profile-name">{{boatId}}</div>
                         <img src="assets/images/user-profile.svg" height="30px" class="profile-image"
                             alt="Profile Default Image" />
-                        <i class="fas fa-chevron-down"></i>
+                        <img src="assets/images/chevron-down.svg" alt="search" style="filter: invert(100%) sepia(3%) saturate(0%) hue-rotate(207deg) brightness(103%) contrast(103%);" height="15px" />
+                        
                     </div>
                     <div *ngIf="logoutBool" class="logout" 
-                        (click)="onLogoutClick()"
-                    >
-                        <i class="fa fa-sign-out" aria-hidden="true"></i>
+                        (click)="onLogoutClick()" >
+                        <img src="assets/images/sign-out.svg" alt="search" height="15px" />
+                        
                         <p>LogOut</p>
                     </div>
                 </ng-template>
@@ -49,7 +51,7 @@
                     <div class="help-wrapper">
                         <div class="label">
                             Help 
-                            <i class="fa fa-question-circle" aria-hidden="true"></i>
+                            <img src="assets/images/question-circle.svg" style="filter: invert(100%) sepia(3%) saturate(0%) hue-rotate(207deg) brightness(103%) contrast(103%);" alt="BT Logo" height="15px" />
                         </div>
                     </div>
                 </ng-template>

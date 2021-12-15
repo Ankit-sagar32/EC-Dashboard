@@ -4,7 +4,8 @@
             <input type="text" class='selected-text {{selectedOption?"":" default"}}' (blur)="onInputBlur()" [(ngModel)]="selectedOption"
                 placeholder="{{placeHolderText}} " autocomplete="off" />
             <div class="arrow-controller">
-                <i class="fas fa-angle-down arrow" [ngClass]="{'rotate' : showDropdownOptions}"></i>
+                <img class="fas" src="assets/images/chevron-down.svg" [ngClass]="{'rotate' : showDropdownOptions}" alt="chevron" height="15px" />
+                        
             </div>
         </div>
     </div>
