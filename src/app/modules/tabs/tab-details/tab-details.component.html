@@ -42,7 +42,8 @@
                         <div class="search {{!!this.selectedDeviceType && !!this.selectedDeviceNames?'active':''}}"
                             (click)="!!this.selectedDeviceType && !!this.selectedDeviceNames && searchSelectedDevice()"
                             >
-                            <i class="fas fa-lg fa-search search-icon"></i>
+                            <img  src="assets/images/Search.svg"
+                            style="width: 20px;height: 20px; border: none; filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(158deg) brightness(107%) contrast(101%);" />
                         </div>
                     </div>
                   
@@ -54,9 +55,15 @@
                             </div>
                         </div>
                         <div class="count-wrapper">
-                            <div class="plus"> <i class="fas fa-minus"></i> </div>
+                            <div class="plus">
+                                <img  src="assets/images/Substract.svg"
+                                style="width: 20px;height: 20px; border: none; color: blueviolet; filter: invert(9%) sepia(88%) saturate(6634%) hue-rotate(268deg) brightness(89%) contrast(93%);" />
+                            </div>
                             <input type="number" value="1" class="number-inp" />
-                            <div class="minus"> <i class="fas fa-plus"></i> </div>
+                            <div class="minus">
+                                <img  src="assets/images/Add.svg"
+                                style="width: 20px;height: 20px; border: none; color: blueviolet; filter: invert(9%) sepia(88%) saturate(6634%) hue-rotate(268deg) brightness(89%) contrast(93%);" />
+                            </div>
                             <!-- <div class="search">
                                 <i class="fas fa-search search-icon"></i>
                             </div> -->
@@ -206,7 +213,8 @@
                         </datalist>
                         <div class="search {{!!this.selectedDeviceType && !!this.selectedDeviceNames?'active':''}}"
                             (click)="!!this.selectedDeviceType && !!this.selectedDeviceNames && searchSelectedDevice()">
-                            <i class="fas fa-lg fa-search search-icon"></i>
+                            <img  src="assets/images/Search.svg"
+                            style="width: 20px;height: 20px; border: none; filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(158deg) brightness(107%) contrast(101%);" />
                         </div>
                     </div>
                     <div class="alarms-header-controls">
