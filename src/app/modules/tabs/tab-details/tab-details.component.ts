@@ -460,8 +460,14 @@ export class TabDetails implements OnInit {
                         inventory: nodeProperties[0]?.properties,
                         inventoryFlag: inventoryFlag});
                 }
+                setTimeout(()=>{
+                    this.resetNodeTabsActiveStatus();
+                    document.getElementById('nodetabid_'+ selectedNodeId)?.classList.add('active');
+                });
             });
         }
+
+        
 
     }
 
@@ -499,6 +505,26 @@ export class TabDetails implements OnInit {
       this.displayTabComp = 'native';
       this.resetNodeTabsActiveStatus();
       document.getElementById('topologyViewTab')?.classList.add('active');
+    }
+
+    closeTabClick(tab?: any) {
+        let tabname = tab?.name;
+        let id = tab?.id;
+        this.resetNodeTabsActiveStatus();// reset to topology tab
+        for (var tab of this.nodetabs) {
+            if (tabname === tab.name) {
+                this.displayTabComp = "native";
+                if(!document.getElementById('topologyViewTab')?.classList.contains('active'))
+                {
+                    document.getElementById('topologyViewTab')?.classList.add('active');
+                }
+                this.nodetabs = this.nodetabs.filter(tab => { return tab.id !== id;});
+            }
+            else if(tab.name == 'Topology View') {
+                this.displayTabComp = 'native';
+            }
+        }
+
     }
   
     nodeTabClick(tab?: any) {

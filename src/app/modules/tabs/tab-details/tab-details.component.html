@@ -10,7 +10,8 @@
                 <span>
                 {{tab.tabName}}
                 </span>
-                <span class="cross-mark">&times;</span>
+                <!-- <span class="cross-mark" >&times;</span> -->
+                <span class="cross-mark" (click)="closeTabClick(tab)">&times;</span>
             </div>
         </div>
         <div class="signals">
