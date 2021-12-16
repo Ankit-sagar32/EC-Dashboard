@@ -4,6 +4,7 @@ import { StartUpService } from "src/app/helpers/services";
 import { DataService } from "src/app/helpers/services/core/interceptor.service";
 import { TabsService } from "../../../helpers/services/tabs.service";
 import { ExposureService } from "src/app/helpers/services/exposure.service";
+import { AutoLogoutService } from "src/app/helpers/services/core/auto-logout.service";
 
 @Component({
     selector: "app-tab-start",
@@ -45,7 +46,8 @@ export class TabStart implements OnInit {
         private apiService: DataService,
         private router: Router,
         private startUp: StartUpService,
-        private exposureService: ExposureService
+        private exposureService: ExposureService,
+        private autoLogout: AutoLogoutService
     ) { }
 
     ngOnInit() {
