@@ -22,7 +22,7 @@ export class NodeVisualComponent implements OnInit{
   }
 
   getImg(nod:any){
-    let img = "./assets/images/" + nod.type + ".svg";    
+    let img = "./assets/images/" + nod.type + "-01.svg";    
     return img;
   }
   getState(nod:any){
@@ -40,6 +40,24 @@ export class NodeVisualComponent implements OnInit{
         return "down";
       default:
         return "normal";
+    }
+  }
+
+  getStateColor(nod:any){
+    let alarmstate = nod?.groupingView?.alarm?.severity;
+    switch (alarmstate) {
+      case 1:
+        return "#51CB20";
+      case 2:
+        return "#FF8C00";
+      case 3:
+        return "#FFD700";
+      case 4:
+        return "#1E90FF";
+      case 5:
+        return "#FF0000";
+      default:
+        return "#5414B4";
     }
   }
   getNodeHoverInfo(node: any) {
@@ -66,32 +84,39 @@ export class NodeVisualComponent implements OnInit{
     }
   }
 
+  onmouseenter(event: any, nod:any) {
+    this.onmouseover(event,nod);
+  }
+  
   onmouseover(event: any, nod:any) {
     var circlesvg = document.getElementById("circle_"+ nod?.id);
     if(circlesvg){
-      circlesvg.setAttribute('r', '9');
+      circlesvg.setAttribute('r', '8');
+      circlesvg.style.display = "block";
+      circlesvg.style.stroke = this.getStateColor(nod);
     }
-    // event?.target.setAttribute('r', '9');
+    event?.target.setAttribute('r', '8');
     var nodeimg = document.getElementById("nodeimg_"+ nod?.id);
     if(nodeimg)
     {
-      nodeimg.style.height = "7px";
-      nodeimg.style.width = "7px";
-      nodeimg.style.transform = "translate(-3.5px, -3.5px)";
+      nodeimg.style.height = "18px";
+      nodeimg.style.width = "18px";
+      nodeimg.style.transform = "translate(-9px, -9px)";
     }
   }
   onmouseleave(event: any, nod:any) {
     var circlesvg = document.getElementById("circle_"+ nod?.id);
     if(circlesvg){
       circlesvg.setAttribute('r', '6');
+      circlesvg.style.display = "none";
     }
-    // event?.target.setAttribute('r', '6');
+    event?.target.setAttribute('r', '6');
     var nodeimg = document.getElementById("nodeimg_"+ nod?.id);
     if(nodeimg)
     {
-      nodeimg.style.height = "6px";
-      nodeimg.style.width = "6px";
-      nodeimg.style.transform = "translate(-3px, -3px)";
+      nodeimg.style.height = "12px";
+      nodeimg.style.width = "12px";
+      nodeimg.style.transform = "translate(-6px, -6px)";
     }
   }
 }

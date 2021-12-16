@@ -1,13 +1,25 @@
-<svg:g [attr.transform]="'translate(' + node?.x + ',' + node?.y + ')'" height="20px" width="20px" class='{{"node-wrapper "+ node?.id + " "+ getState(node)}}' (mouseenter)="highlightLinks(node, true)" (mouseleave)="highlightLinks(node, false)">
+<svg:g [attr.transform]="'translate(' + node?.x + ',' + node?.y + ')'" height="20px" width="20px" class='{{"node-wrapper "+ node?.id + " "+ getState(node)}}' (mouseenter)="highlightLinks(node, true)" (mouseleave)="highlightLinks(node, false)" (click)="onmouseenter($event, node)">
     <svg:g class="node-group">
-        <svg:circle
+        <!-- <svg:circle
           [attr.id]="'circle_' + node?.id"
           class="node"
           [attr.fill]="node?.color"
           cx="0"
           cy="0"
+          [attr.r]="12"
+          [attr.stroke-width]="10"
+          (mouseenter)="onmouseover($event, node)"
+          (mouseleave)="onmouseleave($event, node)"
+          > -->
+
+          <svg:circle
+          [attr.id]="'circle_' + node?.id"
+          class="radialImgBorder" 
+          [attr.fill]="node?.color"
+          cx="0"
+          cy="0"
           [attr.r]="6"
-          [attr.stroke-width]="0.5"
+          [attr.stroke-width]="8"
           (mouseenter)="onmouseover($event, node)"
           (mouseleave)="onmouseleave($event, node)"
           >
