@@ -91,11 +91,12 @@ export class NodeVisualComponent implements OnInit{
   onmouseover(event: any, nod:any) {
     var circlesvg = document.getElementById("circle_"+ nod?.id);
     if(circlesvg){
-      circlesvg.setAttribute('r', '8');
+      circlesvg.setAttribute('r', '10');
       circlesvg.style.display = "block";
       circlesvg.style.stroke = this.getStateColor(nod);
+      circlesvg.style.opacity = "0.1";
     }
-    event?.target.setAttribute('r', '8');
+    event?.target.setAttribute('r', '10');
     var nodeimg = document.getElementById("nodeimg_"+ nod?.id);
     if(nodeimg)
     {
@@ -107,10 +108,11 @@ export class NodeVisualComponent implements OnInit{
   onmouseleave(event: any, nod:any) {
     var circlesvg = document.getElementById("circle_"+ nod?.id);
     if(circlesvg){
-      circlesvg.setAttribute('r', '6');
-      circlesvg.style.display = "none";
+      circlesvg.setAttribute('r', '2');
+      circlesvg.style.stroke = "#ffffff";
+      circlesvg.style.opacity = "1";
     }
-    event?.target.setAttribute('r', '6');
+    event?.target.setAttribute('r', '2');
     var nodeimg = document.getElementById("nodeimg_"+ nod?.id);
     if(nodeimg)
     {

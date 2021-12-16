@@ -11,11 +11,11 @@
   }
 
   .radialImgBorder {
-    display: none;
-    stroke: rgb(85, 20, 180);
-    stroke-width: 12;
-    opacity: 0.1;
+    display: block;
+    stroke: white;
+    stroke-width: 6;
     cursor: pointer;
+    fill: white;
   }
   
   .node-name {
