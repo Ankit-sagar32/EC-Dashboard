@@ -14,8 +14,8 @@ export class ExposureService {
     this.hostbaseUrl = this.startUp.getConfig('hostbaseurl');
    }
 
-  getSiteNames(deviceType: string){
-    let url = this.exposureUrl + "/nodes/" + deviceType + "/null";
+  getSiteNames(deviceType: string, dataCenter: string) {
+    let url = this.exposureUrl + "/nodes/" + deviceType + "/" + dataCenter;
     return this.apiService.get(url);
   }
 

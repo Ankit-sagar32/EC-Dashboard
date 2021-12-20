@@ -62,7 +62,9 @@ export class TabStart implements OnInit {
         if (event == "Topology View") {
             this.ise2eSelected = false;
             this.deviceTypes = [];
-            this.getDeviceTypes(event);
+            // this.getDeviceTypes(event);
+            
+            this.getDataCenterNames(event);
         }
 
         if (event == "E2E connectivity view") {
@@ -75,32 +77,33 @@ export class TabStart implements OnInit {
 
     getDeviceTypes(event: any) {
         this.selectedDataCenter = event;
-        //if(!this.deviceTypes)
-        this.deviceTypes = [
-            {
-                name: "Network",
-                isSelected: false
-            },
-            {
-                name: "Firewall",
-                isSelected: false
-            },
-            {
-                name: "Storage",
-                isSelected: false
-            }, {
-                name: "ESX",
-                isSelected: false
-            },
-            {
-                name: "APPID",
-                isSelected: false
-            },
-            {
-                name: "VM",
-                isSelected: false
-            }
-        ];
+        // // if(!this.deviceTypes)
+        // this.deviceTypes = [
+        //     {
+        //         name: "Network",
+        //         isSelected: false
+        //     },
+        //     {
+        //         name: "Firewall",
+        //         isSelected: false
+        //     },
+        //     {
+        //         name: "Storage",
+        //         isSelected: false
+        //     }, {
+        //         name: "ESX",
+        //         isSelected: false
+        //     },
+        //     {
+        //         name: "APPID",
+        //         isSelected: false
+        //     },
+        //     {
+        //         name: "VM",
+        //         isSelected: false
+        //     }
+        // ];
+        
         // this.apiService.post("deviceType", { selectedView: event }).subscribe((res: any) => {
         //     this.deviceTypes = res;
         // });
@@ -109,7 +112,7 @@ export class TabStart implements OnInit {
     getSiteNames(event: any) {
         this.selectedDeviceType = event;
         this.siteNames = [];
-        this.exposureService.getSiteNames(event).subscribe((res: any) => {
+        this.exposureService.getSiteNames( this.selectedDeviceType, this.selectedDataCenter).subscribe((res: any) => {
             if (res && res.nodes.length > 0) {
                 let devices: any[] = [];
                 res.nodes.map((node: string) => {
@@ -168,10 +171,11 @@ export class TabStart implements OnInit {
 
     onDeviceTypeChange(event: any) {
         this.selectedDeviceType = event;
+
         if(this.ise2eSelected)
             this.getdeviceIDsBySitename(event);
         else
-            this.getSiteNames(event);
+            this.getSiteNames(this.selectedDeviceType);
     }
 
     onDeviceChange(event: any) {
