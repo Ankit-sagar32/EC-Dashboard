@@ -80,7 +80,7 @@
   // }
 }
 
-.up {
+.green {
   image {
     filter: invert(53%) sepia(90%) saturate(421%) hue-rotate(58deg) brightness(104%) contrast(96%);
   }
@@ -89,7 +89,7 @@
   }  
 }
 
-.up:hover {
+.green:hover {
   image {
     filter: invert(53%) sepia(90%) saturate(421%) hue-rotate(58deg) brightness(104%) contrast(96%);
   }
@@ -99,7 +99,7 @@
   }  
 }
 
-.down {
+.critical {
   image {
     filter: invert(15%) sepia(92%) saturate(7495%) hue-rotate(2deg) brightness(94%) contrast(120%);
   }  
@@ -108,7 +108,7 @@
   } 
 }
 
-.down:hover {
+.critical:hover {
   image {
     filter: invert(15%) sepia(92%) saturate(7495%) hue-rotate(2deg) brightness(94%) contrast(120%);
   }

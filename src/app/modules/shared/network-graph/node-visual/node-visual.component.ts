@@ -29,7 +29,7 @@ export class NodeVisualComponent implements OnInit{
     let alarmstate = nod?.groupingView?.alarm?.severity;
     switch (alarmstate) {
       case 1:
-        return "up";
+        return "critical";
       case 2:
         return "orange";
       case 3:
@@ -37,7 +37,7 @@ export class NodeVisualComponent implements OnInit{
       case 4:
         return "blue";
       case 5:
-        return "down";
+        return "green";
       default:
         return "normal";
     }
@@ -47,7 +47,7 @@ export class NodeVisualComponent implements OnInit{
     let alarmstate = nod?.groupingView?.alarm?.severity;
     switch (alarmstate) {
       case 1:
-        return "#51CB20";
+        return "#FF0000";
       case 2:
         return "#FF8C00";
       case 3:
@@ -55,7 +55,7 @@ export class NodeVisualComponent implements OnInit{
       case 4:
         return "#1E90FF";
       case 5:
-        return "#FF0000";
+        return "#51CB20";
       default:
         return "#5414B4";
     }
