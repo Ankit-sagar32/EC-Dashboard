@@ -247,52 +247,54 @@ export class TabStart implements OnInit {
     }
 
     onSearchClick() {
-        let viewName = this.selectedViewType;
-        let deviceName = this.selectedDeviceType;
-        let siteName = this.selectedDevice;
-
-        let destinationDeviceType = this.selectedDestDeviceType;
-        let destinationDeviceID = this.selectedDestDevice;
-        let selectedsitename = this.selectedDataCenter;
-
-        if(!this.ise2eSelected) 
-        {
-
-            let tabDisplayName = deviceName + "( " + viewName + " - " + siteName + " )";
-            let routePath = "/landing/tabs/view/" + viewName + "/device/" + deviceName + "/site/" + siteName;
-            let newTab = {
-                tabDisplayName: tabDisplayName,
-                isActive: true,
-                path: routePath
-            }
-            this.tabsService.addNewTab(newTab).then(res => {
-                this.router.navigate([routePath]);
-            }).catch(err => {
-                console.error("Error occured while adjusting routes: ", err);
-            });
-        }
-        else {
-            let sourceID = this.selectedDevice;
+        if(this.enableSearchButton){
+            let viewName = this.selectedViewType;
+            let deviceName = this.selectedDeviceType;
+            let siteName = this.selectedDevice;
+    
+            let destinationDeviceType = this.selectedDestDeviceType;
             let destinationDeviceID = this.selectedDestDevice;
-
-            let tabDisplayName = deviceName + "( " + viewName + " - " + siteName + " )";
-            let routePath = "/landing/tabs/view/" + viewName + "/device/" + deviceName + "/site/" + siteName;
-            let newTab = {
-                tabDisplayName: tabDisplayName,
-                isActive: true,
-                path: routePath
+            let selectedsitename = this.selectedDataCenter;
+    
+            if(!this.ise2eSelected) 
+            {
+    
+                let tabDisplayName = deviceName + "( " + viewName + " - " + siteName + " )";
+                let routePath = "/landing/tabs/view/" + viewName + "/device/" + deviceName + "/site/" + siteName;
+                let newTab = {
+                    tabDisplayName: tabDisplayName,
+                    isActive: true,
+                    path: routePath
+                }
+                this.tabsService.addNewTab(newTab).then(res => {
+                    this.router.navigate([routePath]);
+                }).catch(err => {
+                    console.error("Error occured while adjusting routes: ", err);
+                });
             }
-
-            this.tabsService.addNewTab(newTab).then(res => {
-                this.router.navigate([routePath, {
-                                    ise2eSelected: this.ise2eSelected, 
-                                    sourceID: sourceID,
-                                    destinationID: destinationDeviceID
-                                }]);
-            }).catch(err => {
-                console.error("Error occured while adjusting routes: ", err);
-            });
-
+            else {
+                let sourceID = this.selectedDevice;
+                let destinationDeviceID = this.selectedDestDevice;
+    
+                let tabDisplayName = deviceName + "( " + viewName + " - " + siteName + " )";
+                let routePath = "/landing/tabs/view/" + viewName + "/device/" + deviceName + "/site/" + siteName;
+                let newTab = {
+                    tabDisplayName: tabDisplayName,
+                    isActive: true,
+                    path: routePath
+                }
+    
+                this.tabsService.addNewTab(newTab).then(res => {
+                    this.router.navigate([routePath, {
+                                        ise2eSelected: this.ise2eSelected, 
+                                        sourceID: sourceID,
+                                        destinationID: destinationDeviceID
+                                    }]);
+                }).catch(err => {
+                    console.error("Error occured while adjusting routes: ", err);
+                });
+    
+            }
         }
     }
 }

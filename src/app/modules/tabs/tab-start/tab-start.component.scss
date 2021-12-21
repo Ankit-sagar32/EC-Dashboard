@@ -42,7 +42,7 @@
         align-items: center;
         gap: 40px;
         justify-content: center;
-        margin: 20px 0;
+        margin: 5px 0;
         flex-wrap: wrap;
         .selection-item {
             display: inline-flex;
@@ -63,7 +63,7 @@
         }
 
         .search:hover {
-            background-color: gray;
+            background-color: #5414B4;
         }
     }
    
