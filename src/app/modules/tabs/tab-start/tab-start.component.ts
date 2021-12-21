@@ -32,6 +32,7 @@ export class TabStart implements OnInit {
     dataCenters: any[] = [];
     destinationDeviceTypes: any[] = [];
     destsiteNames: any[] = [];
+    destinationData: any = [];
     ise2eSelected: boolean = false;
     isSourceSelected: boolean = false;
     enableSearchButton: boolean = false;
@@ -208,6 +209,7 @@ export class TabStart implements OnInit {
             if (res && res.nodes.length > 0) {
                 let destDeviceNames: any[] = [];
                 var destinationDevicetypes: any[] = [];
+                this.destinationData = res;
                 res.nodes.map((node: any) => {
                     if (Object.values(destinationDevicetypes).indexOf(node.type) == -1) {
                             destinationDevicetypes.push({
@@ -237,13 +239,25 @@ export class TabStart implements OnInit {
                 )
 
                 this.destinationDeviceTypes = destinationDevicetypes;
-                this.destsiteNames = destDeviceNames;
+                // this.destsiteNames = destDeviceNames;
             }
         });
     }
 
     onDestinationDeviceTypeChange(event: any) {
         this.selectedDestDeviceType = event;
+        let destDeviceNames: any[] = [];
+        if(this.destinationData) {
+            this.destinationData.nodes.map((node: any) => {
+                if(node.type == this.selectedDestDeviceType){
+                    destDeviceNames.push({
+                        name: node.name,
+                        isSelected: false
+                    })
+                }
+            })
+            this.destsiteNames = destDeviceNames;
+        }
     }
 
     onSearchClick() {
