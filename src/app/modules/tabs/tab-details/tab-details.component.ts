@@ -65,6 +65,7 @@ export class TabDetails implements OnInit {
     logFlag : boolean = false;
     sourceID: any;
     destinationID: any;
+    datacenter: any;
     
     constructor(
         private tabService: TabsService,
@@ -85,6 +86,7 @@ export class TabDetails implements OnInit {
                 this.ise2eSelected = res.ise2eSelected;
                 this.sourceID = res.sourceID;
                 this.destinationID = res.destinationID;
+                this.datacenter = res.datacenter;
                 // this.updateGraphData();
             } else {
                 // if required route params not found navigate back to graph selection.
@@ -200,7 +202,8 @@ export class TabDetails implements OnInit {
             });
         }
         else{
-            this.exposureService.gete2eGraphData(this.sourceID, this.destinationID, siteName? siteName: this.siteName).subscribe((res: any) => {
+            var selectedDataCenter = this.datacenter;
+            this.exposureService.gete2eGraphData(this.sourceID, this.destinationID, siteName? siteName: selectedDataCenter).subscribe((res: any) => {
                 this.graphData = res;
                 this.graphData.nodes.forEach((m: any) => {m.type = m.type || this.utilityService.getPropertyValue(m, "nodeType"); m.name = m.name || this.utilityService.getPropertyValue(m, "deviceName");});
                 this.getAlarmsData();

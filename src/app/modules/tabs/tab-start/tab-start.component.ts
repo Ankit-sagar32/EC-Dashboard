@@ -288,7 +288,8 @@ export class TabStart implements OnInit {
                     this.router.navigate([routePath, {
                                         ise2eSelected: this.ise2eSelected, 
                                         sourceID: sourceID,
-                                        destinationID: destinationDeviceID
+                                        destinationID: destinationDeviceID,
+                                        datacenter: selectedsitename
                                     }]);
                 }).catch(err => {
                     console.error("Error occured while adjusting routes: ", err);

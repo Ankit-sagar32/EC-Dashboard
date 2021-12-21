@@ -29,8 +29,8 @@ export class ExposureService {
     return this.apiService.get(url);
   }
 
-  gete2eGraphData(sourceId: string, destinationId: string, group: string) {
-    let url = this.exposureUrl + "/nodes/paths/all/" + sourceId + "/" + destinationId + "/" + group;
+  gete2eGraphData(sourceId: string, destinationId: string, datacenter: string) {
+    let url = this.exposureUrl + "/nodes/paths/all/" + sourceId + "/" + destinationId + "/" + datacenter;
     return this.apiService.get(url);
   }
 
