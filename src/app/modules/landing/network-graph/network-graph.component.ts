@@ -190,7 +190,10 @@ export class NetworkGraph implements OnInit, OnChanges {
 
         let filterdNodes = transformingData['nodes'].filter((nodeItem:any) => linkfrom.indexOf(nodeItem.id) >= 0 || linkto.indexOf(nodeItem.id) >= 0)
 
-        transformingData["nodes"] = filterdNodes;
+        if(filterdNodes.length < 1)
+            transformingData["nodes"] = nodes;
+        else
+            transformingData["nodes"] = filterdNodes;
 
         return transformingData;
     }
