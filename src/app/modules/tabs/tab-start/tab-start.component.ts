@@ -289,9 +289,11 @@ export class TabStart implements OnInit {
             else {
                 let sourceID = this.selectedDevice;
                 let destinationDeviceID = this.selectedDestDevice;
-    
-                let tabDisplayName = deviceName + "( " + viewName + " - " + siteName + " )";
-                let routePath = "/landing/tabs/view/" + viewName + "/device/" + deviceName + "/site/" + siteName;
+                
+                let tabDisplayName = deviceName + "( " + viewName + " - " + sourceID + " )";
+                // let tabDisplayName = deviceName + "( " + viewName + " - " + sourceID + " - " + destinationDeviceID + " )";
+                let routePath = "/landing/tabs/view/" + viewName + "/device/" + deviceName + "/site/" + siteName + 
+                "/sourceid/" + sourceID + "/destid/" + destinationDeviceID + "/datacenter/"+ selectedsitename;
                 let newTab = {
                     tabDisplayName: tabDisplayName,
                     isActive: true,
@@ -299,12 +301,14 @@ export class TabStart implements OnInit {
                 }
     
                 this.tabsService.addNewTab(newTab).then(res => {
-                    this.router.navigate([routePath, {
-                                        ise2eSelected: this.ise2eSelected, 
-                                        sourceID: sourceID,
-                                        destinationID: destinationDeviceID,
-                                        datacenter: selectedsitename
-                                    }]);
+                    this.router.navigate([routePath]);
+
+                    // this.router.navigate([routePath, {
+                    //                     ise2eSelected: this.ise2eSelected, 
+                    //                     sourceID: sourceID,
+                    //                     destinationID: destinationDeviceID,
+                    //                     datacenter: selectedsitename
+                    //                 }]);
                 }).catch(err => {
                     console.error("Error occured while adjusting routes: ", err);
                 });

@@ -82,11 +82,12 @@ export class TabDetails implements OnInit {
             if (res.deviceName && res.siteName && res.viewName) {
                 this.deviceName = res.deviceName;
                 this.siteName = res.siteName;
-                this.viewName = res.viewName
-                this.ise2eSelected = res.ise2eSelected;
-                this.sourceID = res.sourceID;
-                this.destinationID = res.destinationID;
-                this.datacenter = res.datacenter;
+                this.viewName = res.viewName;
+                this.ise2eSelected  = (this.viewName == "Topology View") ? false: true;
+                // this.ise2eSelected = res.ise2eSelected;
+                this.sourceID = res.sourceId;
+                this.destinationID = res.destinationId;
+                this.datacenter = res.dataCenter;
                 // this.updateGraphData();
             } else {
                 // if required route params not found navigate back to graph selection.

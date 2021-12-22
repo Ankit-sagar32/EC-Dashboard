@@ -18,7 +18,8 @@ const tabRoutes: Routes = [
     {
         path: '', component: TabsComponent, children: [
             { path: 'start', component: TabStart },
-            { path: 'view/:viewName/device/:deviceName/site/:siteName', component: TabDetails }
+            { path: 'view/:viewName/device/:deviceName/site/:siteName', component: TabDetails },
+            { path: 'view/:viewName/device/:deviceName/site/:siteName/sourceid/:sourceId/destid/:destinationId/datacenter/:dataCenter', component: TabDetails }
         ]
     },
 ];
