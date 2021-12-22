@@ -107,7 +107,7 @@ export class TabDetails implements OnInit {
             const deviceType = clickedNodeData.node?.type;
             this.getGraphData(deviceType,deviceName);
         }
-        else if(clickedNodeData?.node && !clickedNodeData.searched) {
+        else if(clickedNodeData?.node && !clickedNodeData.searched && this.graphData) {
             this.selectedNodeData = clickedNodeData;
             this.nodeInfoPopUp.Name = clickedNodeData.node.name;
             this.nodeInfoPopUp.Type = clickedNodeData.node.type;
@@ -181,6 +181,7 @@ export class TabDetails implements OnInit {
     }
     onPopUpOut() {
         this.showNodeInfoPopUp = false;
+        this.nodeInfoPopUp = {};
         var d = document.getElementById('node-popup');
         if(d) d.style.display = "none";
     }
