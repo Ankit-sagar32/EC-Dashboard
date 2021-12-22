@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit {
   isLoggedIn: boolean = false;
   boatId: string = '';
   logoutBool: boolean = false;
+  openMenu: boolean = false;
 
   constructor(
     private router: Router,
