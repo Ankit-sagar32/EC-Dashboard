@@ -3,11 +3,6 @@
         <div class="tab-description">
             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
         </div>
-        <div class="tab-start-view-wrapper">
-            <div class="view-type" tabindex="0" (click)="viewToggler(view)" *ngFor="let view of views" [ngClass]="{'activeView' : view.isSelected}">
-                {{view.name}}
-            </div>
-        </div>
         <div class="selection-wrapper" style="margin-top: 20px">
             <div class="selection-item">
                 <app-drop-down 
