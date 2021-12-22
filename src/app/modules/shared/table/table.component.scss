@@ -4,7 +4,8 @@
     .up, .down {
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
+        padding-left: 1rem;
     }
 
     .up {
@@ -82,6 +83,7 @@ thead tr{
     border: none;
     background-color: #f0f4ff;
     outline: none;
+    padding-right: 15px;
 }
 
 tbody{
@@ -93,7 +95,6 @@ tbody{
 
 th{
     border: none !important;
-    width: 130px;
     font-weight: 600;
     font-size: 1rem;
     font-family: 'BT Curve Bold';
@@ -105,7 +106,6 @@ td{
     text-align: left;
 }
 
-
-tbody td{
-    width: 130px;
+th, td{
+    padding: 0.75rem 0.5rem;
 }

@@ -15,7 +15,7 @@ export class TableDefault implements OnChanges, OnInit{
     constructor() {}
 
     ngOnInit(){
-       
+        
     }
 
     extractDate(date: string){
@@ -37,8 +37,10 @@ export class TableDefault implements OnChanges, OnInit{
     }
 
     truncate(input: string) {
-        if (input.length > 16) {
+        if (input.length > 15 && this.expandAlarmsBool) {
            return input.substring(0, 12) + '...';
+        } else if(input.length >= 24 && !this.expandAlarmsBool){
+            return input.substring(0, 23) + '...';
         }
         return input;
      };

@@ -4,7 +4,7 @@
             <tr>
                 <ng-container *ngFor="let item of columsArray; index as i">
 
-                    <th scope="col"  *ngIf="!expandAlarmsBool || (expandAlarmsBool && i<3) ">
+                    <th scope="col"  *ngIf="!expandAlarmsBool || (expandAlarmsBool && i<3)" [ngStyle]="{'width': expandAlarmsBool ? '130px' : '180px'}">
                         {{item.displayName}}
                     </th>
                     <!-- <th scope="col"  *ngIf="i>2 && !expandAlarmsBool">
@@ -17,7 +17,7 @@
         <tbody>
             <tr *ngFor="let row of tableData">
                 <ng-container  *ngFor="let col of columsArray ; index as i">
-                    <td *ngIf="!expandAlarmsBool || (expandAlarmsBool && i<3)" >               
+                    <td *ngIf="!expandAlarmsBool || (expandAlarmsBool && i<3)" [ngStyle]="{'width': expandAlarmsBool ? '130px' : '180px'}">               
                         <ng-template [ngIf]="col.varname == 'severity'" [ngIfElse]="defaultColumnDisplay">
                             <div class="up" *ngIf="row[col.varname] == 5">
                                 <div class="five-label"></div>
@@ -47,7 +47,6 @@
                                 <span title="{{row[col.varname]}}" style="cursor: context-menu;">
                                     {{truncate(row[col.varname])}}
                                 </span>
-                               
                             </ng-template>
                             <ng-template #dateValues >
                               <ng-container  *ngIf="(col.varname == 'lastupdateddate' || col.varname == 'firstcreateddate') &&  !expandAlarmsBool; else otherValues">
