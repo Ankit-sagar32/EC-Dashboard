@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit {
   boatId: string = '';
   logoutBool: boolean = false;
   openMenu: boolean = false;
+  selectedMenu: string = "operation";
 
   constructor(
     private router: Router,
@@ -29,6 +30,10 @@ export class HeaderComponent implements OnInit {
       this.isLoggedIn = res;
     });
     
+  }
+
+  changeMenu(menuOption: string){
+    this.selectedMenu = menuOption;
   }
 
   onClickLogo() {

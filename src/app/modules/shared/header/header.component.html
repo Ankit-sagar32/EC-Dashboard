@@ -63,16 +63,16 @@
     <div *ngIf="openMenu" class="menu-dropdown">
         <div class="container-menu-item">
             <div class="menu-item">
-                <p>Operation View</p>
+                <p (click)="changeMenu('operation')" [ngStyle]="{'color': selectedMenu == 'operation' ? '#5414B4' : 'black'}">Operation View</p>
             </div>
             <div class="menu-item">
-                <p>
+                <p (click)="changeMenu('csoc')" [ngStyle]="{'color': selectedMenu == 'csoc' ? '#5414B4' : 'black'}">
                     CSOC View
                 </p>
             </div>
             <div class="menu-item">
-                <img src="assets/images/Administrator.svg"  alt="BT Logo" height="20px" />
-                <p>
+                <img src="assets/images/Administrator.svg"  alt="BT Logo" height="20px" [ngStyle]="{'filter': selectedMenu == 'admin' ? 'invert(20%) sepia(40%) saturate(7488%) hue-rotate(261deg) brightness(68%) contrast(112%)' : ''}" />
+                <p (click)="changeMenu('admin')" [ngStyle]="{'color': selectedMenu == 'admin' ? '#5414B4' : 'black'}">
                     Administration
                 </p>
             </div>
