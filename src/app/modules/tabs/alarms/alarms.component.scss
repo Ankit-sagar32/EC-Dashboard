@@ -1,0 +1,142 @@
+@import "../../../../brand-styles.scss";
+
+
+.container{
+
+    &-inventory{
+        margin-top: 20px;
+        border-radius: 10px;
+        overflow: hidden;
+        width: 100%;
+        box-shadow: 0.5px 2px 2px 2px lightgrey;
+       
+    }
+
+    &-inventory-head{
+        height: 50px;
+        background: #ededed;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+    }  
+    
+    &-inventory-body{
+        padding: 20px;
+    }
+}
+
+.main{
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid lightgrey;
+    &-head{
+        height: 40px;
+        padding: 15px;
+        background-color: #E8DEF6;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        p{
+            margin: 0;
+            color: #5414B4;
+            font-weight: bold;
+        }
+    }
+
+    &-body{
+        padding: 30px 20px;
+    }
+
+    &-table{
+        border: 1px solid lightgray
+    }
+}
+
+.head-left, .head-right{
+    display: flex;
+    align-items: center;
+    gap:20px;
+    p{
+        margin: 0;
+        font-weight: 500;
+        font-size: 22px;
+        color: #5414B4;
+    }
+}
+
+.inp{
+    &-search{
+        height: 30px;
+        width: 240px;
+        border: 1px solid lightgray;
+        padding: 5px;
+        border-radius: 5px;
+        outline: none;
+    }
+}
+
+.search{
+    padding: 6px 10px;
+    background-color: #979797;
+    font-size: 10px;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.exportCSV{
+    padding: 1px 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    color: $color;
+    cursor: pointer;
+    background-color: white;
+    height: 30px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    i {
+        margin-right: 7px;
+    }
+}
+
+.refresh {
+    padding: 4px 10px;
+    background-color: #979797;
+    font-size: 10px;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: white;
+    border: 1px solid grey;
+}
+
+.table{
+
+    &-row{
+        height: 40px;
+        display: flex;
+        border-bottom: 1px solid lightgray;
+    }
+
+    &-entity-name, &-entity-value{
+        width: 50%;
+        padding: 15px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        p{
+            margin: 0;
+            color: #5414B4;
+        }
+    }
+}

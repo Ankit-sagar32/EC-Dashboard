@@ -1,1 +1,48 @@
-<p>alarms works!</p>
+<div class="container-inventory-component">
+    <div class="container-inventory">
+        <div class="container-inventory-head">
+            <div class="head-left">
+                <p>ALARMS COMPONENT</p>
+                <input type="text" name="" id="" class="inp-search" placeholder="Search">
+                <div class="search">
+                    <img  src="assets/images/Search.svg"
+                    style="width: 20px;height: 20px; border: none; filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(158deg) brightness(107%) contrast(101%);" />
+                </div>
+            </div>
+            <div class="head-right">
+                <div class="exportCSV">
+                    Export
+                </div>
+                <div class="refresh" >
+                    <img  src="assets/images/Refresh.svg"
+                        style="width: 20px;height: 20px; border: none; color: blueviolet; filter: invert(9%) sepia(88%) saturate(6634%) hue-rotate(268deg) brightness(89%) contrast(93%);" />
+                </div>
+            </div>
+        </div>
+        <div class="container-inventory-body">
+            <p style="text-align: right;">Total Count: 26</p>
+            <div class="main">
+                <div class="main-head">
+                    <p>NODE ID</p>
+                </div>
+
+                <div class="main-body">
+                    <div class="main-table">
+                        <!-- LOOP THE API RESPONSE IN THE BELOW DIV - 'table-row' -->
+
+
+                        <div *ngFor="let item of nodeDetailsProperties" class="table-row">
+                            <div class="table-entity-name">
+                                <p>{{item.name}}</p>
+                            </div>
+                            <div class="table-entity-value">
+                                <p>{{item.value}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+</div>
