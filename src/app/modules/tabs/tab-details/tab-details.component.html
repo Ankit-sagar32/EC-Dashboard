@@ -203,21 +203,24 @@
         <div class="alarms-wrapper" #alarmsWrapper *ngIf="displayTabComp == 'native'">
             <div style="height: 100%;">
                 <div class="alarms-header">
-                    <div class="alarms-name">{{'Alarms'}}</div>
+                    <div style="display: flex;">
+                        <div class="alarms-name">{{'Alarms'}}</div>
     
-                    <div class="alarms-search">
-                        <!-- <app-data-list [dataList]="deviceNames" (onChange)="onDeviceNameChange($event)"
-                        [placeHolderText]="'Search for Devices'"></app-data-list> -->
-                        <input class="form-control data-list-inp" list="alarmlistOptions" id="exampleDataList" [value]="selectedValue" (change)="onSelectData($event)" placeholder="{{placeHolderText}}">
-                        <datalist id="alarmlistOptions">
-                            <option *ngFor="let option of alarmsOptions" [value]="option.entityname">
-                        </datalist>
-                        <div class="search {{!!this.selectedDeviceType && !!this.selectedDeviceNames?'active':''}}"
-                            (click)="!!this.selectedDeviceType && !!this.selectedDeviceNames && searchSelectedDevice()">
-                            <img  src="assets/images/Search.svg"
-                            style="width: 20px;height: 20px; border: none; filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(158deg) brightness(107%) contrast(101%);" />
+                        <div class="alarms-search">
+                            <!-- <app-data-list [dataList]="deviceNames" (onChange)="onDeviceNameChange($event)"
+                            [placeHolderText]="'Search for Devices'"></app-data-list> -->
+                            <input class="form-control data-list-inp" list="alarmlistOptions" id="exampleDataList" [value]="selectedValue" (change)="onSelectData($event)" placeholder="{{placeHolderText}}">
+                            <datalist id="alarmlistOptions">
+                                <option *ngFor="let option of alarmsOptions" [value]="option.entityname">
+                            </datalist>
+                            <div class="search {{!!this.selectedDeviceType && !!this.selectedDeviceNames?'active':''}}"
+                                (click)="!!this.selectedDeviceType && !!this.selectedDeviceNames && searchSelectedDevice()">
+                                <img  src="assets/images/Search.svg"
+                                style="width: 20px;height: 20px; border: none; filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(158deg) brightness(107%) contrast(101%);" />
+                            </div>
                         </div>
                     </div>
+                  
                     <div class="alarms-header-controls">
                         <!-- <div class="filters">
                             <i class="far fa-filter"></i>
