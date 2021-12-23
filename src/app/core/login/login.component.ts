@@ -69,18 +69,15 @@ export class LoginComponent implements OnInit {
         });
       });
     } else {
-      if(!this.acceptTCBoolean){
-        this.toastr.showErrorToaster("Please Accept Terms & Conditions");
-      }
+    
       // alert("All fields are mandatory, please check and try again!");
-      if (!this.boatId) {
-        this.toastr.showErrorToaster("Please enter Username");
+      if(!this.boatId || !this.domain || !this.password){
+        this.toastr.showErrorToaster("Invalid Credentials. Authentication Failed. Please key in correct username, password and domain")
       }
-      if (!this.domain) {
-        this.toastr.showErrorToaster("Please enter Domain");
-      }
-      if (!this.password) {
-        this.toastr.showErrorToaster("Please enter Password");
+    
+      if ( !this.acceptTCBoolean ) {
+        this.toastr.showErrorToaster("Please Accept Terms & Conditions");
+
       }
     }
   }
