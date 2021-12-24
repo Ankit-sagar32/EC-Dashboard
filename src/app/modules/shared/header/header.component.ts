@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { LoginService } from 'src/app/helpers/services/core/login.service';
 import { MetadataService } from 'src/app/helpers/services/metadata.service';
 import { HttpHeaders } from '@angular/common/http';
+import { Output, EventEmitter } from '@angular/core';
 
 
 @Component({
@@ -14,8 +15,9 @@ export class HeaderComponent implements OnInit {
   isLoggedIn: boolean = false;
   boatId: string = '';
   logoutBool: boolean = false;
-  openMenu: boolean = false;
+  openMenuBool: boolean = false;
   selectedMenu: string = "operation";
+  @Output() backgroundBlur = new EventEmitter<boolean>();
 
   constructor(
     private router: Router,
@@ -24,7 +26,6 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
     this.boatId = sessionStorage.getItem("boatId")|| '';
     this.loginService.onLoginComplete.subscribe(res => {
       this.isLoggedIn = res;
@@ -34,6 +35,12 @@ export class HeaderComponent implements OnInit {
 
   changeMenu(menuOption: string){
     this.selectedMenu = menuOption;
+    this.openMenu();
+  }
+
+  openMenu(){
+    this.openMenuBool = !this.openMenuBool;
+    this.backgroundBlur.emit(this.openMenuBool);
   }
 
   onClickLogo() {

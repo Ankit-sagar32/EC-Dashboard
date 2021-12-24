@@ -2,8 +2,8 @@
     <nav class="navbar navbar-expand-lg navbar-light ">
         <div class="container-fluid">
             <div class="left-header-container">
-                <div class="menu" (click)="openMenu = !openMenu">
-                    <img [src]="openMenu ? '/assets/images/Close.svg' : 'assets/images/Hamburger-Menu.svg'" 
+                <div class="menu" (click)="openMenu()">
+                    <img [src]="openMenuBool ? '/assets/images/Close.svg' : 'assets/images/Hamburger-Menu.svg'" 
                     alt="Menu" height="22px" />
                     <span>Menu</span>
                 </div>
@@ -60,7 +60,7 @@
         </div>
     </nav>
 
-    <div *ngIf="openMenu" class="menu-dropdown">
+    <div *ngIf="openMenuBool" class="menu-dropdown">
         <div class="container-menu-item">
             <div class="menu-item">
                 <p (click)="changeMenu('operation')" [ngStyle]="{'color': selectedMenu == 'operation' ? '#5414B4' : 'black'}">Operation View</p>

@@ -1,5 +1,5 @@
-<app-header></app-header>
+<app-header (backgroundBlur)="blurShow($event)"></app-header>
 <app-tabs-header></app-tabs-header>
-<div class="tab-details-outlet-wrapper">
+<div class="tab-details-outlet-wrapper" [ngClass]="backgroundBlurBool ? 'blurBackground' : ''">
     <router-outlet></router-outlet>
 </div>

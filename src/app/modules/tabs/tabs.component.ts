@@ -7,8 +7,13 @@ import { Component, OnInit } from "@angular/core";
 })
 export class TabsComponent implements OnInit {
     constructor() {}
+    backgroundBlurBool: boolean = false;
 
     ngOnInit() {
         
+    }
+
+    blurShow(blur: any){
+        this.backgroundBlurBool = blur;
     }
 }

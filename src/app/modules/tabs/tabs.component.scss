@@ -1,3 +1,8 @@
 .tab-details-outlet-wrapper{
     height: 90vh;
 }
+
+.blurBackground{
+    filter: blur(1.5px);
+    pointer-events: none;
+}
