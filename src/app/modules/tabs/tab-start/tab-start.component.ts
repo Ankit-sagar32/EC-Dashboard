@@ -62,7 +62,9 @@ export class TabStart implements OnInit {
     onViewTypeChange(event: any) {
         if (event == "Topology View") {
             this.ise2eSelected = false;
+            this.dataCenters = [];
             this.deviceTypes = [];
+            this.siteNames = [];
             // this.getDeviceTypes(event);
             
             this.getDataCenterNames(event);
@@ -70,7 +72,12 @@ export class TabStart implements OnInit {
 
         if (event == "E2E connectivity view") {
             this.ise2eSelected = true;
+            this.isSourceSelected = false;
+            this.dataCenters = [];
             this.deviceTypes = [];
+            this.siteNames = [];
+            this.destinationDeviceTypes = [];
+            this.destsiteNames = [];
             this.getDataCenterNames(event);
         }
         this.selectedViewType = event;
@@ -78,36 +85,9 @@ export class TabStart implements OnInit {
 
     getDeviceTypes(event: any) {
         this.selectedDataCenter = event;
-        // // if(!this.deviceTypes)
-        // this.deviceTypes = [
-        //     {
-        //         name: "Network",
-        //         isSelected: false
-        //     },
-        //     {
-        //         name: "Firewall",
-        //         isSelected: false
-        //     },
-        //     {
-        //         name: "Storage",
-        //         isSelected: false
-        //     }, {
-        //         name: "ESX",
-        //         isSelected: false
-        //     },
-        //     {
-        //         name: "APPID",
-        //         isSelected: false
-        //     },
-        //     {
-        //         name: "VM",
-        //         isSelected: false
-        //     }
-        // ];
-        
-        // this.apiService.post("deviceType", { selectedView: event }).subscribe((res: any) => {
-        //     this.deviceTypes = res;
-        // });
+        this.siteNames = [];
+        this.destinationDeviceTypes = [];
+        this.destsiteNames = [];
     }
 
     getSiteNames(event: any) {
@@ -129,7 +109,9 @@ export class TabStart implements OnInit {
 
     getdeviceIDsBySitename(event: any) {
         this.selectedDeviceType = event;
-        this.siteNames = [];
+        this.siteNames = [];        
+        this.destinationDeviceTypes = [];
+        this.destsiteNames = [];
         this.exposureService.getdeviceIDsBySitename(this.selectedDeviceType, this.selectedDataCenter).subscribe((res: any) => {
                 
             if (res && res.nodes.length > 0) {
@@ -145,7 +127,7 @@ export class TabStart implements OnInit {
         });
     }
 
-    createIsSelectedArray(data: any){
+    createIsSelectedArray(data: any) {
         let dataArray = data;
         let isSelectableArray : any[] = [];
         for (let index = 0; index < dataArray.length; index++) {
@@ -166,12 +148,16 @@ export class TabStart implements OnInit {
 
                 this.dataCenters = this.createIsSelectedArray(dataCentersArray);
                 this.deviceTypes = this.createIsSelectedArray(deviceTypesArray);
+                this.siteNames = [];
             }
         });
     }
 
     onDeviceTypeChange(event: any) {
         this.selectedDeviceType = event;
+        this.siteNames = [];
+        this.destinationDeviceTypes = [];
+        this.destsiteNames = [];
 
         if(this.ise2eSelected)
             this.getdeviceIDsBySitename(event);
@@ -185,6 +171,8 @@ export class TabStart implements OnInit {
             this.enableSearchButton = true;
         } else {
             this.enableSearchButton = false;
+            this.destinationDeviceTypes = [];
+            this.destsiteNames = [];
             this.isSourceSelected = true;
             this.getAllDestinationDeviceBySourceID();
         }
@@ -246,6 +234,7 @@ export class TabStart implements OnInit {
 
     onDestinationDeviceTypeChange(event: any) {
         this.selectedDestDeviceType = event;
+        this.destsiteNames = [];
         let destDeviceNames: any[] = [];
         if(this.destinationData) {
             this.destinationData.nodes.map((node: any) => {

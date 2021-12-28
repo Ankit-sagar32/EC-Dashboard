@@ -24,6 +24,7 @@ export class NetworkGraph implements OnInit, OnChanges {
     viewType: string= "";
     siteName: string = "";
     @Input() graphData:any;
+    @Input() allinputs :any;
     deviceName: string = "";
 
     @ViewChild(GraphComponent ) radialGraph: GraphComponent | undefined ; 
@@ -44,7 +45,7 @@ export class NetworkGraph implements OnInit, OnChanges {
     }
     
     ngOnChanges(changes: SimpleChanges): void {
-        if(!changes.graphData.firstChange && changes.graphData) {
+        if( changes.graphData && !changes.graphData.firstChange) {
             this.loadData(changes.graphData.currentValue)
             this.buildLegends(this.graphData?.nodes);
         }

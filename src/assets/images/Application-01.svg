@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-APPID-01">
+      <rect width="24" height="24"/>
+    </clipPath>
+  </defs>
+  <g id="APPID-01" clip-path="url(#clip-APPID-01)">
+    <g id="Ellipse_54" data-name="Ellipse 54" fill="none" stroke="#000" stroke-width="1">
+      <circle cx="12" cy="12" r="12" stroke="none"/>
+      <circle cx="12" cy="12" r="11.5" fill="none"/>
+    </g>
+    <g id="Union" transform="translate(4.2 3.8)">
+      <path id="Path_10" data-name="Path 10" d="M1.64,1.88v4.2a.42.42,0,1,1-.84,0V1.04A.84.84,0,0,1,1.64.2H8.361a.84.84,0,0,1,.84.84V2.3a.42.42,0,1,1-.84,0V1.88Zm6.3-.84a.42.42,0,0,1,.42.42H1.64a.42.42,0,0,1,.42-.42Z" transform="translate(0 0)" fill-rule="evenodd"/>
+      <path id="Path_11" data-name="Path 11" d="M12.21,49.8a.21.21,0,0,0,0,.42h2.1a.21.21,0,0,0,0-.42Z" transform="translate(-8.26 -36.578)"/>
+      <path id="Path_12" data-name="Path 12" d="M8.361,33.961a.42.42,0,1,1,.84,0V36.9a.84.84,0,0,1-.84.84H1.64A.84.84,0,0,1,.8,36.9V31.02a.42.42,0,1,1,.84,0v3.361H8.361ZM1.64,34.8v1.68a.42.42,0,0,0,.42.42H7.941a.42.42,0,0,0,.42-.42V34.8Z" transform="translate(0 -22.419)" fill-rule="evenodd"/>
+      <path id="Path_13" data-name="Path 13" d="M14.44,35.82a.42.42,0,1,1-.42-.42A.42.42,0,0,1,14.44,35.82Z" transform="translate(-9.439 -25.958)"/>
+      <path id="Path_14" data-name="Path 14" d="M14.02,31.44a.42.42,0,1,0-.42-.42A.42.42,0,0,0,14.02,31.44Z" transform="translate(-9.439 -22.419)"/>
+      <path id="Path_15" data-name="Path 15" d="M14.44,26.22a.42.42,0,1,1-.42-.42A.42.42,0,0,1,14.44,26.22Z" transform="translate(-9.439 -18.879)"/>
+      <path id="Path_16" data-name="Path 16" d="M1.22,26.64a.42.42,0,1,0-.42-.42A.42.42,0,0,0,1.22,26.64Z" transform="translate(0 -18.879)"/>
+      <path id="Path_17" data-name="Path 17" d="M31.2,18.115a.315.315,0,0,1,.315-.315h3.991a.315.315,0,0,1,0,.63H31.515A.315.315,0,0,1,31.2,18.115Z" transform="translate(-22.419 -12.979)"/>
+      <path id="Path_18" data-name="Path 18" d="M31.2,22.915a.315.315,0,0,1,.315-.315h3.151a.315.315,0,1,1,0,.63H31.515A.315.315,0,0,1,31.2,22.915Z" transform="translate(-22.419 -16.519)"/>
+      <path id="Path_19" data-name="Path 19" d="M31.515,27.4a.315.315,0,0,0,0,.63h2.31a.315.315,0,0,0,0-.63Z" transform="translate(-22.419 -20.059)"/>
+      <path id="Path_20" data-name="Path 20" d="M25.64,11.4a.84.84,0,0,0-.84.84v5.881a.84.84,0,0,0,.84.84h6.3a.84.84,0,0,0,.84-.84V12.24a.84.84,0,0,0-.84-.84Zm6.3.84h-6.3v5.881h6.3Z" transform="translate(-17.699 -8.26)" fill-rule="evenodd"/>
+      <path id="Path_21" data-name="Path 21" d="M9.01,11.4a.21.21,0,0,0-.21.21v.84a.21.21,0,0,0,.21.21h.84a.21.21,0,0,0,.21-.21v-.84a.21.21,0,0,0-.21-.21Zm.042.252v.756h.756v-.756Z" transform="translate(-5.9 -8.26)" fill-rule="evenodd"/>
+      <path id="Path_22" data-name="Path 22" d="M9.01,17.8a.21.21,0,0,0-.21.21v.84a.21.21,0,0,0,.21.21h.84a.21.21,0,0,0,.21-.21v-.84a.21.21,0,0,0-.21-.21Zm.042.252v.756h.756v-.756Z" transform="translate(-5.9 -12.979)" fill-rule="evenodd"/>
+      <path id="Path_23" data-name="Path 23" d="M15.2,18.01a.21.21,0,0,1,.21-.21h.84a.21.21,0,0,1,.21.21v.84a.21.21,0,0,1-.21.21h-.84a.21.21,0,0,1-.21-.21Zm.252.8v-.756h.756v.756Z" transform="translate(-10.619 -12.979)" fill-rule="evenodd"/>
+      <path id="Path_24" data-name="Path 24" d="M15.2,11.61a.21.21,0,0,1,.21-.21h.84a.21.21,0,0,1,.21.21v.84a.21.21,0,0,1-.21.21h-.84a.21.21,0,0,1-.21-.21Z" transform="translate(-10.619 -8.26)"/>
+    </g>
+  </g>
+</svg>

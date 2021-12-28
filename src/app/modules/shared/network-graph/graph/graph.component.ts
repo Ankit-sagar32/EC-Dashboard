@@ -24,6 +24,7 @@ import { D3Service, ForceDirectedGraph, Node } from '../../../../helpers/service
 export class GraphComponent implements OnInit, AfterViewInit {
   @Input('nodes') nodes : any;
   @Input('links') links : any;
+  @Input('inputdata') inputdata: any;
   @ViewChild('graphTag') graphs!:ElementRef;
   ip: any;
   deviceName: any;
@@ -120,10 +121,31 @@ export class GraphComponent implements OnInit, AfterViewInit {
   }
 
   onDoubleClickNode(selectedNode?:any){
-    this.dataSvc.emitChildEvent({
-      searched: true,
-      node: selectedNode
-    });
+    let inputdataReceived = this.inputdata;
+    if(!inputdataReceived.ise2eSelected) {
+      this.dataSvc.emitChildEvent({
+        searched: true,
+        node: selectedNode,
+        ise2eSelected : false,
+        deviceName: inputdataReceived.deviceName,
+        siteName: inputdataReceived.siteName,
+        sourceId: inputdataReceived.sourceId,
+        destinationId: inputdataReceived.destinationId,
+        dataCenter: inputdataReceived.dataCenter
+      });
+    }
+    else {
+      this.dataSvc.emitChildEvent({
+        searched: true,
+        node: selectedNode,
+        ise2eSelected : true,
+        deviceName: inputdataReceived.deviceName,
+        siteName: inputdataReceived.siteName,
+        sourceId: inputdataReceived.sourceId,
+        destinationId: inputdataReceived.destinationId,
+        dataCenter: inputdataReceived.dataCenter
+      });
+    }
   }
   
   PanGraph(direction: string) {

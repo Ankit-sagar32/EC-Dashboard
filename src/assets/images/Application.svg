@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-APPID">
+      <rect width="24" height="24"/>
+    </clipPath>
+  </defs>
+  <g id="APPID" clip-path="url(#clip-APPID)">
+    <g id="Union" transform="translate(0.2 -0.2)">
+      <path id="Path_10" data-name="Path 10" d="M2.133,2.867V9.533a.667.667,0,0,1-1.333,0v-8A1.333,1.333,0,0,1,2.133.2H12.8a1.333,1.333,0,0,1,1.333,1.333v2a.667.667,0,1,1-1.333,0V2.867Zm10-1.333A.667.667,0,0,1,12.8,2.2H2.133A.667.667,0,0,1,2.8,1.533Z" transform="translate(0 0)" fill-rule="evenodd"/>
+      <path id="Path_11" data-name="Path 11" d="M12.333,49.8a.333.333,0,0,0,0,.667h3.333a.333.333,0,0,0,0-.667Z" transform="translate(-6.533 -28.933)"/>
+      <path id="Path_12" data-name="Path 12" d="M12.8,35.933a.667.667,0,0,1,1.333,0V40.6A1.333,1.333,0,0,1,12.8,41.933H2.133A1.333,1.333,0,0,1,.8,40.6V31.267a.667.667,0,1,1,1.333,0V36.6H12.8ZM2.133,37.267v2.667A.667.667,0,0,0,2.8,40.6h9.333a.667.667,0,0,0,.667-.667V37.267Z" transform="translate(0 -17.733)" fill-rule="evenodd"/>
+      <path id="Path_13" data-name="Path 13" d="M14.933,36.067a.667.667,0,1,1-.667-.667A.667.667,0,0,1,14.933,36.067Z" transform="translate(-7.467 -20.533)"/>
+      <path id="Path_14" data-name="Path 14" d="M14.267,31.933a.667.667,0,1,0-.667-.667A.667.667,0,0,0,14.267,31.933Z" transform="translate(-7.467 -17.733)"/>
+      <path id="Path_15" data-name="Path 15" d="M14.933,26.467a.667.667,0,1,1-.667-.667A.667.667,0,0,1,14.933,26.467Z" transform="translate(-7.467 -14.933)"/>
+      <path id="Path_16" data-name="Path 16" d="M1.467,27.133A.667.667,0,1,0,.8,26.467.667.667,0,0,0,1.467,27.133Z" transform="translate(0 -14.933)"/>
+      <path id="Path_17" data-name="Path 17" d="M31.2,18.3a.5.5,0,0,1,.5-.5h6.333a.5.5,0,1,1,0,1H31.7A.5.5,0,0,1,31.2,18.3Z" transform="translate(-17.733 -10.267)"/>
+      <path id="Path_18" data-name="Path 18" d="M31.2,23.1a.5.5,0,0,1,.5-.5h5a.5.5,0,1,1,0,1h-5A.5.5,0,0,1,31.2,23.1Z" transform="translate(-17.733 -13.067)"/>
+      <path id="Path_19" data-name="Path 19" d="M31.7,27.4a.5.5,0,0,0,0,1h3.667a.5.5,0,1,0,0-1Z" transform="translate(-17.733 -15.867)"/>
+      <path id="Path_20" data-name="Path 20" d="M26.133,11.4A1.333,1.333,0,0,0,24.8,12.733v9.333A1.333,1.333,0,0,0,26.133,23.4h10a1.333,1.333,0,0,0,1.333-1.333V12.733A1.333,1.333,0,0,0,36.133,11.4Zm10,1.333h-10v9.333h10Z" transform="translate(-14 -6.533)" fill-rule="evenodd"/>
+      <path id="Path_21" data-name="Path 21" d="M9.133,11.4a.333.333,0,0,0-.333.333v1.333a.333.333,0,0,0,.333.333h1.333a.333.333,0,0,0,.333-.333V11.733a.333.333,0,0,0-.333-.333Zm.067.4V13h1.2V11.8Z" transform="translate(-4.667 -6.533)" fill-rule="evenodd"/>
+      <path id="Path_22" data-name="Path 22" d="M9.133,17.8a.333.333,0,0,0-.333.333v1.333a.333.333,0,0,0,.333.333h1.333a.333.333,0,0,0,.333-.333V18.133a.333.333,0,0,0-.333-.333Zm.067.4v1.2h1.2V18.2Z" transform="translate(-4.667 -10.267)" fill-rule="evenodd"/>
+      <path id="Path_23" data-name="Path 23" d="M15.2,18.133a.333.333,0,0,1,.333-.333h1.333a.333.333,0,0,1,.333.333v1.333a.333.333,0,0,1-.333.333H15.533a.333.333,0,0,1-.333-.333Zm.4,1.267V18.2h1.2v1.2Z" transform="translate(-8.4 -10.267)" fill-rule="evenodd"/>
+      <path id="Path_24" data-name="Path 24" d="M15.2,11.733a.333.333,0,0,1,.333-.333h1.333a.333.333,0,0,1,.333.333v1.333a.333.333,0,0,1-.333.333H15.533a.333.333,0,0,1-.333-.333Z" transform="translate(-8.4 -6.533)"/>
+    </g>
+  </g>
+</svg>

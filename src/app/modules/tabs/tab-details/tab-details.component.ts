@@ -18,6 +18,7 @@ export class TabDetails implements OnInit {
     deviceName: string = "";
     siteName: string = "";
     graphData: any;
+    allinputs: any;
     deviceTypes: any[] = [];
     deviceNames: any[] = [];
     selectedDeviceType: string = "";
@@ -101,12 +102,17 @@ export class TabDetails implements OnInit {
       let clickedNodeData: any;
       this.dataSvc.childEventListner().subscribe(info =>{
         clickedNodeData = info;
+        this.ise2eSelected = clickedNodeData.ise2eSelected;
         var d = document.getElementById('node-popup');
         if(clickedNodeData?.searched) {
             this.showNodeInfoPopUp = false;
             const deviceName = clickedNodeData.node?.name;
             const deviceType = clickedNodeData.node?.type;
-            this.getGraphData(deviceType,deviceName);
+            if(!this.ise2eSelected)
+                this.getGraphData(deviceType,deviceName);
+            else 
+                this.gete2eGraphData(deviceType,deviceName);
+            
         }
         else if(clickedNodeData?.node && !clickedNodeData.searched && this.graphData) {
             this.selectedNodeData = clickedNodeData;
@@ -189,8 +195,16 @@ export class TabDetails implements OnInit {
     getGraphData(deviceName?: any, siteName?: any) {
         if(!this.ise2eSelected)
         {
+            if(deviceName)
+                this.allinputs = {"ise2eSelected": false, "deviceName": deviceName, "siteName": siteName, 
+                "sourceId":this.deviceName, "destinationId":this.destinationID, "dataCenter": this.datacenter };
+            else
+                this.allinputs = {"ise2eSelected": false, "deviceName": this.deviceName, "siteName": this.siteName, 
+                "sourceId":this.deviceName, "destinationId":this.destinationID, "dataCenter": this.datacenter };
+
             this.exposureService.getGraphData(deviceName? deviceName: this.deviceName, siteName? siteName: this.siteName).subscribe((res: any) => {
             this.graphData = res;
+            // this.allinputs = allinput;
             this.graphData.nodes.forEach((m: any) => {m.type = m.type || this.utilityService.getPropertyValue(m, "nodeType"); m.name = m.name || this.utilityService.getPropertyValue(m, "deviceName");});
             this.getAlarmsData();
             this.deviceTypes = this.utilityService.countOccurrence(this.graphData.nodes, "type").map((m: any) => ({isSelected: false, name: m.type}));
@@ -205,8 +219,18 @@ export class TabDetails implements OnInit {
         }
         else{
             var selectedDataCenter = this.datacenter;
+            // let allinput = { "ise2eSelected": true, "deviceName": this.deviceName, "siteName": this.siteName, 
+            //     "sourceId":this.sourceID, "destinationId":this.destinationID, "dataCenter": this.datacenter };
+
+            if(deviceName)
+                this.allinputs = {"ise2eSelected": true, "deviceName": deviceName, "siteName": siteName, 
+                "sourceId":this.deviceName, "destinationId":this.destinationID, "dataCenter": this.datacenter };
+            else
+                this.allinputs = {"ise2eSelected": true, "deviceName": this.deviceName, "siteName": this.siteName, 
+                "sourceId":this.deviceName, "destinationId":this.destinationID, "dataCenter": this.datacenter };
             this.exposureService.gete2eGraphData(this.sourceID, this.destinationID, siteName? siteName: selectedDataCenter).subscribe((res: any) => {
                 this.graphData = res;
+                // this.allinputs = allinput;
                 this.graphData.nodes.forEach((m: any) => {m.type = m.type || this.utilityService.getPropertyValue(m, "nodeType"); m.name = m.name || this.utilityService.getPropertyValue(m, "deviceName");});
                 this.getAlarmsData();
                 this.deviceTypes = this.utilityService.countOccurrence(this.graphData.nodes, "type").map((m: any) => ({isSelected: false, name: m.type}));
@@ -219,6 +243,39 @@ export class TabDetails implements OnInit {
                     console.error("Error occurred while fetching the Graph Data: ", err);
                 });
         
+        }
+    }
+
+    gete2eGraphData(deviceName?: any, siteName?: any) {
+        if (this.ise2eSelected) {
+            if (deviceName)
+                this.allinputs = {
+                    "ise2eSelected": true, "deviceName": deviceName, "siteName": siteName,
+                    "sourceId": siteName, "destinationId": this.destinationID, "dataCenter": this.datacenter
+                };
+            else
+                this.allinputs = {
+                    "ise2eSelected": true, "deviceName": this.deviceName, "siteName": this.siteName,
+                    "sourceId": this.siteName, "destinationId": this.destinationID, "dataCenter": this.datacenter
+                };
+
+            let hopcount = '6';
+            this.exposureService.getDatabySourceIDData(deviceName ? deviceName : this.deviceName, siteName ? siteName : this.deviceName, hopcount, this.datacenter).subscribe((res: any) => {
+                if (res && res.nodes.length > 0) {
+                    this.graphData = res;
+                    // this.allinputs = allinput;
+                    this.graphData.nodes.forEach((m: any) => { m.type = m.type || this.utilityService.getPropertyValue(m, "nodeType"); m.name = m.name || this.utilityService.getPropertyValue(m, "deviceName"); });
+                    this.getAlarmsData();
+                    this.deviceTypes = this.utilityService.countOccurrence(this.graphData.nodes, "type").map((m: any) => ({ isSelected: false, name: m.type }));
+                    // To not update filter based on serach use next lines
+                    // this.deviceTypes = this.deviceTypes && this.deviceTypes.length > 0? this.deviceTypes: this.utilityService.countOccurrence(this.graphData.nodes, "type").map((m: any) => ({isSelected: false, name: m.type}));
+                    !deviceName && !siteName && this.updateTabWithGraphData();
+                    this.deviceNames = [];
+                    this.resetGraph();
+                }
+            }, (err: any) => {
+                console.error("Error occurred while fetching the Graph Data: ", err);
+            });
         }
     }
 
