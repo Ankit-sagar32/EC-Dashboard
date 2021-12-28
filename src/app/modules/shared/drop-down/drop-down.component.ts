@@ -29,6 +29,10 @@ export class DropDown implements OnInit, OnChanges {
                 this.selectedOption = "";
             }
         }
+        else
+        {
+            this.selectedOption = "";
+        }
     }
 
     toggleDropDownOptionsVisibility() {
