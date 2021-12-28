@@ -15,12 +15,13 @@ export class ExposureService {
    }
 
   getSiteNames(deviceType: string, dataCenter: string) {
-    let url = this.exposureUrl + "/nodes/" + deviceType + "/" + dataCenter;
+    let url = this.exposureUrl + "/" + dataCenter+ "/nodes/" + deviceType ;  // Parths change
     return this.apiService.get(url);
   }
 
   getdeviceIDsBySitename(deviceType: string, siteName: string){
-    let url = this.exposureUrl + "/nodes/" + deviceType + "/"+ siteName;
+    // let url = this.exposureUrl + "/nodes/" + deviceType + "/"+ siteName;
+    let url = this.exposureUrl + + "/" + siteName + "/nodes/" + deviceType; // Akshay change
     return this.apiService.get(url);
   }
 
@@ -30,7 +31,8 @@ export class ExposureService {
   }
 
   gete2eGraphData(sourceId: string, destinationId: string, datacenter: string) {
-    let url = this.exposureUrl + "/nodes/paths/all/" + sourceId + "/" + destinationId + "/" + datacenter;
+    let url = this.exposureUrl + "/" + datacenter + "/nodes/paths/all/" + sourceId + "/" + destinationId ; // Akshays Change
+    // let url = this.exposureUrl + "/nodes/paths/all/" + sourceId + "/" + destinationId + "/" + datacenter;
     return this.apiService.get(url);
   }
 
@@ -53,7 +55,11 @@ export class ExposureService {
 
   getDataCentersData(params?: any) {
     // let url = this.exposureUrl +  "/nodes/E2E_connectivity_view";
-    let url = this.exposureUrl +  "/nodes/E2E connectivity view";
+    // let url = this.exposureUrl +  "/nodes/E2E connectivity view";
+    // let url = this.exposureUrl +  "/nodes/E2EConnectivityView";
+    let url = this.exposureUrl +  "/nodes/labels-datacenter";   // Akshays commit
+
+    
 
     let headerParams = {"Content-Type": "application/json"}
     //return this.apiService.postOptions(url, params, {headers: headerParams});
@@ -61,8 +67,8 @@ export class ExposureService {
   }
 
   getDatabySourceIDData(deviceName: string, deviceId: string, hopCount: string, siteName: string) {
-    let url = this.exposureUrl +  "/nodes/"+ deviceName +  "/" + deviceId + "/" + hopCount + "/" + siteName + "/ops";
-    // let url = this.exposureUrl +  "/nodes/E2E connectivity view";
+    let url = this.exposureUrl + "/" + siteName +  "/nodes/"+ deviceName +  "/" + deviceId  + "/ops";  // Akshays change
+    // let url = this.exposureUrl +  "/nodes/"+ deviceName +  "/" + deviceId + "/" + hopCount + "/" + siteName + "/ops";
 
     let headerParams = {"Content-Type": "application/json"}
     //return this.apiService.postOptions(url, params, {headers: headerParams});
