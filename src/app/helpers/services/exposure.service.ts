@@ -21,7 +21,7 @@ export class ExposureService {
 
   getdeviceIDsBySitename(deviceType: string, siteName: string){
     // let url = this.exposureUrl + "/nodes/" + deviceType + "/"+ siteName;
-    let url = this.exposureUrl + + "/" + siteName + "/nodes/" + deviceType; // Akshay change
+    let url = this.exposureUrl + "/" + siteName + "/nodes/" + deviceType; // Akshay change
     return this.apiService.get(url);
   }
 
