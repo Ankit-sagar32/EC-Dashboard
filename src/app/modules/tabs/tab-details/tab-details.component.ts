@@ -8,6 +8,7 @@ import { SankeyComponent } from "../../landing/sankey-graph/sankey-graph.compone
 import { NetworkGraph } from "../../landing/network-graph/network-graph.component";
 import { GraphComponent } from "../../shared/network-graph/graph/graph.component";
 import {InventoryComponent} from "../inventory/inventory.component";
+import { forkJoin } from "rxjs";
 @Component({
     selector: "app-tab-details",
     templateUrl: "./tab-details.component.html",
@@ -62,6 +63,7 @@ export class TabDetails implements OnInit {
     inventory : any = null;
     inventoryFlag : boolean = false;
     reportFlag : boolean = false;
+    alarmData : any = null;;
     alarmFlag : boolean = false;
     logFlag : boolean = false;
     sourceID: any;
@@ -494,8 +496,8 @@ export class TabDetails implements OnInit {
         doc.msFullscreenElement;
     }
 
-  inventoryClick(){
-        this.displayTabComp = 'inventory';
+  inventoryClick(displayTab: string){
+        this.displayTabComp = displayTab;
         let selectedNodeId = this.selectedNodeData?.node?.id;
         this.displayTabComp = 'node_'+selectedNodeId;
         let nodeTabName = this.selectedNodeData?.node?.name;
@@ -507,10 +509,76 @@ export class TabDetails implements OnInit {
         {
             let inventory = groupingView?.inventory;
             let inventoryFlag = this.inventory?.flag;
+            let alarmdata = groupingView?.alarm;
+            let alarmFlag = alarmdata?.flag;
 
             let entityHrefUrl = inventory?.entityHref;
-            this.exposureService.getInventoryEntityData(entityHrefUrl).subscribe((res: any) => {
-                let nodeProperties = res.nodes || [];
+            let entityAlarmHrefUrl = alarmdata?.entityHref;
+            forkJoin([ this.exposureService.getendHrefEntityData(entityHrefUrl),
+                this.exposureService.getendHrefEntityData(entityAlarmHrefUrl)
+            ]).subscribe((allResults: any) => {
+                let nodeProperties = allResults[0].nodes || [];
+                let nodealarmProperties = allResults[1].deviceData || [];
+                console.log('allResults', allResults);
+
+                const checkNodeId = (obj:any) => (obj.id === selectedNodeId);
+                if(!this.nodetabs.some(checkNodeId)){
+                    this.nodetabs.push({id: selectedNodeId, 
+                        name: "node_"+ selectedNodeId,
+                        tabid: "nodetabid_"+selectedNodeId, 
+                        tabName: nodeTabName,
+                        alarmData: nodealarmProperties[0],
+                        alarmFlag: alarmFlag,
+                        inventory: nodeProperties[0]?.properties,
+                        inventoryFlag: inventoryFlag});
+                }
+                setTimeout(()=>{
+                    this.resetNodeTabsActiveStatus();
+                    document.getElementById('nodetabid_'+ selectedNodeId)?.classList.add('active');
+                });
+            
+            });
+            // this.exposureService.getendHrefEntityData(entityHrefUrl).subscribe((res: any) => {
+            //     let nodeProperties = res.nodes || [];
+            //     // this.entityHrefData = nodeProperties[0]?.properties;
+            //     // this.dataSvc.emitInventoryUpdate(nodeProperties);
+            //     const checkNodeId = (obj:any) => (obj.id === selectedNodeId);
+            //     if(!this.nodetabs.some(checkNodeId)){
+            //         this.nodetabs.push({id: selectedNodeId, 
+            //             name: "node_"+ selectedNodeId,
+            //             tabid: "nodetabid_"+selectedNodeId, 
+            //             tabName: nodeTabName,
+            //             inventory: nodeProperties[0]?.properties,
+            //             inventoryFlag: inventoryFlag});
+            //     }
+            //     setTimeout(()=>{
+            //         this.resetNodeTabsActiveStatus();
+            //         document.getElementById('nodetabid_'+ selectedNodeId)?.classList.add('active');
+            //     });
+            // });
+        }
+
+        // this.nodeAlarmClick();
+
+    }
+
+    nodeAlarmClick(){
+        this.displayTabComp = 'alarms';
+        let selectedNodeId = this.selectedNodeData?.node?.id;
+        this.displayTabComp = 'node_'+selectedNodeId;
+        let nodeTabName = this.selectedNodeData?.node?.name;
+
+        let nodedDetails = this.graphData.nodes.find( (item: any) => item.id === selectedNodeId);
+        let groupingView = nodedDetails?.groupingView;
+
+        if(groupingView)
+        {
+            let alarmdata = groupingView?.alarm;
+            let alarmFlag = alarmdata?.flag;
+
+            let entityHrefUrl = alarmdata?.entityHref;
+            this.exposureService.getendHrefEntityData(entityHrefUrl).subscribe((res: any) => {
+                let nodeProperties = res.deviceData || [];
                 // this.entityHrefData = nodeProperties[0]?.properties;
                 // this.dataSvc.emitInventoryUpdate(nodeProperties);
                 const checkNodeId = (obj:any) => (obj.id === selectedNodeId);
@@ -519,8 +587,8 @@ export class TabDetails implements OnInit {
                         name: "node_"+ selectedNodeId,
                         tabid: "nodetabid_"+selectedNodeId, 
                         tabName: nodeTabName,
-                        inventory: nodeProperties[0]?.properties,
-                        inventoryFlag: inventoryFlag});
+                        alarmData: nodeProperties[0],
+                        alarmFlag: alarmFlag});
                 }
                 setTimeout(()=>{
                     this.resetNodeTabsActiveStatus();

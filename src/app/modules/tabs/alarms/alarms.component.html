@@ -31,9 +31,9 @@
                         <!-- LOOP THE API RESPONSE IN THE BELOW DIV - 'table-row' -->
 
 
-                        <div *ngFor="let item of nodeDetailsProperties" class="table-row">
+                        <div *ngFor="let item of nodeDetailsProperties | keyvalue" class="table-row">
                             <div class="table-entity-name">
-                                <p>{{item.name}}</p>
+                                <p>{{item.key}}</p>
                             </div>
                             <div class="table-entity-value">
                                 <p>{{item.value}}</p>

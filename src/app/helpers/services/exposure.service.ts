@@ -45,7 +45,7 @@ export class ExposureService {
     // return this.apiService.get(url);
   }
 
-  getInventoryEntityData(url: string, params?: any) {
+  getendHrefEntityData(url: string, params?: any) {
     let host = window.location.protocol + "//" + window.location.host;
     let entityUrl = this.exposureUrl + "/" + url.replace("<protocol>://<host>/", '');
 

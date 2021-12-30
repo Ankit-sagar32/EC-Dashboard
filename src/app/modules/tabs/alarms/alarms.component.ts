@@ -10,7 +10,7 @@ import { DataService } from 'src/app/helpers/services/network-graph/data.service
 })
 export class AlarmsComponent implements OnInit {
 
-  @Input() selectedNodeInventoryDetails: any ; 
+  @Input() selectedNodeAlarmDetails: any ; 
   nodeDetailsProperties: any;
   
   constructor(private startUp: StartUpService,
@@ -21,7 +21,7 @@ export class AlarmsComponent implements OnInit {
    }
 
    ngOnInit(): void {
-      this.nodeDetailsProperties = this.selectedNodeInventoryDetails;
+      this.nodeDetailsProperties = this.selectedNodeAlarmDetails;
     }
 
     ngOnChanges(changes: SimpleChanges): void {
