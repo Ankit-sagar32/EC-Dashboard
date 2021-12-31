@@ -530,75 +530,17 @@ export class TabDetails implements OnInit {
                         alarmData: nodealarmProperties[0],
                         alarmFlag: alarmFlag,
                         inventory: nodeProperties[0]?.properties,
-                        inventoryFlag: inventoryFlag});
+                        inventoryFlag: inventoryFlag,
+                        displayTab: displayTab});
                 }
                 setTimeout(()=>{
                     this.resetNodeTabsActiveStatus();
                     document.getElementById('nodetabid_'+ selectedNodeId)?.classList.add('active');
+                    setTimeout(() => this.changeNodeOptions(displayTab), 100);
                 });
             
             });
-            // this.exposureService.getendHrefEntityData(entityHrefUrl).subscribe((res: any) => {
-            //     let nodeProperties = res.nodes || [];
-            //     // this.entityHrefData = nodeProperties[0]?.properties;
-            //     // this.dataSvc.emitInventoryUpdate(nodeProperties);
-            //     const checkNodeId = (obj:any) => (obj.id === selectedNodeId);
-            //     if(!this.nodetabs.some(checkNodeId)){
-            //         this.nodetabs.push({id: selectedNodeId, 
-            //             name: "node_"+ selectedNodeId,
-            //             tabid: "nodetabid_"+selectedNodeId, 
-            //             tabName: nodeTabName,
-            //             inventory: nodeProperties[0]?.properties,
-            //             inventoryFlag: inventoryFlag});
-            //     }
-            //     setTimeout(()=>{
-            //         this.resetNodeTabsActiveStatus();
-            //         document.getElementById('nodetabid_'+ selectedNodeId)?.classList.add('active');
-            //     });
-            // });
         }
-
-        // this.nodeAlarmClick();
-
-    }
-
-    nodeAlarmClick(){
-        this.displayTabComp = 'alarms';
-        let selectedNodeId = this.selectedNodeData?.node?.id;
-        this.displayTabComp = 'node_'+selectedNodeId;
-        let nodeTabName = this.selectedNodeData?.node?.name;
-
-        let nodedDetails = this.graphData.nodes.find( (item: any) => item.id === selectedNodeId);
-        let groupingView = nodedDetails?.groupingView;
-
-        if(groupingView)
-        {
-            let alarmdata = groupingView?.alarm;
-            let alarmFlag = alarmdata?.flag;
-
-            let entityHrefUrl = alarmdata?.entityHref;
-            this.exposureService.getendHrefEntityData(entityHrefUrl).subscribe((res: any) => {
-                let nodeProperties = res.deviceData || [];
-                // this.entityHrefData = nodeProperties[0]?.properties;
-                // this.dataSvc.emitInventoryUpdate(nodeProperties);
-                const checkNodeId = (obj:any) => (obj.id === selectedNodeId);
-                if(!this.nodetabs.some(checkNodeId)){
-                    this.nodetabs.push({id: selectedNodeId, 
-                        name: "node_"+ selectedNodeId,
-                        tabid: "nodetabid_"+selectedNodeId, 
-                        tabName: nodeTabName,
-                        alarmData: nodeProperties[0],
-                        alarmFlag: alarmFlag});
-                }
-                setTimeout(()=>{
-                    this.resetNodeTabsActiveStatus();
-                    document.getElementById('nodetabid_'+ selectedNodeId)?.classList.add('active');
-                });
-            });
-        }
-
-        
-
     }
 
     changeNodeOptions(option: string){
