@@ -20,11 +20,60 @@ export class AlarmsComponent implements OnInit {
      let Url = new URL(exposureUrl);
    }
 
+   valuesToBeShown : any[] = [
+    "TroubleTicketID",
+    "Owner",
+    "EventType",
+    "IsProblem",
+    "UserDefined1",
+    "InstanceDisplayName",
+    "UserDefined5",
+    "ElementClassName",
+    "UserDefined2",
+    "Name",
+    "ElementName",
+    "EventText",
+    "LastChangedAt",
+    "User",
+    "ActionType",
+    "Text",
+    "InstanceName",
+    "Active",
+    "SourceDomainName",
+    "UserDefined20",
+    "Acknowledged",
+    "IsRoot",
+    "isFlapping",
+    "EventDisplayName",
+    "Source",
+    "ClassName",
+    "UserDefined10",
+    "FirstNotifiedAt",
+    "EventState",
+    "Severity",
+    "EventName"
+  ];
+
    ngOnInit(): void {
-      this.nodeDetailsProperties = this.selectedNodeAlarmDetails;
+      // this.nodeDetailsProperties = this.selectedNodeAlarmDetails;
+      this.filterData()
     }
 
     ngOnChanges(changes: SimpleChanges): void {
+
     }
 
+    filterData() {
+      var filteredObj = JSON.parse(JSON.stringify(this.selectedNodeAlarmDetails));
+      if (typeof this.selectedNodeAlarmDetails === 'object' && this.selectedNodeAlarmDetails !== null) {
+      Object.keys(this.selectedNodeAlarmDetails).forEach((e) => {
+        console.log(e);
+        if(this.valuesToBeShown.indexOf(e) == -1){
+          delete filteredObj[e];
+        }
+      });
+      }
+    
+      this.nodeDetailsProperties = JSON.parse(JSON.stringify(filteredObj));
+    }
 }
